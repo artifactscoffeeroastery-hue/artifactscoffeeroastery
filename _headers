@@ -1,0 +1,7 @@
+# Cache HTML - short (always fresh)
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Cache images - long (they're versioned by filename)
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
