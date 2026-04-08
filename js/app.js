@@ -57,6 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Handle Escape key to close drawers
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeCart();
+            closeMob();
+        }
+    });
+
     if (tcgShipping) {
         tcgShipping.addEventListener('change', calcTotal);
     }
