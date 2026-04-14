@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Font Info PDF</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body { font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; background: #080808; color: #fff; margin: 0; }
+        .container { text-align: center; padding: 40px; border: 1px solid #1E1E1E; border-radius: 8px; background: #101010; }
+        button { background: #0FA8DF; color: #000; border: none; padding: 12px 24px; font-weight: bold; cursor: pointer; border-radius: 4px; margin-top: 20px; }
+        button:hover { background: #E1FF01; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Artifacts Coffee Website Fonts</h2>
+        <p>Click the button below to generate and download the PDF report.</p>
+        <button onclick="generatePDF()">Download Font Info PDF</button>
+    </div>
+
+    <script>
+        const { jsPDF } = window.jspdf;
+
+        async function generatePDF() {
+            const doc = new jsPDF();
+            
+            // Helper function to get image as data URL with more robust error handling
+            const getImageData = (url) => {
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.crossOrigin = 'Anonymous';
+                    img.onload = () => {
+                        try {
+                            const canvas = document.createElement('canvas');
+                            canvas.width = img.width;
+                            canvas.height = img.height;
+                            const ctx = canvas.getContext('2d');
+                            ctx.drawImage(img, 0, 0);
+                            resolve(canvas.toDataURL('image/png'));
+                        } catch (e) {
+                            reject(e);
+                        }
+                    };
+                    img.onerror = () => {
+                        // Fallback: If it's a file:// protocol issue, we try absolute relative path
+                        reject(new Error("Failed to load: " + url));
+                    };
+                    img.src = url;
+                });
+            };
+
+            doc.setFontSize(22);
+            doc.text("Artifacts Coffee Website — Font Report", 20, 20);
+            
+            // Section 1: Bebas Neue
+            doc.setFontSize(14);
+            doc.setTextColor(15, 168, 223);
+            doc.text("1. Bebas Neue (Sans-serif)", 20, 40);
+            doc.setTextColor(0, 0, 0);
+            doc.setFontSize(11);
+            doc.text("- Usage: Main headings, product names, prices.", 25, 48);
+            doc.text("- Styles: Regular (400).", 25, 54);
+            try {
+                const imgBebas = await getImageData('images/gt-1080.png');
+                doc.addImage(imgBebas, 'PNG', 120, 35, 60, 40);
+                doc.setFontSize(8);
+                doc.setTextColor(150, 150, 150);
+                doc.text("Example: Product Bag & Price Titles", 125, 78);
+            } catch(e) { 
+                console.warn("Could not load image gt-1080.png", e); 
+                doc.setTextColor(255, 0, 0);
+                doc.setFontSize(8);
+                doc.text("(Image blocked by browser security. See PDF instructions below.)", 120, 45);
+            }
+
+            // Section 2: Barlow Condensed
+            doc.setFontSize(14);
+            doc.setTextColor(15, 168, 223);
+            doc.text("2. Barlow Condensed (Sans-serif)", 20, 90);
+            doc.setTextColor(0, 0, 0);
+            doc.setFontSize(11);
+            doc.text("- Usage: Navigation, buttons, small labels, statistics.", 25, 98);
+            doc.text("- Styles: Regular, 600, 700, 900, Italic.", 25, 104);
+            try {
+                const imgBarlow = await getImageData('images/logo.png');
+                doc.addImage(imgBarlow, 'PNG', 120, 85, 60, 12);
+                doc.setFontSize(8);
+                doc.setTextColor(150, 150, 150);
+                doc.text("Example: Navigation Logo & UI Elements", 125, 100);
+            } catch(e) { 
+                console.warn("Could not load image logo.png", e); 
+            }
+
+            // Section 3: DM Mono
+            doc.setFontSize(14);
+            doc.setTextColor(15, 168, 223);
+            doc.text("3. DM Mono (Monospace)", 20, 140);
+            doc.setTextColor(0, 0, 0);
+            doc.setFontSize(11);
+            doc.text("- Usage: Body text, descriptions, cart interface.", 25, 148);
+            doc.text("- Styles: 300, 400, 500.", 25, 154);
+            try {
+                const imgMono = await getImageData('images/cup.png');
+                doc.addImage(imgMono, 'PNG', 120, 130, 60, 40);
+                doc.setFontSize(8);
+                doc.setTextColor(150, 150, 150);
+                doc.text("Example: Product Descriptions & Story", 125, 173);
+            } catch(e) { 
+                console.warn("Could not load image cup.png", e); 
+            }
+            
+            doc.setFontSize(14);
+            doc.setTextColor(0, 0, 0);
+            doc.text("Optimization Techniques:", 20, 185);
+            doc.setFontSize(11);
+            doc.text("- Preconnect & Preload", 25, 193);
+            doc.text("- Non-blocking load pattern", 25, 199);
+            doc.text("- display=swap implementation", 25, 205);
+
+            doc.save("Artifacts_Coffee_Fonts_Visual.pdf");
+        }
+    </script>
+</body>
+</html>

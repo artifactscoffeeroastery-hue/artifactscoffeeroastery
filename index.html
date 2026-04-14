@@ -25,8 +25,14 @@
 
 <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+</noscript>
 <style>
   :root {
     --cyan: #0FA8DF;
@@ -57,7 +63,7 @@
     display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
     padding: 0 48px; height: 66px;
   }
-  .nav-logo { display: flex; align-items: center; }
+  .nav-logo { display: flex; align-items: center; text-decoration: none; }
   .nav-logo img { height: 36px; display: block; }
   .nav-links {
     display: flex; gap: 32px; list-style: none;
@@ -66,8 +72,9 @@
     letter-spacing: 0.18em; text-transform: uppercase;
     justify-self: center;
   }
-  .nav-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--yellow); }
+  .nav-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; outline: none; }
+  .nav-links a:hover, .nav-links a:focus { color: var(--yellow); }
+  .nav-links a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
   
   .nav-right { display: flex; align-items: center; gap: 12px; justify-self: end; }
   
@@ -79,8 +86,10 @@
     letter-spacing: 0.1em; text-transform: uppercase;
     cursor: pointer; display: flex; align-items: center; gap: 8px;
     transition: all 0.2s; position: relative;
+    outline: none;
   }
-  .nav-cart-btn:hover { border-color: var(--cyan); color: var(--cyan); }
+  .nav-cart-btn:hover, .nav-cart-btn:focus { border-color: var(--cyan); color: var(--cyan); }
+  .nav-cart-btn:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
   .cart-badge {
     background: var(--cyan); color: var(--black);
     font-size: 10px; padding: 2px 6px; border-radius: 10px;
@@ -91,11 +100,12 @@
   .nav-contact-btn {
     display: flex; align-items: center; justify-content: center; width: 42px; height: 42px;
     background: var(--off); color: var(--white);
-    text-decoration: none; cursor: pointer; transition: all 0.2s;
+    text-decoration: none; cursor: pointer; transition: all 0.2s; outline: none;
   }
   .nav-contact-btn svg { width: 18px; height: 18px; fill: currentColor; }
-  .nav-contact-btn.wa:hover { background: #25D366; color: white; }
-  .nav-contact-btn.mail:hover { background: var(--cyan); color: white; }
+  .nav-contact-btn.wa:hover, .nav-contact-btn.wa:focus { background: #25D366; color: white; }
+  .nav-contact-btn.mail:hover, .nav-contact-btn.mail:focus { background: var(--cyan); color: white; }
+  .nav-contact-btn:focus-visible { outline: 2px solid var(--cyan); outline-offset: -2px; z-index: 1; }
   .nav-contact-btn:not(:last-child) { border-right: 1px solid var(--border); }
 
   /* ── HERO ── */
@@ -158,29 +168,18 @@
 
   /* ── PRODUCT SECTION ── */
   .product-section {
-    display: flex !important;
+    display: flex;
     flex-direction: row;
     align-items: stretch; 
     width: 100%;
     min-height: 100vh;
     overflow: hidden;
-    background-color: #222; 
-    border-bottom: 2px solid var(--border);
+    background-color: var(--black); 
+    border-bottom: 1px solid var(--border);
   }
-  .product-section.flip { flex-direction: row-reverse !important; }
+  .product-section.flip { flex-direction: row-reverse; }
 
-  .product-visual {
-    flex: 0 0 50%; width: 50%; display: flex; justify-content: center;
-    align-items: center; background-color: #f5f5f5; padding: 40px;
-  }
-  .product-visual img { max-width: 100%; max-height: 90vh; width: auto; height: auto; object-fit: contain !important; }
-
-  .product-section > div:not(.product-visual) {
-    flex: 0 0 50%; width: 50%; padding: 5% 8%; display: flex;
-    flex-direction: column; justify-content: center; background-color: #000;
-  }
-
-  .p-visual { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 0; background: #0c0c0c; min-height: 560px; }
+  .p-visual { flex: 0 0 50%; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 0; background: #0c0c0c; min-height: 560px; }
   .p-close { position: absolute; inset: 0; background-size: cover; background-position: center top; opacity: 1; transition: opacity 0.5s ease; }
   .p-bag { position: relative; z-index: 3; width: 100%; max-height: 420px; object-fit: contain; filter: drop-shadow(0 24px 70px rgba(0,0,0,0.7)); animation: float 7s ease-in-out infinite; transition: opacity 0.4s; }
   @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-13px)} }
@@ -199,7 +198,7 @@
   .ni-theme .p-accent { background: var(--white); }
   .ni-theme .p-code { background: var(--white); color: var(--black); }
 
-  .p-info { padding: 64px 54px; background: var(--off); border-left: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; }
+  .p-info { flex: 0 0 50%; padding: 64px 54px; background: var(--off); border-left: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; }
   .product-section.flip .p-info { border-left: none; border-right: 1px solid var(--border); }
   .p-num { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 6px; }
   .p-country { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: #666; margin-bottom: 6px; }
@@ -225,7 +224,7 @@
   .price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 22px; }
   .p-curr { font-family:'Barlow Condensed',sans-serif; font-size:20px; color:#666; }
   .p-amount { font-family: 'Bebas Neue', sans-serif; font-size: 58px; line-height: 1; letter-spacing: 0.02em; }
-  .p-note { font-size: 11px; color: #444; }
+  .p-note { font-size: 11px; color: #777; }
 
   .order-btn { display: flex; align-items: center; justify-content: center; gap: 11px; width: 100%; padding: 17px 32px; border: none; cursor: pointer; font-family: 'Bebas Neue', sans-serif; font-size: 21px; letter-spacing: 0.1em; text-decoration: none; transition: all 0.22s; }
   .order-btn:hover { opacity: 0.85; transform: translateY(-2px); }
@@ -234,16 +233,16 @@
   .btn-w { background: var(--white); color: var(--black); }
 
   .trust-row { display: flex; gap: 18px; margin-top: 16px; flex-wrap: wrap; }
-  .titem-sm { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #444; }
+  .titem-sm { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #777; }
 
-  /* ── HERO ORIGIN CARDS ── */
   .hero-origins { display: flex; flex-direction: column; gap: 2px; margin-bottom: 28px; }
-  .hero-origin-card { display: grid; grid-template-columns: 36px 1fr auto; grid-template-rows: auto auto; align-items: center; gap: 0 16px; padding: 14px 18px; background: var(--off); border: 1px solid var(--border); text-decoration: none; transition: border-color 0.2s, background 0.2s; cursor: pointer; }
-  .hero-origin-card:hover { background: var(--mid); border-color: #333; }
-  .hoc-code { font-family: 'Bebas Neue', sans-serif; font-size: 22px; line-height: 1; grid-row: 1 / 3; }
-  .hoc-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); grid-column: 2; }
-  .hoc-notes { font-family: 'DM Mono', monospace; font-size: 10px; color: #555; letter-spacing: 0.04em; grid-column: 2; }
-  .hoc-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.1em; grid-row: 1 / 3; align-self: center; }
+  .hero-origin-card { display: grid; grid-template-columns: 60px 1fr; grid-template-rows: auto auto auto; align-items: center; gap: 0 16px; padding: 14px 18px; background: var(--off); border: 1px solid var(--border); text-decoration: none; transition: border-color 0.2s, background 0.2s; cursor: pointer; }
+  .hero-origin-card:hover, .hero-origin-card:focus { background: var(--mid); border-color: #444; }
+  .hero-origin-card:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+  .hoc-code { font-family: 'Bebas Neue', sans-serif; font-size: 43.195px; line-height: 0.9; grid-row: 1 / 4; align-self: center; }
+  .hoc-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.1em; grid-column: 2; grid-row: 1; align-self: flex-end; }
+  .hoc-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); grid-column: 2; grid-row: 2; line-height: 1.2; }
+  .hoc-notes { font-family: 'DM Mono', monospace; font-size: 10px; color: #555; letter-spacing: 0.04em; grid-column: 2; grid-row: 3; }
 
   /* ── SECTIONS ── */
   .entheos-section { background: var(--black); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 120px 60px; text-align: center; position: relative; overflow: hidden; }
@@ -267,7 +266,7 @@
   .phil-right { background: var(--off); padding: 80px 56px; display: flex; flex-direction: column; justify-content: center; border-left: 1px solid var(--border); }
   .phil-body { font-size: 13px; color: #aaa; line-height: 2; margin-bottom: 28px; }
   .phil-body strong { color: var(--white); font-weight: 500; }
-  .phil-detail { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #555; padding-top: 24px; border-top: 1px solid var(--border); line-height: 1.8; }
+  .phil-detail { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #777; padding-top: 24px; border-top: 1px solid var(--border); line-height: 1.8; }
   .phil-detail span { color: var(--cyan); }
 
   .obj-section { background: var(--yellow); padding: 88px 60px; border-bottom: 2px solid var(--black); }
@@ -307,9 +306,9 @@
   footer { background: var(--black); border-top: 2px solid var(--border); padding: 44px 56px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
   footer img { height: 34px; }
   .foot-links { display: flex; gap: 28px; list-style: none; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
-  .foot-links a { color: #444; text-decoration: none; transition: color 0.2s; }
+  .foot-links a { color: #888; text-decoration: none; transition: color 0.2s; }
   .foot-links a:hover { color: var(--yellow); }
-  .foot-copy { font-size: 11px; color: #2a2a2a; width: 100%; border-top: 1px solid var(--border); padding-top: 18px; margin-top: 4px; display: flex; justify-content: space-between; align-items: center; }
+  .foot-copy { font-size: 11px; color: #666; width: 100%; border-top: 1px solid var(--border); padding-top: 18px; margin-top: 4px; display: flex; justify-content: space-between; align-items: center; }
 
   .pf-selector-wrap { display: flex; flex-direction: column; }
   .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.72s ease, transform 0.72s ease; }
@@ -330,13 +329,13 @@
   .cup-price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 20px; }
   .cup-r { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; color: #666; }
   .cup-price { font-family: 'Bebas Neue', sans-serif; font-size: 56px; line-height: 1; letter-spacing: 0.02em; color: var(--white); }
-  .cup-note { font-size: 11px; color: #444; }
+  .cup-note { font-size: 11px; color: #777; }
   .cup-oos-btn { width: 100%; padding: 17px 32px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.28); font-family: 'Bebas Neue', sans-serif; font-size: 21px; letter-spacing: 0.08em; cursor: not-allowed; position: relative; overflow: hidden; margin-bottom: 14px; transition: border-color 0.3s, color 0.3s; }
   .cup-oos-line { position: absolute; top: 50%; left: -10px; width: calc(100% + 20px); height: 1px; background: rgba(255,255,255,0.12); transform: rotate(-6deg); }
-  .cup-notify { display: block; text-align: right; font-size: 12px; color: var(--cyan); text-decoration: none; letter-spacing: 0.03em; opacity: 0.8; transition: opacity 0.2s; margin-bottom: 18px; }
-  .cup-notify:hover { opacity: 1; }
+  .cup-notify { display: block; text-align: right; font-size: 12px; color: var(--cyan); text-decoration: none; letter-spacing: 0.03em; opacity: 0.8; transition: all 0.2s; margin-bottom: 18px; font-weight: 600; }
+  .cup-notify:hover { opacity: 1; color: var(--yellow); transform: translateX(4px); }
   .cup-trust { display: flex; gap: 18px; flex-wrap: wrap; }
-  .cup-trust-item { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #444; }
+  .cup-trust-item { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #777; }
   .cup-right { position: relative; background: linear-gradient(160deg, #141414 0%, #0c0c0c 100%); border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; padding: 40px 36px 32px; box-shadow: 0 40px 100px rgba(0,0,0,0.85), 0 0 0 1px rgba(15,168,223,0.07); overflow: hidden; }
   .cup-right::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(15,168,223,0.65) 35%, rgba(225,255,1,0.55) 65%, transparent 100%); }
   .cup-right::after { content: ''; position: absolute; bottom: 0; right: 0; width: 180px; height: 180px; background: radial-gradient(circle at 100% 100%, rgba(15,168,223,0.07) 0%, transparent 65%); pointer-events: none; }
@@ -344,8 +343,8 @@
   .cup-badge-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; position: relative; z-index: 1; }
   .cup-badge-new { background: var(--yellow); color: var(--black); font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: 2.5px; padding: 5px 11px; }
   .cup-badge-ltd { font-size: 10px; color: rgba(255,255,255,0.28); letter-spacing: 2.5px; text-transform: uppercase; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; }
-  .cup-img-wrap { position: relative; z-index: 1; width: calc(100% + 72px); margin-left: -36px; height: 300px; overflow: hidden; }
-  .cup-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; display: block; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 6%, black 18%, black 75%, rgba(0,0,0,0.4) 90%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 6%, black 18%, black 75%, rgba(0,0,0,0.4) 90%, transparent 100%); }
+  .cup-img-wrap { position: relative; z-index: 1; width: 100%; margin-left: 0; height: 300px; overflow: hidden; }
+  .cup-img-wrap img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%); }
 
   @media (min-width: 960px) {
     .nav-ham { display: none; }
@@ -355,13 +354,15 @@
     .nav-links { display: none; }
     .nav-right .nav-contact-group { display: none; }
     .nav-ham { 
-      display: flex; flex-direction: column; justify-content: space-between; width: 34px; height: 22px; background: none; border: none; cursor: pointer; padding: 0; z-index: 401; flex-shrink: 0;
+      display: flex; flex-direction: column; justify-content: space-between; width: 34px; height: 22px; background: none; border: none; cursor: pointer; padding: 0; z-index: 2100; flex-shrink: 0;
     }
-    .nav-ham span { display: block; width: 100%; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.32s cubic-bezier(0.77,0,0.18,1), opacity 0.22s ease, background 0.22s ease, width 0.22s ease; transform-origin: left center; }
-    .nav-ham span:nth-child(3) { width: 68%; }
-    .nav-ham.open span:nth-child(1) { transform: rotate(42deg) translate(1px,-1px); background: var(--yellow); }
-    .nav-ham.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .nav-ham.open span:nth-child(3) { transform: rotate(-42deg) translate(1px,1px); background: var(--yellow); width: 100%; }
+    .nav-ham span { display: block; width: 100%; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.32s cubic-bezier(0.77,0,0.18,1), opacity 0.22s ease, background 0.22s ease, width 0.22s ease; transform-origin: center; }
+    .nav-ham span:nth-child(1) { transform: translateY(0); }
+    .nav-ham span:nth-child(2) { transform: translateY(0); }
+    .nav-ham span:nth-child(3) { transform: translateY(0); width: 68%; align-self: flex-end; }
+    .nav-ham.open span:nth-child(1) { transform: translateY(10px) rotate(45deg); background: var(--yellow); }
+    .nav-ham.open span:nth-child(2) { opacity: 0; }
+    .nav-ham.open span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); background: var(--yellow); width: 100%; }
   }
 
   .mob-overlay { position: fixed; inset: 0; background: var(--black); z-index: 380; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; pointer-events: none; opacity: 0; visibility: hidden; transition: opacity 0.38s ease, visibility 0.38s ease; }
@@ -381,51 +382,64 @@
   .mob-wa:hover { background: var(--cyan); }
 
   @media (max-width: 960px) {
-    nav { padding: 0 20px; display: flex; justify-content: space-between; }
-    .nav-links, .nav-right { display: none; }
-    .nav-ham { display: flex; }
-    .hero { grid-template-columns: 1fr; gap: 32px; padding: 56px 24px 40px; }
-    .hero-title { font-size: clamp(58px, 14vw, 88px); }
-    .product-section, .product-section.flip { grid-template-columns: 1fr; direction: ltr; }
-    .p-visual { min-height: 300px; }
-    .p-info { padding: 40px 24px; }
+    nav { padding: 0 20px; display: grid; grid-template-columns: 1fr auto 1fr; }
+    .nav-links { display: none; }
+    #navActions { grid-column: 3; display: flex; align-items: center; gap: 12px; justify-self: end; }
+    .nav-contact-group { display: none; }
+    .nav-ham { display: flex; order: 2; }
+    .nav-cart-btn { order: 1; }
+    .hero { grid-template-columns: 1fr; gap: 48px; padding: 64px 24px; }
+    .hero-title { font-size: clamp(60px, 15vw, 96px); text-align: left; }
+    .hero-kicker { justify-content: flex-start; }
+    .hero-desc { text-align: left; margin: 0 0 32px; max-width: 600px; }
+    .product-section, .product-section.flip { flex-direction: column; min-height: auto; }
+    .p-visual, .p-info { flex: 0 0 100%; width: 100%; }
+    .p-visual { min-height: 500px; background-size: contain; background-repeat: no-repeat; background-position: center bottom; }
+    .p-info { padding: 56px 32px; border-left: none; border-top: 1px solid var(--border); }
     .product-section.flip .p-info { border-right: none; }
     .philosophy-section { grid-template-columns: 1fr; }
-    .phil-left, .phil-right { padding: 56px 28px; }
+    .phil-left, .phil-right { padding: 64px 32px; border-left: none; }
     .obj-grid { grid-template-columns: 1fr; }
-    .obj-section, .compare-section, .faq-section, .final-cta, .entheos-section { padding: 60px 24px; }
-    footer { padding: 36px 24px; }
-    .cup-section { padding: 60px 24px; }
-    .cup-section-inner { grid-template-columns: 1fr; gap: 40px; }
+    .obj-section, .compare-section, .faq-section, .entheos-section { padding: 80px 32px; }
+    .ctable-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -32px; padding: 0 32px; }
+    .ctable { min-width: 600px; }
+    footer { padding: 48px 32px; flex-direction: column; text-align: center; }
+    .foot-links { justify-content: center; }
+    .cup-section { padding: 80px 32px; }
+    .cup-section-inner { display: flex; flex-direction: column-reverse; gap: 56px; }
+    .cup-title { text-align: left; }
+    .cup-sub { text-align: left; }
+    .cup-desc { text-align: left; margin: 0 0 28px; }
+    .cup-notify { text-align: left; }
+    .cup-trust { justify-content: flex-start; }
+    .p-visual:hover .p-bag { opacity: 1; }
+    .p-visual:hover .p-close { opacity: 1; }
   }
 
   @media (max-width: 600px) {
-    nav { height: 58px; padding: 0 16px; gap: 8px; }
-    .nav-logo img { height: 26px; }
-    .nav-cart-btn { padding: 8px 10px; font-size: 11px; gap: 4px; }
-    .hero { padding: 44px 18px 32px; gap: 24px; }
+    nav { height: 60px; padding: 0 16px; }
+    .nav-logo img { height: 28px; }
+    .nav-cart-btn { padding: 8px 12px; font-size: 11px; }
+    .hero { padding: 48px 20px; gap: 40px; }
     .hero-title { font-size: clamp(52px, 16vw, 72px); }
-    .hero-kicker { font-size: 10px; letter-spacing: 0.22em; }
-    .hero-stats { grid-template-columns: repeat(3,1fr); }
-    .hstat { padding: 16px 10px; }
-    .hstat-n { font-size: 28px; }
-    .p-visual { min-height: 260px; }
-    .p-info { padding: 32px 18px; }
-    .p-name { font-size: clamp(36px, 10vw, 54px); }
-    .compare-table { overflow-x: auto; display: block; }
-    .titem { font-size: 11px; padding: 0 18px; }
-    .obj-section, .compare-section, .faq-section, .final-cta, .entheos-section { padding: 48px 18px; }
-    .phil-left, .phil-right { padding: 44px 18px; }
-    footer { padding: 28px 18px; }
-    .foot-inner { flex-direction: column; gap: 12px; text-align: center; }
-    .cup-section { padding: 48px 18px; }
-    .cup-title { font-size: clamp(44px, 12vw, 66px); }
+    .hero-stats { grid-template-columns: 1fr; gap: 8px; border: none; background: transparent; }
+    .hstat { border: 1px solid var(--border); }
+    .p-visual { min-height: 400px; }
+    .p-info { padding: 40px 20px; }
+    .p-name { font-size: clamp(44px, 12vw, 64px); }
+    .sz-toggle { display: flex; flex-direction: column; width: 100%; }
+    .sz-btn { border-right: none; border-bottom: 1px solid var(--border); width: 100%; }
+    .sz-btn:last-child { border-bottom: none; }
+    .phil-left, .phil-right { padding: 48px 20px; }
+    .obj-section, .compare-section, .faq-section, .entheos-section { padding: 64px 20px; }
+    .cart-drawer { width: 100%; padding: 24px; }
   }
 
   .cart-drawer { position: fixed; top: 0; right: -100%; width: 400px; height: 100%; background: var(--off); z-index: 2000; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); padding: 40px; border-left: 1px solid var(--border); overflow-y: auto; }
   .cart-drawer.active { right: 0; }
-  .cart-header { display: flex; justify-content: space-between; margin-bottom: 30px; }
-  .close-btn { background: none; border: none; color: white; font-size: 20px; cursor: pointer; }
+  .cart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+  .close-btn { background: none; border: none; color: white; font-size: 28px; cursor: pointer; padding: 10px; line-height: 1; transition: opacity 0.2s; }
+  .close-btn:hover { opacity: 0.7; }
   .cart-step input, .shipping-box select { width: 100%; background: var(--black); border: 1px solid var(--border); padding: 12px; margin-bottom: 10px; color: white; font-family: 'DM Mono', monospace; }
   .auth-toggle { display: flex; margin-bottom: 20px; gap: 10px; }
   .auth-toggle button { flex: 1; padding: 10px; background: none; border: 1px solid var(--border); color: var(--muted); cursor: pointer; }
@@ -449,8 +463,9 @@
     <li><a href="#ni">Nicaragua</a></li>
     <li><a href="#cup">Origin Cup</a></li>
     <li><a href="#story">Our Story</a></li>
+    <li><a href="rewards.html" style="color:var(--yellow)">Brew Circle</a></li>
   </ul>
-  <div class="nav-right">
+  <div class="nav-right" id="navActions">
     <div class="nav-contact-group">
       <a class="nav-contact-btn wa" href="https://wa.me/27613832478" target="_blank" title="WhatsApp Us">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .004 5.41.001 12.045c0 2.12.554 4.189 1.602 6.04L0 24l6.117-1.605a11.837 11.837 0 005.925 1.577h.005c6.632 0 12.042-5.41 12.046-12.045a11.83 11.83 0 00-3.536-8.509"/></svg>
@@ -475,15 +490,12 @@
     <a class="mob-link" href="#ni" onclick="closeMob()">Nicaragua</a>
     <a class="mob-link" href="#cup" onclick="closeMob()">Origin Cup</a>
     <a class="mob-link" href="#story" onclick="closeMob()">Our Story</a>
+    <a class="mob-link" href="rewards.html" style="color:var(--yellow)" onclick="closeMob()">Brew Circle</a>
   </div>
   <div class="mob-contact">
-    <a href="https://wa.me/27613832478" class="mob-wa-btn" target="_blank">
+    <a href="https://wa.me/27613832478" class="mob-wa" target="_blank">
         <svg style="width:20px;height:20px;fill:currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.437 2.503 1.169 3.466L6.712 18.624l3.323-.871c.917.5 1.954.787 3.059.788 3.182 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.765-5.831-5.803zm3.384 8.21c-.147.413-.732.748-1.152.821-.371.063-.854.103-2.392-.533-1.956-.813-3.21-2.812-3.308-2.942-.098-.13-.727-.966-.727-1.857 0-.89.467-1.328.633-1.503.166-.175.367-.219.49-.219.122 0 .245 0 .351.005.114.004.267-.043.418.321.155.374.529 1.291.575 1.383.046.092.076.2.015.321-.061.122-.092.199-.184.306-.092.106-.192.236-.274.317-.092.091-.188.19-.081.374.107.184.475.783 1.02 1.268.701.625 1.291.82 1.474.912.184.092.291.076.398-.046.107-.122.459-.534.582-.717.122-.184.245-.153.413-.092.169.061 1.071.505 1.256.597.184.092.306.137.351.214.045.076.045.442-.102.855z"/></svg>
         WhatsApp
-    </a>
-    <a href="mailto:artifacts.coffee.roastery@gmail.com" class="mob-mail-btn">
-        <svg style="width:20px;height:20px;fill:currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        Email Us
     </a>
   </div>
 </div>
@@ -502,21 +514,21 @@
     <div class="hero-origins">
       <a href="#gt" class="hero-origin-card">
         <span class="hoc-code" style="color:var(--cyan)">GT</span>
+        <span class="hoc-price" style="color:var(--cyan)">from R150</span>
         <span class="hoc-name">Blue Ayarza</span>
         <span class="hoc-notes">Chocolate · Stone Fruit · Floral</span>
-        <span class="hoc-price" style="color:var(--cyan)">from R150</span>
       </a>
       <a href="#mx" class="hero-origin-card">
         <span class="hoc-code" style="color:var(--yellow)">MX</span>
+        <span class="hoc-price" style="color:var(--yellow)">from R148</span>
         <span class="hoc-name">Ki Saya</span>
         <span class="hoc-notes">Chocolate · Caramel · Soft Citrus</span>
-        <span class="hoc-price" style="color:var(--yellow)">from R148</span>
       </a>
       <a href="#ni" class="hero-origin-card">
         <span class="hoc-code" style="color:#ccc">NI</span>
+        <span class="hoc-price" style="color:#ccc">from R140</span>
         <span class="hoc-name">Rajuanse Estates</span>
         <span class="hoc-notes">Chocolate · Caramel · Hazelnut</span>
-        <span class="hoc-price" style="color:#ccc">from R140</span>
       </a>
     </div>
     <div class="hero-stats">
@@ -550,7 +562,7 @@
 
 <section id="gt" class="product-section gt-theme">
   <div class="p-visual">
-    <div class="p-close" style="background-image: url('images/gt-1080.png');"></div>
+      <div class="p-close" style="background-image: url('images/gt-1080.png');"></div>
     <div class="p-accent gt-theme"></div>
     <span class="p-code" style="background:var(--cyan);color:var(--black);">GT · 001</span>
   </div>
@@ -568,13 +580,14 @@
     <div class="divider"></div>
     <div class="pf-selector-wrap">
       <span class="sz-label">Select Size</span>
-      <div class="sz-toggle" id="sz-gt" data-selected-size="200g">
-        <button class="sz-btn sel-c" onclick="selectPF(this,'gt','150','Guatemala Blue Ayarza 200g')">200g — R150</button>
-        <button class="sz-btn" onclick="selectPF(this,'gt','600','Guatemala Blue Ayarza 1kg')">1kg — R600</button>
+      <div class="sz-toggle" id="sz-gt" data-selected-size="1kg">
+        <button class="sz-btn sel-c" onclick="selectPF(this,'gt','600','Guatemala Blue Ayarza 1kg')">1kg — R600</button>
+        <button class="sz-btn" onclick="selectPF(this,'gt','150','Guatemala Blue Ayarza 200g')">200g — R150</button>
+        <button class="sz-btn" onclick="selectPF(this,'gt','100','Guatemala Blue Ayarza 80g')">80g — R100</button>
       </div>
       <div class="price-row">
         <span class="p-curr">R</span>
-        <span class="p-amount cc" id="gt-p">150</span>
+        <span class="p-amount cc" id="gt-p">600</span>
         <span class="p-note">/ whole bean · incl. VAT</span>
       </div>
       <button class="order-btn btn-c" onclick="prepAddToCart('Guatemala Blue Ayarza', 'gt')">Add to Cart</button>
@@ -589,7 +602,7 @@
 
 <section id="mx" class="product-section flip mx-theme">
   <div class="p-visual">
-    <div class="p-close" style="background-image: url('images/mx-1080.png');"></div>
+      <div class="p-close" style="background-image: url('images/mx-1080.png');"></div>
     <div class="p-accent mx-theme"></div>
     <span class="p-code" style="background:var(--yellow);color:var(--black);">MX · 002</span>
   </div>
@@ -608,13 +621,14 @@
     <div class="divider"></div>
     <div class="pf-selector-wrap">
       <span class="sz-label">Select Size</span>
-      <div class="sz-toggle" id="sz-mx" data-selected-size="200g">
-        <button class="sz-btn sel-y" onclick="selectPF(this,'mx','148','Mexico Ki Saya Organic 200g')">200g — R148</button>
-        <button class="sz-btn" onclick="selectPF(this,'mx','592','Mexico Ki Saya Organic 1kg')">1kg — R592</button>
+      <div class="sz-toggle" id="sz-mx" data-selected-size="1kg">
+        <button class="sz-btn sel-y" onclick="selectPF(this,'mx','592','Mexico Ki Saya Organic 1kg')">1kg — R592</button>
+        <button class="sz-btn" onclick="selectPF(this,'mx','148','Mexico Ki Saya Organic 200g')">200g — R148</button>
+        <button class="sz-btn" onclick="selectPF(this,'mx','100','Mexico Ki Saya Organic 80g')">80g — R100</button>
       </div>
       <div class="price-row">
         <span class="p-curr">R</span>
-        <span class="p-amount cy" id="mx-p">148</span>
+        <span class="p-amount cy" id="mx-p">592</span>
         <span class="p-note">/ whole bean · incl. VAT</span>
       </div>
       <button class="order-btn btn-y" onclick="prepAddToCart('Mexico Ki Saya', 'mx')">Add to Cart</button>
@@ -629,7 +643,7 @@
 
 <section id="ni" class="product-section ni-theme">
   <div class="p-visual">
-   <div class="p-close" style="background-image: url('images/ni-1080.png');"></div>
+      <div class="p-close" style="background-image: url('images/ni-1080.png');"></div>
     <div class="p-accent ni-theme"></div>
     <span class="p-code" style="background:var(--white);color:var(--black);">NI · 003</span>
   </div>
@@ -646,13 +660,14 @@
     <div class="divider"></div>
     <div class="pf-selector-wrap">
       <span class="sz-label">Select Size</span>
-      <div class="sz-toggle" id="sz-ni" data-selected-size="200g">
-        <button class="sz-btn sel-w" onclick="selectPF(this,'ni','140','Nicaragua Rajuanse Estates 200g')">200g — R140</button>
-        <button class="sz-btn" onclick="selectPF(this,'ni','560','Nicaragua Rajuanse Estates 1kg')">1kg — R560</button>
+      <div class="sz-toggle" id="sz-ni" data-selected-size="1kg">
+        <button class="sz-btn sel-w" onclick="selectPF(this,'ni','560','Nicaragua Rajuanse Estates 1kg')">1kg — R560</button>
+        <button class="sz-btn" onclick="selectPF(this,'ni','140','Nicaragua Rajuanse Estates 200g')">200g — R140</button>
+        <button class="sz-btn" onclick="selectPF(this,'ni','100','Nicaragua Rajuanse Estates 80g')">80g — R100</button>
       </div>
       <div class="price-row">
         <span class="p-curr">R</span>
-        <span class="p-amount cw" id="ni-p">140</span>
+        <span class="p-amount cw" id="ni-p">560</span>
         <span class="p-note">/ whole bean · incl. VAT</span>
       </div>
       <button class="order-btn btn-w" onclick="prepAddToCart('Nicaragua Rajuanse', 'ni')">Add to Cart</button>
@@ -693,7 +708,7 @@
         <span class="cup-oos-line"></span>
         Out of Stock
       </button>
-      <a class="cup-notify" href="https://wa.me/c/27613832478" target="_blank">
+      <a class="cup-notify" href="mailto:roast@artifactscoffee.co.za?subject=Notify%20Me:%20The%20Origin%20Cup">
         <span>💬 Notify me when available →</span>
       </a>
       <div class="cup-trust">
@@ -709,7 +724,7 @@
         <span class="cup-badge-ltd">Limited Edition</span>
       </div>
       <div class="cup-img-wrap">
-        <img src="images/cup.png" alt="Artifacts Origin Cup">
+        <img src="images/cup.png" alt="Artifacts Origin Cup" loading="lazy">
       </div>
     </div>
   </div>
@@ -759,7 +774,7 @@
     <div class="phil-detail">
       <span>Johannesburg-based micro-roastery</span><br>
       Single origins &amp; structured blends<br>
-      Available in <span>200g</span> and <span>1kg</span> formats<br>
+      Available in <span>1kg</span>, <span>200g</span> and <span>80g</span> formats<br>
       For home brewers &amp; office supply
     </div>
   </div>
@@ -790,7 +805,8 @@
 <section class="compare-section reveal">
   <p class="sec-kicker">Head to Head</p>
   <h2 class="sec-head">Find Your<br>Perfect Cup</h2>
-  <table class="ctable">
+  <div class="ctable-wrap">
+    <table class="ctable">
     <thead>
       <tr>
         <th></th>
@@ -808,10 +824,12 @@
       <tr><td class="alabel">Caramel / Nutty</td><td><span class="dot-off">○</span></td><td>Caramel</td><td>Caramel + Hazelnut</td></tr>
       <tr><td class="alabel">Complexity</td><td>High</td><td>Medium</td><td>Smooth / Comforting</td></tr>
       <tr><td class="alabel">Best For</td><td>Adventurous palates</td><td>Clean everyday cup</td><td>Comfort lovers</td></tr>
-      <tr><td class="alabel">200g Price</td><td class="cc">R150</td><td class="cy">R148</td><td class="cw">R140</td></tr>
       <tr><td class="alabel">1kg Price</td><td class="cc">R600</td><td class="cy">R592</td><td class="cw">R560</td></tr>
+      <tr><td class="alabel">200g Price</td><td class="cc">R150</td><td class="cy">R148</td><td class="cw">R140</td></tr>
+      <tr><td class="alabel">80g Price</td><td class="cc">R100</td><td class="cy">R100</td><td class="cw">R100</td></tr>
     </tbody>
   </table>
+  </div>
 </section>
 
 <section class="faq-section">
@@ -819,40 +837,41 @@
     <p class="sec-kicker" style="text-align:left">Common Questions</p>
     <h2 class="sec-head" style="text-align:left;margin-bottom:44px">Your Doubts,<br>Resolved.</h2>
     <div class="faq-item">
-      <button class="faq-q" onclick="tFaq(this)">How do I place an order?<span class="faq-icon">+</span></button>
-      <div class="faq-ans"><div class="faq-ans-in">Tap "Order on WhatsApp" on any product — it opens directly to our catalogue. Tell us your coffee, size, and delivery address. We confirm, roast, and ship. No accounts needed.</div></div>
+      <button class="faq-q" onclick="tFaq(this)" aria-expanded="false" aria-controls="faq-ans-1">How do I place an order?<span class="faq-icon" aria-hidden="true">+</span></button>
+      <div id="faq-ans-1" class="faq-ans" role="region"><div class="faq-ans-in">Tap "Order on WhatsApp" on any product — it opens directly to our catalogue. Tell us your coffee, size, and delivery address. We confirm, roast, and ship. No accounts needed.</div></div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="tFaq(this)">When does my coffee get roasted?<span class="faq-icon">+</span></button>
-      <div class="faq-ans"><div class="faq-ans-in">We roast weekly to order and ship your coffee within days of roasting — so it arrives fresh and still degassing. But here's the thing: we actually encourage you to wait. Let your bag rest at home for 10–14 days from the roast date before your first brew. That's when the flavours have fully settled and the coffee is at its absolute best. Good things take time.</div></div>
+      <button class="faq-q" onclick="tFaq(this)" aria-expanded="false" aria-controls="faq-ans-2">When does my coffee get roasted?<span class="faq-icon" aria-hidden="true">+</span></button>
+      <div id="faq-ans-2" class="faq-ans" role="region"><div class="faq-ans-in">We roast weekly to order and ship your coffee within days of roasting — so it arrives fresh and still degassing. But here's the thing: we actually encourage you to wait. Let your bag rest at home for 10–14 days from the roast date before your first brew. That's when the flavours have fully settled and the coffee is at its absolute best. Good things take time.</div></div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="tFaq(this)">Do you only sell whole bean?<span class="faq-icon">+</span></button>
-      <div class="faq-ans"><div class="faq-ans-in">Yes — all coffees are whole bean for now. This ensures maximum freshness. We recommend grinding just before brewing. Grind options may come in future — let us know what you need via WhatsApp.</div></div>
+      <button class="faq-q" onclick="tFaq(this)" aria-expanded="false" aria-controls="faq-ans-3">Do you only sell whole bean?<span class="faq-icon" aria-hidden="true">+</span></button>
+      <div id="faq-ans-3" class="faq-ans" role="region"><div class="faq-ans-in">Yes — all coffees are whole bean for now. This ensures maximum freshness. We recommend grinding just before brewing. Grind options may come in future — let us know what you need via WhatsApp.</div></div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="tFaq(this)">Do you ship across South Africa?<span class="faq-icon">+</span></button>
-      <div class="faq-ans"><div class="faq-ans-in">Yes — we ship nationwide from Johannesburg. Standard tracked delivery is 2–4 business days. Ask us about free shipping on bulk orders when you message on WhatsApp.</div></div>
+      <button class="faq-q" onclick="tFaq(this)" aria-expanded="false" aria-controls="faq-ans-4">Do you ship across South Africa?<span class="faq-icon" aria-hidden="true">+</span></button>
+      <div id="faq-ans-4" class="faq-ans" role="region"><div class="faq-ans-in">Yes — we ship nationwide from Johannesburg. Standard tracked delivery is 2–4 business days. Ask us about free shipping on bulk orders when you message on WhatsApp.</div></div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="tFaq(this)">How long should I rest the coffee?<span class="faq-icon">+</span></button>
-      <div class="faq-ans"><div class="faq-ans-in">We recommend resting your coffee for <strong style="color:var(--white)">10–14 days from the roast date</strong> before your first brew — regardless of brew method. Freshly roasted beans release CO₂ which disrupts extraction and mutes flavour. By day 10, that process has settled and the full character of the origin comes through clearly. By day 14, you're in the sweet spot. It's worth the wait.</div></div>
+      <button class="faq-q" onclick="tFaq(this)" aria-expanded="false" aria-controls="faq-ans-5">How long should I rest the coffee?<span class="faq-icon" aria-hidden="true">+</span></button>
+      <div id="faq-ans-5" class="faq-ans" role="region"><div class="faq-ans-in">We recommend resting your coffee for <strong style="color:var(--white)">10–14 days from the roast date</strong> before your first brew — regardless of brew method. Freshly roasted beans release CO₂ which disrupts extraction and mutes flavour. By day 10, that process has settled and the full character of the origin comes through clearly. By day 14, you're in the sweet spot. It's worth the wait.</div></div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="tFaq(this)">What does "enTheos" mean on your brand?<span class="faq-icon">+</span></button>
-      <div class="faq-ans"><div class="faq-ans-in">enTheos is Greek for "God within" — it is our mark of devotion. Every roast is offered in gratitude to God Almighty, to the farmers who tend the land, and to the craft that demands excellence. It is not a product feature. It is a posture of faith.</div></div>
+      <button class="faq-q" onclick="tFaq(this)" aria-expanded="false" aria-controls="faq-ans-6">What does "enTheos" mean on your brand?<span class="faq-icon" aria-hidden="true">+</span></button>
+      <div id="faq-ans-6" class="faq-ans" role="region"><div class="faq-ans-in">enTheos is Greek for "God within" — it is our mark of devotion. Every roast is offered in gratitude to God Almighty, to the farmers who tend the land, and to the craft that demands excellence. It is not a product feature. It is a posture of faith.</div></div>
     </div>
   </div>
 </section>
 
 <footer>
-  <img src="images/logo.png" alt="Artifacts Coffee">  
+    <img src="images/logo.png" alt="Artifacts Coffee" loading="lazy">
   <ul class="foot-links">
     <li><a href="#gt">Guatemala</a></li>
     <li><a href="#mx">Mexico</a></li>
     <li><a href="#ni">Nicaragua</a></li>
     <li><a href="#cup">Origin Cup</a></li>
     <li><a href="#story">Our Story</a></li>
+    <li><a href="rewards.html" style="color:var(--yellow)">Brew Circle</a></li>
   </ul>
   <div class="foot-copy">
     <span>© 2026 Artifacts Coffee. Roasted in Johannesburg, South Africa.</span>
@@ -971,7 +990,7 @@ function prepAddToCart(productName, productID) {
 
     // Get selected size from the toggle container
     const szToggle = document.getElementById('sz-' + productID);
-    const selectedSize = szToggle ? szToggle.getAttribute('data-selected-size') : '200g';
+    const selectedSize = szToggle ? szToggle.getAttribute('data-selected-size') : '1kg';
 
     const existingItem = cart.find(item => item.name === productName && item.price === cleanPrice && item.size === selectedSize);
     if (existingItem) {
@@ -1107,7 +1126,7 @@ function updatePayFastFields(total) {
 
     if (pfAmount) pfAmount.value = total.toFixed(2);
     if (pfDesc) {
-        pfDesc.value = cart.map(i => `${i.qty}x ${i.name} (${i.size || '200g'})`).join(', ');
+        pfDesc.value = cart.map(i => `${i.qty}x ${i.name} (${i.size || '1kg'})`).join(', ');
     }
     if (currentUser) {
         if (pfName) pfName.value = currentUser.name + (currentUser.surname ? ' ' + currentUser.surname : '');
@@ -1123,23 +1142,40 @@ function updatePayFastFields(total) {
     // Safety check: ensure item_name is set
     const pfItemName = document.getElementById('pf_item_name');
     if (pfItemName && !pfItemName.value) pfItemName.value = "Artifacts Coffee Order";
-
-    console.log("[DEBUG_LOG] PayFast Fields Updated:");
-    console.log("[DEBUG_LOG] Amount:", pfAmount?.value);
-    console.log("[DEBUG_LOG] Email:", pfEmail?.value);
-    console.log("[DEBUG_LOG] Name:", pfName?.value);
-    console.log("[DEBUG_LOG] Order ID:", pfId?.value);
 }
 
 // --- Animations & UI ---
 function toggleMob() {
   const overlay = document.getElementById('mobOverlay');
   const ham = document.getElementById('navHam');
-  if (overlay.classList.contains('active')) { closeMob(); } 
-  else { overlay.classList.add('active'); ham.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  if (overlay.classList.contains('active')) { 
+    closeMob(); 
+  } else { 
+    overlay.classList.add('active'); 
+    ham.classList.add('open'); 
+    document.body.style.overflow = 'hidden';
+    // Push state for back button handling
+    history.pushState({menu: 'open'}, '');
+  }
 }
 
 function closeMob() {
+  const overlay = document.getElementById('mobOverlay');
+  const ham = document.getElementById('navHam');
+  if (overlay && overlay.classList.contains('active')) {
+    overlay.classList.remove('active');
+    if (ham) ham.classList.remove('open');
+    document.body.style.overflow = '';
+    // If we closed it manually, and there's a state, we might want to pop it or just let it be.
+    // Usually, if we closed it by clicking a link, we don't want the back button to re-open it.
+    if (history.state && history.state.menu === 'open') {
+        history.back();
+    }
+  }
+}
+
+// Separate function for back button/popstate to avoid infinite loops
+function closeMobInternal() {
   const overlay = document.getElementById('mobOverlay');
   const ham = document.getElementById('navHam');
   if (overlay) overlay.classList.remove('active');
@@ -1147,14 +1183,34 @@ function closeMob() {
   document.body.style.overflow = '';
 }
 
+window.addEventListener('popstate', (e) => {
+  // If the menu was open and we hit back, close it
+  closeMobInternal();
+  // Also close cart just in case
+  closeCart();
+});
+
 function tFaq(btn) {
   const item = btn.closest('.faq-item');
   const ans = item.querySelector('.faq-ans');
   const open = item.classList.contains('open');
+  
+  // Close all other open items
   document.querySelectorAll('.faq-item.open').forEach(i => {
-    i.classList.remove('open'); i.querySelector('.faq-ans').style.maxHeight = '0';
+    i.classList.remove('open');
+    i.querySelector('.faq-ans').style.maxHeight = '0';
+    i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
   });
-  if (!open) { item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+
+  if (!open) {
+    item.classList.add('open');
+    ans.style.maxHeight = ans.scrollHeight + 'px';
+    btn.setAttribute('aria-expanded', 'true');
+  } else {
+    item.classList.remove('open');
+    ans.style.maxHeight = '0';
+    btn.setAttribute('aria-expanded', 'false');
+  }
 }
 
 window.addEventListener('keydown', (e) => {
