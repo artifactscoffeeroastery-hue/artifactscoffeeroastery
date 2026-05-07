@@ -1,9 +1,10 @@
+﻿===== index.html =====
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Artifacts Coffee — Johannesburg Micro-Roastery</title>
+<title>Artifacts Coffee â€” Johannesburg Micro-Roastery</title>
 <meta name="description" content="Artifacts Coffee: Johannesburg Micro-Roastery. Sourced with intent, roasted with precision. High-quality single-origin coffee beans, roasted fresh weekly.">
 <meta name="keywords" content="Artifacts Coffee, Johannesburg, coffee roastery, single origin, whole bean coffee, fresh roasted, micro-roastery, enTheos">
 <meta name="author" content="Artifacts Coffee">
@@ -12,14 +13,14 @@
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://artifactscoffee.co.za/">
-<meta property="og:title" content="Artifacts Coffee — Johannesburg Micro-Roastery">
+<meta property="og:title" content="Artifacts Coffee â€” Johannesburg Micro-Roastery">
 <meta property="og:description" content="Artifacts Coffee: Johannesburg Micro-Roastery. Sourced with intent, roasted with precision. High-quality single-origin coffee beans, roasted fresh weekly.">
 <meta property="og:image" content="https://artifactscoffee.co.za/images/logo.png">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://artifactscoffee.co.za/">
-<meta property="twitter:title" content="Artifacts Coffee — Johannesburg Micro-Roastery">
+<meta property="twitter:title" content="Artifacts Coffee â€” Johannesburg Micro-Roastery">
 <meta property="twitter:description" content="Artifacts Coffee: Johannesburg Micro-Roastery. Sourced with intent, roasted with precision. High-quality single-origin coffee beans, roasted fresh weekly.">
 <meta property="twitter:image" content="https://artifactscoffee.co.za/images/logo.png">
 
@@ -55,7 +56,7 @@
     overflow-x: hidden;
   }
 
-  /* ── NAV ── */
+  /* â”€â”€ NAV â”€â”€ */
   nav {
     position: sticky; top: 0; z-index: 300;
     background: var(--black);
@@ -108,7 +109,7 @@
   .nav-contact-btn:focus-visible { outline: 2px solid var(--cyan); outline-offset: -2px; z-index: 1; }
   .nav-contact-btn:not(:last-child) { border-right: 1px solid var(--border); }
 
-  /* ── HERO ── */
+  /* â”€â”€ HERO â”€â”€ */
   .hero {
     padding: 96px 56px 80px;
     display: grid; grid-template-columns: 1fr 1fr;
@@ -148,7 +149,7 @@
     letter-spacing: 0.2em; text-transform: uppercase; color: #555;
   }
 
-  /* ── TICKER ── */
+  /* â”€â”€ TICKER â”€â”€ */
   .ticker {
     background: var(--yellow); color: var(--black);
     padding: 11px 0; overflow: hidden;
@@ -166,7 +167,7 @@
   .tdot { width: 4px; height: 4px; background: var(--black); border-radius: 50%; }
   @keyframes tick { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
-  /* ── PRODUCT SECTION ── */
+  /* â”€â”€ PRODUCT SECTION â”€â”€ */
   .product-section {
     display: flex;
     flex-direction: row;
@@ -244,7 +245,7 @@
   .hoc-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); grid-column: 2; grid-row: 2; line-height: 1.2; }
   .hoc-notes { font-family: 'DM Mono', monospace; font-size: 10px; color: #555; letter-spacing: 0.04em; grid-column: 2; grid-row: 3; }
 
-  /* ── SECTIONS ── */
+  /* â”€â”€ SECTIONS â”€â”€ */
   .entheos-section { background: var(--black); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 120px 60px; text-align: center; position: relative; overflow: hidden; }
   .entheos-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(15,168,223,0.06) 0%, transparent 70%); pointer-events: none; }
   .entheos-cross { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 1px; height: 80%; background: rgba(225,255,1,0.04); pointer-events: none; }
@@ -475,7 +476,7 @@
       </a>
     </div>
     <button class="nav-cart-btn" onclick="openCart()">
-      🛒 Cart <span class="cart-badge" id="cart-badge">0</span>
+      ðŸ›’ Cart <span class="cart-badge" id="cart-badge">0</span>
     </button>
     <button class="nav-ham" id="navHam" aria-label="Toggle navigation" onclick="toggleMob()">
       <span></span><span></span><span></span>
@@ -507,7 +508,7 @@
   </div>
   <div class="reveal d1">
     <p class="hero-desc">
-      Every bag is the final artefact of a deliberate process — sourced with intent,
+      Every bag is the final artefact of a deliberate process â€” sourced with intent,
       roasted with precision, and delivered fresh weekly. No blends. No guesswork.
       Just single origins that eliminate every reason not to buy.
     </p>
@@ -516,19 +517,19 @@
         <span class="hoc-code" style="color:var(--cyan)">GT</span>
         <span class="hoc-price" style="color:var(--cyan)">from R150</span>
         <span class="hoc-name">Blue Ayarza</span>
-        <span class="hoc-notes">Chocolate · Stone Fruit · Floral</span>
+        <span class="hoc-notes">Chocolate Â· Stone Fruit Â· Floral</span>
       </a>
       <a href="#mx" class="hero-origin-card">
         <span class="hoc-code" style="color:var(--yellow)">MX</span>
         <span class="hoc-price" style="color:var(--yellow)">from R148</span>
         <span class="hoc-name">Ki Saya</span>
-        <span class="hoc-notes">Chocolate · Caramel · Soft Citrus</span>
+        <span class="hoc-notes">Chocolate Â· Caramel Â· Soft Citrus</span>
       </a>
       <a href="#ni" class="hero-origin-card">
         <span class="hoc-code" style="color:#ccc">NI</span>
         <span class="hoc-price" style="color:#ccc">from R140</span>
         <span class="hoc-name">Rajuanse Estates</span>
-        <span class="hoc-notes">Chocolate · Caramel · Hazelnut</span>
+        <span class="hoc-notes">Chocolate Â· Caramel Â· Hazelnut</span>
       </a>
     </div>
     <div class="hero-stats">
@@ -564,38 +565,38 @@
   <div class="p-visual">
       <div class="p-close" style="background-image: url('images/gt-1080.png');"></div>
     <div class="p-accent gt-theme"></div>
-    <span class="p-code" style="background:var(--cyan);color:var(--black);">GT · 001</span>
+    <span class="p-code" style="background:var(--cyan);color:var(--black);">GT Â· 001</span>
   </div>
   <div class="p-info reveal">
-    <p class="p-num" style="color:var(--cyan)">001 — Guatemala</p>
-    <p class="p-country">Huehuetenango ·  Washed</p>
+    <p class="p-num" style="color:var(--cyan)">001 â€” Guatemala</p>
+    <p class="p-country">Huehuetenango Â·  Washed</p>
     <h2 class="p-name">Blue<br>Ayarza</h2>
     <p class="p-sub">/ Single Origin Specialty</p>
     <div class="pills">
-      <span class="pill pill-c">🍫 Chocolate</span>
-      <span class="pill pill-c">🍑 Stone Fruit</span>
-      <span class="pill pill-c">🌸 Floral</span>
-      <span class="pill pill-c">✦ Complexity</span>
+      <span class="pill pill-c">ðŸ« Chocolate</span>
+      <span class="pill pill-c">ðŸ‘ Stone Fruit</span>
+      <span class="pill pill-c">ðŸŒ¸ Floral</span>
+      <span class="pill pill-c">âœ¦ Complexity</span>
     </div>
     <div class="divider"></div>
     <div class="pf-selector-wrap">
       <span class="sz-label">Select Size</span>
       <div class="sz-toggle" id="sz-gt" data-selected-size="1kg">
-        <button class="sz-btn sel-c" onclick="selectPF(this,'gt','600','Guatemala Blue Ayarza 1kg')">1kg — R600</button>
-        <button class="sz-btn" onclick="selectPF(this,'gt','150','Guatemala Blue Ayarza 200g')">200g — R150</button>
-        <button class="sz-btn" onclick="selectPF(this,'gt','75','Guatemala Blue Ayarza 80g — Sample Bag')">80g — R75 · Sample Bag</button>
+        <button class="sz-btn sel-c" onclick="selectPF(this,'gt','600','Guatemala Blue Ayarza 1kg')">1kg â€” R600</button>
+        <button class="sz-btn" onclick="selectPF(this,'gt','150','Guatemala Blue Ayarza 200g')">200g â€” R150</button>
+        <button class="sz-btn" onclick="selectPF(this,'gt','75','Guatemala Blue Ayarza 80g â€” Sample Bag')">80g â€” R75 Â· Sample Bag</button>
       </div>
       <div class="price-row">
         <span class="p-curr">R</span>
         <span class="p-amount cc" id="gt-p">600</span>
-        <span class="p-note">/ whole bean · incl. VAT</span>
+        <span class="p-note">/ whole bean Â· incl. VAT</span>
       </div>
       <button class="order-btn btn-c" onclick="prepAddToCart('Guatemala Blue Ayarza', 'gt')">Add to Cart</button>
     </div>
     <div class="trust-row">
-      <span class="titem-sm">⚡ Roasted fresh weekly</span>
-      <span class="titem-sm">↩ Satisfaction guaranteed</span>
-      <span class="titem-sm">✦ Direct trade</span>
+      <span class="titem-sm">âš¡ Roasted fresh weekly</span>
+      <span class="titem-sm">â†© Satisfaction guaranteed</span>
+      <span class="titem-sm">âœ¦ Direct trade</span>
     </div>
   </div>
 </section>
@@ -604,39 +605,39 @@
   <div class="p-visual">
       <div class="p-close" style="background-image: url('images/mx-1080.png');"></div>
     <div class="p-accent mx-theme"></div>
-    <span class="p-code" style="background:var(--yellow);color:var(--black);">MX · 002</span>
+    <span class="p-code" style="background:var(--yellow);color:var(--black);">MX Â· 002</span>
   </div>
   <div class="p-info reveal">
-    <p class="p-num" style="color:var(--yellow)">002 — Mexico</p>
-    <p class="p-country">Chiapas ·  Washed · Organic</p>
+    <p class="p-num" style="color:var(--yellow)">002 â€” Mexico</p>
+    <p class="p-country">Chiapas Â·  Washed Â· Organic</p>
     <h2 class="p-name">Ki<br>Saya</h2>
     <p class="p-sub">/ Certified Organic</p>
-    <div class="organic-tag">🌿 Certified Organic Product</div>
+    <div class="organic-tag">ðŸŒ¿ Certified Organic Product</div>
     <div class="pills">
-      <span class="pill pill-y">🍫 Chocolate</span>
-      <span class="pill pill-y">🍮 Caramel</span>
-      <span class="pill pill-y">🍋 Soft Citrus</span>
-      <span class="pill pill-y">✓ Clean Finish</span>
+      <span class="pill pill-y">ðŸ« Chocolate</span>
+      <span class="pill pill-y">ðŸ® Caramel</span>
+      <span class="pill pill-y">ðŸ‹ Soft Citrus</span>
+      <span class="pill pill-y">âœ“ Clean Finish</span>
     </div>
     <div class="divider"></div>
     <div class="pf-selector-wrap">
       <span class="sz-label">Select Size</span>
       <div class="sz-toggle" id="sz-mx" data-selected-size="1kg">
-        <button class="sz-btn sel-y" onclick="selectPF(this,'mx','592','Mexico Ki Saya Organic 1kg')">1kg — R592</button>
-        <button class="sz-btn" onclick="selectPF(this,'mx','148','Mexico Ki Saya Organic 200g')">200g — R148</button>
-        <button class="sz-btn" onclick="selectPF(this,'mx','75','Mexico Ki Saya Organic 80g — Sample Bag')">80g — R75 · Sample Bag</button>
+        <button class="sz-btn sel-y" onclick="selectPF(this,'mx','592','Mexico Ki Saya Organic 1kg')">1kg â€” R592</button>
+        <button class="sz-btn" onclick="selectPF(this,'mx','148','Mexico Ki Saya Organic 200g')">200g â€” R148</button>
+        <button class="sz-btn" onclick="selectPF(this,'mx','75','Mexico Ki Saya Organic 80g â€” Sample Bag')">80g â€” R75 Â· Sample Bag</button>
       </div>
       <div class="price-row">
         <span class="p-curr">R</span>
         <span class="p-amount cy" id="mx-p">592</span>
-        <span class="p-note">/ whole bean · incl. VAT</span>
+        <span class="p-note">/ whole bean Â· incl. VAT</span>
       </div>
       <button class="order-btn btn-y" onclick="prepAddToCart('Mexico Ki Saya', 'mx')">Add to Cart</button>
     </div>
     <div class="trust-row">
-      <span class="titem-sm">🌿 Certified organic</span>
-      <span class="titem-sm">⚡ Fresh roasted weekly</span>
-      <span class="titem-sm">✦ Direct trade</span>
+      <span class="titem-sm">ðŸŒ¿ Certified organic</span>
+      <span class="titem-sm">âš¡ Fresh roasted weekly</span>
+      <span class="titem-sm">âœ¦ Direct trade</span>
     </div>
   </div>
 </section>
@@ -645,51 +646,51 @@
   <div class="p-visual">
       <div class="p-close" style="background-image: url('images/ni-1080.png');"></div>
     <div class="p-accent ni-theme"></div>
-    <span class="p-code" style="background:var(--white);color:var(--black);">NI · 003</span>
+    <span class="p-code" style="background:var(--white);color:var(--black);">NI Â· 003</span>
   </div>
   <div class="p-info reveal">
-    <p class="p-num" style="color:#ccc">003 — Nicaragua</p>
-    <p class="p-country">Nueva Segovia ·  Washed</p>
+    <p class="p-num" style="color:#ccc">003 â€” Nicaragua</p>
+    <p class="p-country">Nueva Segovia Â·  Washed</p>
     <h2 class="p-name">Rajuanse<br>Estates</h2>
     <p class="p-sub">/ Estate Single Origin</p>
     <div class="pills">
-      <span class="pill pill-w">🍫 Chocolate</span>
-      <span class="pill pill-w">🍮 Caramel</span>
-      <span class="pill pill-w">🌰 Hazelnut</span>
+      <span class="pill pill-w">ðŸ« Chocolate</span>
+      <span class="pill pill-w">ðŸ® Caramel</span>
+      <span class="pill pill-w">ðŸŒ° Hazelnut</span>
     </div>
     <div class="divider"></div>
     <div class="pf-selector-wrap">
       <span class="sz-label">Select Size</span>
       <div class="sz-toggle" id="sz-ni" data-selected-size="1kg">
-        <button class="sz-btn sel-w" onclick="selectPF(this,'ni','560','Nicaragua Rajuanse Estates 1kg')">1kg — R560</button>
-        <button class="sz-btn" onclick="selectPF(this,'ni','140','Nicaragua Rajuanse Estates 200g')">200g — R140</button>
-        <button class="sz-btn" onclick="selectPF(this,'ni','75','Nicaragua Rajuanse Estates 80g — Sample Bag')">80g — R75 · Sample Bag</button>
+        <button class="sz-btn sel-w" onclick="selectPF(this,'ni','560','Nicaragua Rajuanse Estates 1kg')">1kg â€” R560</button>
+        <button class="sz-btn" onclick="selectPF(this,'ni','140','Nicaragua Rajuanse Estates 200g')">200g â€” R140</button>
+        <button class="sz-btn" onclick="selectPF(this,'ni','75','Nicaragua Rajuanse Estates 80g â€” Sample Bag')">80g â€” R75 Â· Sample Bag</button>
       </div>
       <div class="price-row">
         <span class="p-curr">R</span>
         <span class="p-amount cw" id="ni-p">560</span>
-        <span class="p-note">/ whole bean · incl. VAT</span>
+        <span class="p-note">/ whole bean Â· incl. VAT</span>
       </div>
       <button class="order-btn btn-w" onclick="prepAddToCart('Nicaragua Rajuanse', 'ni')">Add to Cart</button>
     </div>
     <div class="trust-row">
-      <span class="titem-sm">🏡 Estate grown</span>
-      <span class="titem-sm">⚡ Fresh roasted weekly</span>
-      <span class="titem-sm">✦ Direct trade</span>
+      <span class="titem-sm">ðŸ¡ Estate grown</span>
+      <span class="titem-sm">âš¡ Fresh roasted weekly</span>
+      <span class="titem-sm">âœ¦ Direct trade</span>
     </div>
   </div>
 </section>
 
 <section id="discovery-pack" class="product-section gt-theme">
   <div class="p-info reveal" style="flex:1 1 100%; width:100%; border-left:none;">
-    <p class="p-num" style="color:var(--cyan)">004 — Artifacts Pack</p>
-    <p class="p-country">Limited Curation · Starter Flight</p>
+    <p class="p-num" style="color:var(--cyan)">004 â€” Artifacts Pack</p>
+    <p class="p-country">Limited Curation Â· Starter Flight</p>
     <h2 class="p-name">Origin<br>Discovery<br>Pack</h2>
     <p class="p-sub">/ Standalone Product</p>
     <div class="pills">
-      <span class="pill pill-c">3 × 80g Curated Origins</span>
-      <span class="pill pill-c">✦ Ideal First Order</span>
-      <span class="pill pill-c">🎁 Gift-Friendly</span>
+      <span class="pill pill-c">3 Ã— 80g Curated Origins</span>
+      <span class="pill pill-c">âœ¦ Ideal First Order</span>
+      <span class="pill pill-c">ðŸŽ Gift-Friendly</span>
     </div>
     <div class="divider"></div>
     <div class="pf-selector-wrap">
@@ -697,14 +698,14 @@
       <div class="price-row">
         <span class="p-curr">R</span>
         <span class="p-amount cc" id="dp-p">170</span>
-        <span class="p-note">/ 3 × 80g curated single origins · incl. VAT</span>
+        <span class="p-note">/ 3 Ã— 80g curated single origins Â· incl. VAT</span>
       </div>
-      <button class="order-btn btn-c" onclick="prepAddFixedProduct('Artifacts Origin Discovery Pack', 'dp', 170, '3 × 80g curated single origins')">Add Discovery Pack</button>
+      <button class="order-btn btn-c" onclick="prepAddFixedProduct('Artifacts Origin Discovery Pack', 'dp', 170, '3 Ã— 80g curated single origins')">Add Discovery Pack</button>
     </div>
     <div class="trust-row">
-      <span class="titem-sm">⚡ Roasted fresh weekly</span>
-      <span class="titem-sm">✦ Curated origin selection</span>
-      <span class="titem-sm">🎁 Perfect for tasting</span>
+      <span class="titem-sm">âš¡ Roasted fresh weekly</span>
+      <span class="titem-sm">âœ¦ Curated origin selection</span>
+      <span class="titem-sm">ðŸŽ Perfect for tasting</span>
     </div>
   </div>
 </section>
@@ -713,11 +714,11 @@
 <section id="cup" class="cup-section reveal">
   <div class="cup-section-inner">
     <div class="cup-left">
-      <p class="p-num" style="color:var(--cyan)">004 — Artifacts Merch</p>
+      <p class="p-num" style="color:var(--cyan)">004 â€” Artifacts Merch</p>
       <h2 class="cup-title">The<br>Origin<br>Cup</h2>
-      <p class="cup-sub">12oz Ceramic · Matte Cyan Series</p>
+      <p class="cup-sub">12oz Ceramic Â· Matte Cyan Series</p>
       <p class="cup-desc">
-        Designed in Johannesburg. Built for the ritual. The Origin Cup carries the Artifacts mark — 
+        Designed in Johannesburg. Built for the ritual. The Origin Cup carries the Artifacts mark â€” 
         bold cyan on matte ceramic, the cup icon that shaped our identity. A collector's piece 
         for those who understand that every cup is an act of intention.
       </p>
@@ -731,19 +732,19 @@
       <div class="cup-price-row">
         <span class="cup-r">R</span>
         <span class="cup-price">150</span>
-        <span class="cup-note">/ incl. VAT · ships nationwide</span>
+        <span class="cup-note">/ incl. VAT Â· ships nationwide</span>
       </div>
       <button class="cup-oos-btn" disabled>
         <span class="cup-oos-line"></span>
         Out of Stock
       </button>
       <a class="cup-notify" href="mailto:roast@artifactscoffee.co.za?subject=Notify%20Me:%20The%20Origin%20Cup">
-        <span>💬 Notify me when available →</span>
+        <span>ðŸ’¬ Notify me when available â†’</span>
       </a>
       <div class="cup-trust">
-        <span class="cup-trust-item">✦ Limited Edition</span>
-        <span class="cup-trust-item">⚡ Coming Soon</span>
-        <span class="cup-trust-item">🏡 Made in JHB</span>
+        <span class="cup-trust-item">âœ¦ Limited Edition</span>
+        <span class="cup-trust-item">âš¡ Coming Soon</span>
+        <span class="cup-trust-item">ðŸ¡ Made in JHB</span>
       </div>
     </div>
     <div class="cup-right">
@@ -765,14 +766,14 @@
   <div class="entheos-word">
     <span class="entheos-en">en</span><span class="entheos-theos">THEOS</span>
   </div>
-  <p class="entheos-greek">ἔνθεος &nbsp;·&nbsp; en·the·os &nbsp;·&nbsp; "God within"</p>
+  <p class="entheos-greek">á¼”Î½Î¸ÎµÎ¿Ï‚ &nbsp;Â·&nbsp; enÂ·theÂ·os &nbsp;Â·&nbsp; "God within"</p>
   <h2 class="entheos-quote">
     <em>God Within</em> Every Cup.<br>Faith In Every Roast.
   </h2>
   <div class="entheos-divider"></div>
   <p class="entheos-body">
     enTheos is not a product. It is a posture.<br><br>
-    Every batch we roast is offered in gratitude — to the farmers who tend the land,
+    Every batch we roast is offered in gratitude â€” to the farmers who tend the land,
     to the craft that demands precision, and to God Almighty, the source of all good things.
     This word lives on our brand as a mark of devotion: a reminder that excellence
     is an act of worship, and that every cup carries something greater than coffee.
@@ -795,7 +796,7 @@
       <br><br>
       In coffee, the same principle applies. Every roasted batch is the result of sourcing decisions,
       supplier relationships, roast development, and controlled execution.
-      <strong>The final product is not accidental — it is the outcome of structure and precision.</strong>
+      <strong>The final product is not accidental â€” it is the outcome of structure and precision.</strong>
       <br><br>
       Artifacts Coffee treats each roast as the final artefact of that process: clear in origin,
       intentional in development, and consistent in delivery.
@@ -816,17 +817,17 @@
     <div class="obj-card">
       <p class="obj-q">"Will this work for me?"</p>
       <h3 class="obj-a">Whole Bean, Roasted to Order</h3>
-      <p class="obj-b">Every bag is roasted specifically for your order — not shelf stock. Whole bean means you grind fresh for maximum flavour. Order via WhatsApp and tell us what you brew with — we'll guide you to the right origin.</p>
+      <p class="obj-b">Every bag is roasted specifically for your order â€” not shelf stock. Whole bean means you grind fresh for maximum flavour. Order via WhatsApp and tell us what you brew with â€” we'll guide you to the right origin.</p>
     </div>
     <div class="obj-card">
       <p class="obj-q">"Is it worth the price?"</p>
       <h3 class="obj-a">Farm-Direct. Traceable. Specialty Grade.</h3>
-      <p class="obj-b">Every rand goes toward direct-trade relationships — no middlemen. Specialty grade means it's been scored, cupped, and verified. You're paying for the actual coffee. That's what you taste.</p>
+      <p class="obj-b">Every rand goes toward direct-trade relationships â€” no middlemen. Specialty grade means it's been scored, cupped, and verified. You're paying for the actual coffee. That's what you taste.</p>
     </div>
     <div class="obj-card">
       <p class="obj-q">"Can I trust this?"</p>
       <h3 class="obj-a">Order on WhatsApp. It's That Simple.</h3>
-      <p class="obj-b">No complicated checkout. No accounts. Message us, we roast and ship. We're real people, reachable directly. If something's not right, we make it right — no forms, no waiting.</p>
+      <p class="obj-b">No complicated checkout. No accounts. Message us, we roast and ship. We're real people, reachable directly. If something's not right, we make it right â€” no forms, no waiting.</p>
     </div>
   </div>
 </section>
@@ -847,10 +848,10 @@
     <tbody>
       <tr><td class="alabel">Origin</td><td class="cc">Guatemala</td><td class="cy">Mexico</td><td class="cw">Nicaragua</td></tr>
       <tr><td class="alabel">Process</td><td>Fully Washed</td><td>Fully Washed</td><td>Fully Washed</td></tr>
-      <tr><td class="alabel">Certified Organic</td><td><span class="dot-off">○</span></td><td><span class="dot-on">●</span></td><td><span class="dot-off">○</span></td></tr>
-      <tr><td class="alabel">Chocolate Notes</td><td><span class="dot-on">●</span></td><td><span class="dot-on">●</span></td><td><span class="dot-on">●</span></td></tr>
-      <tr><td class="alabel">Fruit / Floral</td><td>Stone Fruit + Floral</td><td><span class="dot-off">○</span></td><td><span class="dot-off">○</span></td></tr>
-      <tr><td class="alabel">Caramel / Nutty</td><td><span class="dot-off">○</span></td><td>Caramel</td><td>Caramel + Hazelnut</td></tr>
+      <tr><td class="alabel">Certified Organic</td><td><span class="dot-off">â—‹</span></td><td><span class="dot-on">â—</span></td><td><span class="dot-off">â—‹</span></td></tr>
+      <tr><td class="alabel">Chocolate Notes</td><td><span class="dot-on">â—</span></td><td><span class="dot-on">â—</span></td><td><span class="dot-on">â—</span></td></tr>
+      <tr><td class="alabel">Fruit / Floral</td><td>Stone Fruit + Floral</td><td><span class="dot-off">â—‹</span></td><td><span class="dot-off">â—‹</span></td></tr>
+      <tr><td class="alabel">Caramel / Nutty</td><td><span class="dot-off">â—‹</span></td><td>Caramel</td><td>Caramel + Hazelnut</td></tr>
       <tr><td class="alabel">Complexity</td><td>High</td><td>Medium</td><td>Smooth / Comforting</td></tr>
       <tr><td class="alabel">Best For</td><td>Adventurous palates</td><td>Clean everyday cup</td><td>Comfort lovers</td></tr>
       <tr><td class="alabel">1kg Price</td><td class="cc">R600</td><td class="cy">R592</td><td class="cw">R560</td></tr>
@@ -867,27 +868,27 @@
     <h2 class="sec-head" style="text-align:left;margin-bottom:44px">Your Doubts,<br>Resolved.</h2>
     <div class="faq-item">
       <button class="faq-q" onclick="tFaq(this)" aria-expanded="false" aria-controls="faq-ans-1">How do I place an order?<span class="faq-icon" aria-hidden="true">+</span></button>
-      <div id="faq-ans-1" class="faq-ans" role="region"><div class="faq-ans-in">Tap "Order on WhatsApp" on any product — it opens directly to our catalogue. Tell us your coffee, size, and delivery address. We confirm, roast, and ship. No accounts needed.</div></div>
+      <div id="faq-ans-1" class="faq-ans" role="region"><div class="faq-ans-in">Tap "Order on WhatsApp" on any product â€” it opens directly to our catalogue. Tell us your coffee, size, and delivery address. We confirm, roast, and ship. No accounts needed.</div></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="tFaq(this)" aria-expanded="false" aria-controls="faq-ans-2">When does my coffee get roasted?<span class="faq-icon" aria-hidden="true">+</span></button>
-      <div id="faq-ans-2" class="faq-ans" role="region"><div class="faq-ans-in">We roast weekly to order and ship your coffee within days of roasting — so it arrives fresh and still degassing. But here's the thing: we actually encourage you to wait. Let your bag rest at home for 10–14 days from the roast date before your first brew. That's when the flavours have fully settled and the coffee is at its absolute best. Good things take time.</div></div>
+      <div id="faq-ans-2" class="faq-ans" role="region"><div class="faq-ans-in">We roast weekly to order and ship your coffee within days of roasting â€” so it arrives fresh and still degassing. But here's the thing: we actually encourage you to wait. Let your bag rest at home for 10â€“14 days from the roast date before your first brew. That's when the flavours have fully settled and the coffee is at its absolute best. Good things take time.</div></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="tFaq(this)" aria-expanded="false" aria-controls="faq-ans-3">Do you only sell whole bean?<span class="faq-icon" aria-hidden="true">+</span></button>
-      <div id="faq-ans-3" class="faq-ans" role="region"><div class="faq-ans-in">Yes — all coffees are whole bean for now. This ensures maximum freshness. We recommend grinding just before brewing. Grind options may come in future — let us know what you need via WhatsApp.</div></div>
+      <div id="faq-ans-3" class="faq-ans" role="region"><div class="faq-ans-in">Yes â€” all coffees are whole bean for now. This ensures maximum freshness. We recommend grinding just before brewing. Grind options may come in future â€” let us know what you need via WhatsApp.</div></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="tFaq(this)" aria-expanded="false" aria-controls="faq-ans-4">Do you ship across South Africa?<span class="faq-icon" aria-hidden="true">+</span></button>
-      <div id="faq-ans-4" class="faq-ans" role="region"><div class="faq-ans-in">Yes — we ship nationwide from Johannesburg. Standard tracked delivery is 2–4 business days. Ask us about free shipping on bulk orders when you message on WhatsApp.</div></div>
+      <div id="faq-ans-4" class="faq-ans" role="region"><div class="faq-ans-in">Yes â€” we ship nationwide from Johannesburg. Standard tracked delivery is 2â€“4 business days. Ask us about free shipping on bulk orders when you message on WhatsApp.</div></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="tFaq(this)" aria-expanded="false" aria-controls="faq-ans-5">How long should I rest the coffee?<span class="faq-icon" aria-hidden="true">+</span></button>
-      <div id="faq-ans-5" class="faq-ans" role="region"><div class="faq-ans-in">We recommend resting your coffee for <strong style="color:var(--white)">10–14 days from the roast date</strong> before your first brew — regardless of brew method. Freshly roasted beans release CO₂ which disrupts extraction and mutes flavour. By day 10, that process has settled and the full character of the origin comes through clearly. By day 14, you're in the sweet spot. It's worth the wait.</div></div>
+      <div id="faq-ans-5" class="faq-ans" role="region"><div class="faq-ans-in">We recommend resting your coffee for <strong style="color:var(--white)">10â€“14 days from the roast date</strong> before your first brew â€” regardless of brew method. Freshly roasted beans release COâ‚‚ which disrupts extraction and mutes flavour. By day 10, that process has settled and the full character of the origin comes through clearly. By day 14, you're in the sweet spot. It's worth the wait.</div></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="tFaq(this)" aria-expanded="false" aria-controls="faq-ans-6">What does "enTheos" mean on your brand?<span class="faq-icon" aria-hidden="true">+</span></button>
-      <div id="faq-ans-6" class="faq-ans" role="region"><div class="faq-ans-in">enTheos is Greek for "God within" — it is our mark of devotion. Every roast is offered in gratitude to God Almighty, to the farmers who tend the land, and to the craft that demands excellence. It is not a product feature. It is a posture of faith.</div></div>
+      <div id="faq-ans-6" class="faq-ans" role="region"><div class="faq-ans-in">enTheos is Greek for "God within" â€” it is our mark of devotion. Every roast is offered in gratitude to God Almighty, to the farmers who tend the land, and to the craft that demands excellence. It is not a product feature. It is a posture of faith.</div></div>
     </div>
   </div>
 </section>
@@ -903,14 +904,14 @@
     <li><a href="rewards.html" style="color:var(--yellow)">Brew Circle</a></li>
   </ul>
   <div class="foot-copy">
-    <span>© 2026 Artifacts Coffee. Roasted in Johannesburg, South Africa.</span>
+    <span>Â© 2026 Artifacts Coffee. Roasted in Johannesburg, South Africa.</span>
   </div>
 </footer>
 
 <div id="cartDrawer" class="cart-drawer">
     <div class="cart-header">
         <h2 class="bebas" style="font-size: 32px; margin: 0;">Your Selection</h2>
-        <button onclick="closeCart()" class="close-btn">✕</button>
+        <button onclick="closeCart()" class="close-btn">âœ•</button>
     </div>
 
     <div id="step-account" class="cart-step">
@@ -957,7 +958,7 @@
         <div class="cart-footer">
             <div id="total-price" class="bebas">Total: R 0.00</div>
             
-            <button onclick="netlifyIdentity.logout()" class="action-btn" style="background:none; border:1px solid var(--border); color:var(--muted); font-size:14px; margin-bottom:10px;">← Sign Out / Change Account</button>
+            <button onclick="netlifyIdentity.logout()" class="action-btn" style="background:none; border:1px solid var(--border); color:var(--muted); font-size:14px; margin-bottom:10px;">â† Sign Out / Change Account</button>
             
             <!-- PayFast Form -->
             <form action="https://www.payfast.co.za/eng/process" method="post" id="payfast-form">
@@ -1062,7 +1063,7 @@ function selectPF(btn, id, amount, itemName) {
     document.getElementById(id + '-p').textContent = amount;
     
     // Store selected size in the toggle container
-    const size = btn.textContent.split(' —')[0];
+    const size = btn.textContent.split(' â€”')[0];
     group.setAttribute('data-selected-size', size);
 }
 
@@ -1553,3 +1554,685 @@ document.querySelectorAll('.reveal').forEach(r => io.observe(r));
 </script>
 </body>
 </html>
+
+===== css\styles.css =====
+:root {
+  --cyan: #0FA8DF; --yellow: #E1FF01; --black: #080808; 
+  --off: #101010; --mid: #161616; --border: #1E1E1E; 
+  --white: #F2F2F2; --muted: #888;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--white); font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+
+/* â”€â”€ NAV â”€â”€ */
+nav { 
+  position: sticky; top: 0; z-index: 300; 
+  background: var(--black); border-bottom: 2px solid var(--cyan); 
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; 
+  padding: 0 48px; height: 66px; 
+}
+.nav-logo { display: flex; align-items: center; }
+.nav-logo img { height: 32px; display: block; }
+.nav-links { 
+  display: flex; gap: 32px; list-style: none; 
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; 
+  letter-spacing: 0.18em; text-transform: uppercase; 
+  justify-self: center;
+}
+.nav-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--yellow); }
+
+.nav-right { display: flex; align-items: center; gap: 12px; justify-self: end; }
+
+.nav-contact-group { display: flex; align-items: center; gap: 0; background: var(--border); border: 1px solid var(--border); }
+.nav-contact-btn {
+  display: flex; align-items: center; justify-content: center; width: 42px; height: 42px;
+  background: var(--off); color: var(--white);
+  text-decoration: none; cursor: pointer; transition: all 0.2s;
+}
+.nav-contact-btn svg { width: 18px; height: 18px; fill: currentColor; }
+.nav-contact-btn.wa:hover { background: #25D366; color: white; }
+.nav-contact-btn.mail:hover { background: var(--cyan); color: white; }
+.nav-contact-btn:not(:last-child) { border-right: 1px solid var(--border); }
+
+/* â”€â”€ HERO â”€â”€ */
+.hero { padding: 96px 56px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; border-bottom: 1px solid var(--border); }
+.hero-kicker { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--cyan); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+.hero-kicker::before { content:''; width:28px; height:2px; background:var(--cyan); }
+.hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(68px, 8.5vw, 128px); line-height: 0.88; letter-spacing: 0.02em; margin-bottom: 0; }
+.hero-title em { color: var(--cyan); font-style: normal; }
+.hero-desc { font-size: 13px; color: #999; line-height: 1.95; margin-bottom: 36px; }
+.hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+.hstat { background: var(--off); padding: 22px 16px; text-align: center; }
+.hstat-n { font-family: 'Bebas Neue', sans-serif; font-size: 38px; color: var(--yellow); line-height: 1; margin-bottom: 4px; }
+.hstat-l { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #555; }
+
+/* â”€â”€ TICKER â”€â”€ */
+.ticker { background: var(--yellow); color: var(--black); padding: 11px 0; overflow: hidden; }
+.ticker-inner { display: flex; animation: tick 24s linear infinite; width: max-content; }
+.titem { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; padding: 0 26px; white-space: nowrap; display: flex; align-items: center; gap: 26px; }
+.tdot { width: 4px; height: 4px; background: var(--black); border-radius: 50%; }
+@keyframes tick { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* â”€â”€ PRODUCT SECTION â”€â”€ */
+.product-section { display: flex !important; flex-direction: row; align-items: stretch; width: 100%; min-height: 100vh; overflow: hidden; background: var(--black); border-bottom: 2px solid var(--border); }
+.product-section.flip { flex-direction: row-reverse !important; }
+
+.p-visual { flex: 0 0 50%; width: 50%; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 0; background: #0c0c0c; min-height: 560px; border-bottom: 1px solid var(--border); }
+.p-close { position: absolute; inset: 0; background-size: cover; background-position: center top; opacity: 1; transition: opacity 0.5s ease; }
+.p-bag { position: relative; z-index: 3; width: 100%; max-height: 420px; object-fit: contain; filter: drop-shadow(0 24px 70px rgba(0,0,0,0.7)); animation: float 7s ease-in-out infinite; transition: opacity 0.4s; }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-13px)} }
+
+.p-visual:hover .p-bag { opacity: 0.08; }
+.p-visual:hover .p-close { opacity: 1; }
+.p-accent { position:absolute; top:0; left:0; right:0; height:4px; z-index:5; }
+.p-code { position: absolute; top: 20px; right: 20px; z-index: 5; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; padding: 5px 12px; }
+.gt-theme .p-accent { background: var(--cyan); }
+.mx-theme .p-accent { background: var(--yellow); }
+.ni-theme .p-accent { background: var(--white); }
+
+.p-info { flex: 0 0 50%; width: 50%; padding: 64px 54px; background: var(--off); border-left: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; }
+.product-section.flip .p-info { border-left: none; border-right: 1px solid var(--border); }
+.p-num { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 6px; }
+.p-country { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: #666; margin-bottom: 6px; }
+.p-name { font-family: 'Bebas Neue', sans-serif; font-size: clamp(54px, 5.5vw, 82px); line-height: 0.9; letter-spacing: 0.02em; margin-bottom: 6px; }
+.p-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #555; margin-bottom: 24px; }
+.organic-tag { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--yellow); color: var(--yellow); font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 4px 12px; margin-bottom: 18px; width: fit-content; }
+.pills { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 30px; }
+.pill { border: 1px solid; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.04em; padding: 5px 13px; }
+.pill-c { border-color: var(--cyan); color: var(--cyan); }
+.pill-y { border-color: var(--yellow); color: var(--yellow); }
+.pill-w { border-color: #aaa; color: #aaa; }
+
+.divider { width:100%; height:1px; background:var(--border); margin: 26px 0; }
+.sz-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #555; display: block; margin-bottom: 10px; }
+.sz-toggle { display: inline-flex; border: 1px solid var(--border); margin-bottom: 26px; }
+.sz-btn { background: transparent; border: none; border-right: 1px solid var(--border); color: #666; font-family: 'DM Mono', monospace; font-size: 12px; padding: 10px 24px; cursor: pointer; transition: all 0.2s; }
+.sz-btn:last-child { border-right: none; }
+.sz-btn:hover:not([class*="sel-"]) { color: var(--white); }
+.sel-c { background: var(--cyan); color: var(--black); }
+.sel-y { background: var(--yellow); color: var(--black); }
+.sel-w { background: var(--white); color: var(--black); }
+
+.price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 22px; }
+.p-curr { font-family:'Barlow Condensed',sans-serif; font-size:20px; color:#666; }
+.p-amount { font-family: 'Bebas Neue', sans-serif; font-size: 58px; line-height: 1; letter-spacing: 0.02em; }
+.p-note { font-size: 11px; color: #444; }
+
+.order-btn { display: flex; align-items: center; justify-content: center; gap: 11px; width: 100%; padding: 17px 32px; border: none; cursor: pointer; font-family: 'Bebas Neue', sans-serif; font-size: 21px; letter-spacing: 0.1em; text-decoration: none; transition: all 0.22s; }
+.order-btn:hover { opacity: 0.85; transform: translateY(-2px); }
+.btn-c { background: var(--cyan); color: var(--black); }
+.btn-y { background: var(--yellow); color: var(--black); }
+.btn-w { background: var(--white); color: var(--black); }
+
+.trust-row { display: flex; gap: 18px; margin-top: 16px; flex-wrap: wrap; }
+.titem-sm { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #444; }
+
+/* â”€â”€ OTHER SECTIONS â”€â”€ */
+.entheos-section { background: var(--black); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 120px 60px; text-align: center; position: relative; overflow: hidden; }
+/* Included all other CSS exact copies... */
+.cart-drawer { 
+  position: fixed; top: 0; right: -100%; width: 400px; max-width: 100%; 
+  height: 100%; background: var(--off); z-index: 2000; 
+  transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); padding: 40px; 
+  border-left: 1px solid var(--border); overflow-y: auto; 
+}
+.cart-drawer.active { right: 0; }
+.cart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.close-btn { background: none; border: none; color: white; font-size: 28px; cursor: pointer; padding: 10px; line-height: 1; transition: opacity 0.2s; }
+.close-btn:hover { opacity: 0.7; }
+.cart-step input, .shipping-box select { width: 100%; background: var(--black); border: 1px solid var(--border); padding: 12px; margin-bottom: 10px; color: white; font-family: 'DM Mono', monospace; }
+.auth-toggle { display: flex; margin-bottom: 20px; gap: 10px; }
+.auth-toggle button { flex: 1; padding: 10px; background: none; border: 1px solid var(--border); color: var(--muted); cursor: pointer; }
+.auth-toggle button.active { border-color: var(--cyan); color: var(--cyan); }
+.action-btn, .pay-btn { width: 100%; padding: 15px; background: var(--cyan); color: black; border: none; font-family: 'Bebas Neue', sans-serif; font-size: 20px; cursor: pointer; margin-top: 15px; }
+.shipping-box { margin-top: 20px; }
+.cart-footer { margin-top: 30px; border-top: 1px solid var(--border); padding-top: 20px; }
+#total-price { font-size: 30px; margin-bottom: 15px; }
+/* â”€â”€ CART BUTTON IN NAV â”€â”€ */
+.nav-cart { 
+  position: relative; background: var(--off); border: 1px solid var(--border); 
+  color: var(--white); width: 42px; height: 42px; 
+  display: flex; align-items: center; justify-content: center; 
+  cursor: pointer; transition: all 0.2s; 
+}
+.nav-cart:hover { border-color: var(--cyan); color: var(--cyan); }
+.cart-count { 
+  position: absolute; top: -6px; right: -6px; 
+  background: var(--cyan); color: var(--black); 
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 10px; 
+  width: 18px; height: 18px; border-radius: 50%; 
+  display: flex; align-items: center; justify-content: center; 
+}
+
+/* â”€â”€ CART BACKDROP â”€â”€ */
+.cart-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1999; opacity: 0; pointer-events: none; transition: opacity 0.35s; }
+.cart-backdrop.active { opacity: 1; pointer-events: all; }
+
+/* â”€â”€ HERO ORIGIN CARDS â”€â”€ */
+.hero-origins { display: flex; flex-direction: column; gap: 2px; margin-bottom: 28px; }
+.hero-origin-card { background: var(--off); padding: 14px 18px; display: grid; grid-template-columns: 60px 1fr; grid-template-rows: auto auto auto; gap: 0 16px; text-decoration: none; transition: background 0.2s; align-items: center; border: 1px solid var(--border); }
+.hero-origin-card:hover { background: #1a1a1a; }
+.hoc-code { font-family: 'Bebas Neue', sans-serif; font-size: 43.195px; line-height: 0.9; grid-row: 1 / 4; align-self: center; }
+.hoc-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.1em; grid-column: 2; grid-row: 1; align-self: flex-end; }
+.hoc-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 15px; color: var(--white); letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.2; grid-column: 2; grid-row: 2; }
+.hoc-notes { font-family: 'DM Mono', monospace; font-size: 10px; color: #555; letter-spacing: 0.04em; grid-column: 2; grid-row: 3; }
+
+/* â”€â”€ MOBILE OVERLAY â”€â”€ */
+.mob-overlay { 
+  position: fixed; inset: 0; background: var(--black); z-index: 500; 
+  display: flex; flex-direction: column; align-items: center; justify-content: center; 
+  gap: 24px; padding: 40px;
+  transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); 
+}
+.mob-overlay.active { transform: translateX(0); }
+.mob-links { display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
+.mob-link { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: var(--white); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; text-transform: uppercase; }
+.mob-link:hover { color: var(--cyan); }
+.mob-contact { display: flex; flex-direction: column; align-items: center; gap: 16px; margin-top: 24px; width: 100%; max-width: 280px; }
+.mob-wa-btn {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  width: 100%; padding: 16px; background: #25D366; color: white;
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px;
+  letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+}
+.mob-mail-btn {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  width: 100%; padding: 16px; background: var(--cyan); color: white;
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px;
+  letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+}
+
+/* â”€â”€ HAMBURGER â”€â”€ */
+.nav-ham { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.nav-ham span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; }
+.nav-ham.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-ham.open span:nth-child(2) { opacity: 0; }
+.nav-ham.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* â”€â”€ CUP SECTION â”€â”€ */
+.cup-section { padding: 120px 60px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--black); }
+.cup-section-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 120px; align-items: start; }
+.cup-left { padding-top: 40px; }
+.cup-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(100px, 12vw, 180px); line-height: 0.85; letter-spacing: 0.02em; margin-bottom: 24px; text-transform: uppercase; }
+.cup-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cyan); margin-bottom: 32px; }
+.cup-desc { font-family: 'DM Mono', monospace; font-size: 13px; color: #777; line-height: 1.8; margin-bottom: 40px; max-width: 480px; }
+.cup-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 48px; margin-bottom: 48px; max-width: 480px; }
+.cup-spec { display: flex; flex-direction: column; gap: 6px; }
+.spec-l { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #444; }
+.spec-v { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--white); letter-spacing: 0.04em; }
+.cup-divider { width: 100%; height: 1px; background: var(--border); margin: 40px 0; }
+.cup-price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 32px; }
+.cup-r { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; color: #444; }
+.cup-price { font-family: 'Bebas Neue', sans-serif; font-size: 100px; line-height: 1; letter-spacing: 0.02em; color: var(--white); }
+.cup-note { font-family: 'DM Mono', monospace; font-size: 11px; color: #333; }
+.cup-oos-btn { position: relative; width: 100%; max-width: 480px; padding: 20px; background: transparent; border: 1px solid #333; color: #555; font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 0.1em; cursor: not-allowed; overflow: hidden; text-transform: uppercase; }
+.cup-oos-line { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top right, transparent calc(50% - 0.5px), #333, transparent calc(50% + 0.5px)); pointer-events: none; }
+.cup-notify { display: flex; align-items: center; justify-content: flex-end; gap: 8px; color: var(--cyan); font-family: 'DM Mono', monospace; font-size: 12px; text-decoration: none; margin-top: 24px; max-width: 480px; transition: all 0.2s; font-weight: 600; }
+.cup-notify:hover { opacity: 1; color: var(--yellow); transform: translateX(4px); }
+.cup-trust { display: flex; gap: 24px; margin-top: 48px; flex-wrap: wrap; }
+.cup-trust-item { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #333; display: flex; align-items: center; gap: 6px; }
+
+.cup-right { position: relative; display: flex; align-items: center; justify-content: center; min-height: 600px; background: #0c0c0c; border-radius: 24px; border: 1px solid var(--border); overflow: hidden; }
+.cup-glow { position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(15,168,223,0.08) 0%, transparent 70%); border-radius: 50%; }
+.cup-badge-row { position: absolute; top: 32px; left: 32px; right: 32px; display: flex; justify-content: space-between; align-items: flex-start; z-index: 10; }
+.cup-badge-new { background: var(--yellow); color: var(--black); font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 14px; }
+.cup-badge-ltd { color: #555; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
+.cup-img-wrap { position: relative; z-index: 2; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; padding: 60px; }
+.cup-img-wrap img { max-width: 100%; max-height: 480px; object-fit: contain; filter: drop-shadow(0 40px 80px rgba(0,0,0,0.5)); animation: float 7s ease-in-out infinite; }
+
+.entheos-section {
+  background: var(--black);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 120px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 1023px) {
+  .entheos-section { border-top: none; }
+}
+.entheos-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(15,168,223,0.05) 0%, transparent 70%); pointer-events: none; }
+.entheos-cross { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 200px; opacity: 0.03; background: linear-gradient(var(--cyan), var(--cyan)) center/2px 100% no-repeat, linear-gradient(var(--cyan), var(--cyan)) center/100% 2px no-repeat; }
+.entheos-word { font-family: 'Bebas Neue', sans-serif; font-size: clamp(30px, 5vw, 60px); line-height: 0.85; letter-spacing: 0.04em; margin-bottom: 20px; position: relative; z-index: 1; }
+.entheos-en { color: var(--yellow); text-transform: lowercase; font-style: italic; }
+.entheos-theos { color: var(--yellow); text-transform: uppercase; }
+.entheos-greek { font-family: 'DM Mono', monospace; font-size: 13px; color: #555; letter-spacing: 0.15em; text-transform: lowercase; font-style: italic; margin-bottom: 40px; position: relative; z-index: 1; }
+.entheos-quote { font-family: 'Bebas Neue', sans-serif; font-size: clamp(32px, 5vw, 64px); line-height: 1; letter-spacing: 0.04em; color: var(--white); position: relative; z-index: 1; text-transform: uppercase; }
+.entheos-quote-highlight { color: var(--yellow); }
+.entheos-divider { width: 32px; height: 1px; background: var(--yellow); margin: 32px auto; position: relative; z-index: 1; }
+.entheos-body { font-family: 'DM Mono', monospace; font-size: 11px; color: #444; line-height: 1.6; max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+
+.blue-txt { color: var(--cyan); }
+
+/* â”€â”€ PHILOSOPHY SECTION â”€â”€ */
+.philosophy-section { padding: 0; overflow: hidden; border-bottom: 1px solid var(--border); }
+@media (min-width: 1024px) {
+  .philosophy-section { display: flex; align-items: stretch; min-height: 600px; }
+  .phil-top { flex: 0 0 50%; display: flex; align-items: center; }
+  .phil-bottom { flex: 0 0 50%; display: flex; align-items: center; border-left: 1px solid var(--border); }
+}
+.phil-top { background: var(--yellow); padding: 100px 60px; color: var(--black); }
+.phil-top-inner { max-width: 700px; margin: 0 auto; }
+.phil-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 20px; color: var(--black); opacity: 0.6; }
+.phil-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px, 8vw, 120px); line-height: 0.85; letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: 32px; }
+.phil-sub { font-family: 'DM Mono', monospace; font-size: 14px; line-height: 1.6; color: var(--black); font-style: italic; }
+
+.phil-bottom { background: var(--black); padding: 100px 60px; }
+.phil-bottom-inner { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 60px; }
+.phil-main { display: flex; flex-direction: column; gap: 24px; }
+.phil-body { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--white); line-height: 1.8; }
+.phil-meta { padding-top: 8px; }
+.phil-location { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 24px; }
+.phil-info { font-family: 'DM Mono', monospace; font-size: 12px; color: #555; line-height: 2; }
+
+/* â”€â”€ NO DOUBT SECTION â”€â”€ */
+.no-doubt-section { background: var(--yellow); border-bottom: 1px solid var(--border); }
+.nd-header { background: var(--yellow); color: var(--black); padding: 120px 60px 80px; text-align: center; }
+.nd-kicker { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 16px; opacity: 0.6; }
+.nd-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px, 8.5vw, 130px); line-height: 0.85; letter-spacing: 0.02em; text-transform: uppercase; }
+.nd-grid { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--yellow); gap: 1px; border-top: 1px solid var(--black); padding-bottom: 80px; }
+.nd-card { background: var(--black); padding: 60px 48px; display: flex; flex-direction: column; gap: 16px; min-height: 320px; }
+.nd-card-kicker { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; color: var(--cyan); text-transform: uppercase; }
+.nd-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 32px; line-height: 1; color: var(--white); letter-spacing: 0.04em; text-transform: uppercase; }
+.nd-card-body { font-family: 'DM Mono', monospace; font-size: 12px; color: #777; line-height: 1.7; }
+
+/* enTheos Section Vertical centering fix */
+@media (min-width: 1024px) {
+  .entheos-section { min-height: 600px; display: flex; flex-direction: column; justify-content: center; }
+}
+
+@media (max-width: 1023px) {
+  .nd-grid { grid-template-columns: 1fr; padding-bottom: 40px; }
+  .nd-card { padding: 48px 28px; min-height: auto; }
+  .nd-header { padding: 80px 28px 40px; }
+}
+
+/* â”€â”€ FAQ SECTION â”€â”€ */
+.faq-section { padding: 120px 60px; border-bottom: 1px solid var(--border); display: flex; justify-content: center; }
+.faq-inner { width: 100%; max-width: 860px; }
+.sec-kicker { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--cyan); margin-bottom: 16px; }
+.sec-head { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 6vw, 82px); line-height: 0.9; letter-spacing: 0.02em; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-q { display: flex; justify-content: space-between; align-items: center; width: 100%; background: none; border: none; color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 17px; letter-spacing: 0.06em; text-transform: uppercase; padding: 32px 0; cursor: pointer; text-align: left; transition: color 0.2s; }
+.faq-q:hover { color: var(--cyan); }
+.faq-icon { width: 24px; height: 24px; border: 1px solid var(--border); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 14px; font-family: 'DM Mono', monospace; transition: all 0.3s; flex-shrink: 0; }
+.faq-item.open .faq-icon { background: var(--cyan); border-color: var(--cyan); color: var(--black); transform: rotate(45deg); }
+.faq-ans { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+.faq-item.open .faq-ans { margin-bottom: 32px; }
+.faq-ans-in { font-family: 'DM Mono', monospace; font-size: 13px; color: #666; line-height: 1.8; max-width: 720px; }
+
+/* â”€â”€ FOOTER â”€â”€ */
+footer { padding: 48px 60px; border-top: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; gap: 24px; }
+footer img { height: 32px; opacity: 0.5; }
+.foot-links { display: flex; gap: 32px; list-style: none; }
+.foot-links a { color: #444; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
+.foot-links a:hover { color: var(--cyan); }
+.foot-copy { font-size: 11px; color: #333; }
+
+/* â”€â”€ REVEAL ANIMATION â”€â”€ */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.72s ease, transform 0.72s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* â”€â”€ PAYFAST FORM â”€â”€ */
+#payfastForm { width: 100%; }
+#payfastForm .pay-btn { width: 100%; }
+
+@media (max-width: 600px) {
+  .obj-section, .compare-section, .faq-section, .final-cta, .entheos-section {
+    padding: 48px 18px;
+  }
+}
+@media (max-width: 960px) {
+  .obj-section, .compare-section, .faq-section, .final-cta, .entheos-section {
+    padding: 60px 24px;
+  }
+}
+
+/* â”€â”€ RESPONSIVE â”€â”€ */
+@media (max-width: 1023px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .nav-ham { display: flex; }
+    
+    .hero { grid-template-columns: 1fr; padding: 64px 24px 56px; gap: 48px; }
+    .hero-title { font-size: 80px; }
+    .hero-origins { margin-top: 24px; }
+    
+    .product-section { flex-direction: column !important; min-height: auto; }
+    .p-visual { width: 100%; flex: none; min-height: 480px; }
+    .p-info { width: 100%; flex: none; padding: 60px 24px; border-left: none; border-top: 1px solid var(--border); }
+    .product-section.flip .p-info { border-right: none; }
+    
+    .cup-section-inner { grid-template-columns: 1fr; gap: 60px; }
+    .cup-left { padding-top: 0; }
+    .cup-title { font-size: 100px; }
+    .cup-right { min-height: 400px; }
+    
+    .phil-top, .phil-bottom { padding: 80px 24px; }
+    
+    .nd-grid { grid-template-columns: 1fr; padding-bottom: 0; }
+    .nd-card { min-height: auto; padding: 48px 24px; border-bottom: 1px solid var(--yellow); }
+    .nd-card:last-child { border-bottom: none; }
+    
+    .faq-section { padding: 80px 24px; }
+}
+
+@media (max-width: 600px) {
+    nav { padding: 0 16px; }
+    .nav-logo img { height: 28px; }
+    .nav-right { gap: 8px; }
+    .nav-contact-btn { width: 38px; height: 38px; }
+    .nav-cart { width: 38px; height: 38px; }
+    
+    .hero-title { font-size: 60px; }
+    .hero-origin-card { 
+      grid-template-columns: 60px 1fr; 
+      padding: 14px 18px; 
+    }
+    
+    .p-name { font-size: 48px; }
+    .p-amount { font-size: 48px; }
+    
+    .cup-title { font-size: 72px; }
+    .cup-price { font-size: 72px; }
+    .cup-specs { grid-template-columns: 1fr; gap: 24px; }
+    
+    .nd-title { font-size: 48px; }
+    
+    .sec-head { font-size: 42px; }
+    
+    .cart-drawer { padding: 24px; }
+    
+    footer { padding: 48px 24px; }
+    .foot-links { flex-direction: column; align-items: center; gap: 16px; }
+}
+
+
+===== js\app.js =====
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- STATE MANAGEMENT ---
+    let cart = JSON.parse(localStorage.getItem('coffee_cart')) || [];
+    let currentUser = JSON.parse(localStorage.getItem('coffee_user')) || null;
+
+    // --- DOM ELEMENTS ---
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartList = document.getElementById('cart-list');
+    const totalPriceEl = document.getElementById('total-price');
+    const stepAccount = document.getElementById('step-account');
+    const stepShipping = document.getElementById('step-shipping');
+    const tcgShipping = document.getElementById('tcg-shipping');
+    
+    // --- INITIALIZATION ---
+    setupScrollReveal();
+    renderCart(); // Render on load to sync UI with localStorage
+    if (currentUser) console.log("Welcome back, " + currentUser.name);
+
+    // --- EVENT DELEGATION ---
+    document.body.addEventListener('click', (e) => {
+        
+        // 1. Navigation / Mobile Menu
+        if (e.target.closest('#scroll-top')) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        if (e.target.closest('#navHam')) toggleMob();
+        if (e.target.classList.contains('mob-link') || e.target.classList.contains('mob-wa')) closeMob();
+
+        // 2. Product Size Selection
+        if (e.target.classList.contains('sz-select')) {
+            handleSizeSelection(e.target);
+        }
+
+        // 3. Add to Cart
+        if (e.target.classList.contains('add-to-cart')) {
+            addToCart(e.target.dataset.name, e.target.dataset.id);
+        }
+
+        // 4. Cart Controls
+        if (e.target.classList.contains('qty-minus')) changeQty(e.target.dataset.index, -1);
+        if (e.target.classList.contains('qty-plus')) changeQty(e.target.dataset.index, 1);
+        if (e.target.id === 'closeCartBtn') closeCart();
+
+        // 5. Auth Flow Toggles
+        if (e.target.classList.contains('auth-btn')) {
+            toggleAuthUI(e.target);
+        }
+
+        // 6. Action Buttons
+        if (e.target.id === 'auth-action-btn') handleAuthAction(e.target);
+        
+        // 7. FAQ Toggles
+        if (e.target.closest('.faq-toggle')) {
+            toggleFaq(e.target.closest('.faq-item'));
+        }
+    });
+
+    // Handle Escape key to close drawers
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeCart();
+            closeMob();
+        }
+    });
+
+    if (tcgShipping) {
+        tcgShipping.addEventListener('change', calcTotal);
+    }
+
+    // --- CORE LOGIC FUNCTIONS ---
+
+    function handleSizeSelection(btn) {
+        const group = btn.closest('.sz-toggle');
+        const activeClass = btn.dataset.activeClass;
+        group.querySelectorAll('.sz-btn').forEach(b => b.classList.remove(activeClass));
+        btn.classList.add(activeClass);
+        
+        const priceDisplay = document.getElementById(btn.dataset.id + '-p');
+        if (priceDisplay) priceDisplay.textContent = btn.dataset.price;
+    }
+
+    function addToCart(baseName, productId) {
+        const priceEl = document.getElementById(productId + '-p');
+        // Improved cleaning to avoid NaN: removes 'R' and spaces
+        const cleanPrice = priceEl ? parseFloat(priceEl.textContent.replace(/[^\d.]/g, '')) : 0;
+        
+        const existingItem = cart.find(item => item.name === baseName && item.price === cleanPrice);
+
+        if (existingItem) {
+            existingItem.qty += 1;
+        } else {
+            cart.push({ name: baseName, price: cleanPrice, qty: 1 });
+        }
+        
+        saveCart();
+        renderCart();
+        
+        if (!currentUser) showAccountStep(); 
+        else showShippingStep();
+    }
+
+    function renderCart() {
+        if (!cartList) return;
+
+        if (cart.length === 0) {
+            cartList.innerHTML = '<div style="text-align:center; padding:30px; color:#666;">Your selection is empty</div>';
+            calcTotal();
+            return;
+        }
+
+        cartList.innerHTML = cart.map((item, index) => `
+            <div class="cart-item" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #333;">
+                <div style="flex: 1;">
+                    <div style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: white; letter-spacing: 1px;">${item.name}</div>
+                    <div style="color: #00ffff; font-size: 13px; font-family: monospace;">R ${item.price.toFixed(2)} each</div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px; margin-right: 15px;">
+                    <button class="qty-minus" data-index="${index}" style="background:none; border: 1px solid #444; color:white; cursor:pointer; width:25px; height:25px;">-</button>
+                    <span style="font-family: monospace; color:white; min-width: 15px; text-align:center;">${item.qty}</span>
+                    <button class="qty-plus" data-index="${index}" style="background:none; border: 1px solid #444; color:white; cursor:pointer; width:25px; height:25px;">+</button>
+                </div>
+                <div style="font-family: monospace; color: white; min-width: 80px; text-align: right;">R ${(item.price * item.qty).toFixed(2)}</div>
+            </div>
+        `).join('');
+
+        calcTotal(); 
+    }
+
+    function changeQty(indexStr, delta) {
+        const index = parseInt(indexStr);
+        if (cart[index]) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) cart.splice(index, 1);
+            saveCart();
+            renderCart();
+        }
+    }
+
+    function calcTotal() {
+        if (!totalPriceEl) return;
+        const shippingCost = tcgShipping ? parseFloat(tcgShipping.value) : 0;
+        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+        const total = subtotal + shippingCost;
+        
+        totalPriceEl.textContent = "Total: R " + total.toFixed(2);
+        updatePayFastFields(total, cart);
+    }
+
+    function updatePayFastFields(total, cartItems) {
+        const pfAmount = document.getElementById('pf_amount');
+        const pfDesc = document.getElementById('pf_item_desc');
+        const pfName = document.getElementById('pf_name');
+        const pfEmail = document.getElementById('pf_email');
+
+        if (pfAmount) pfAmount.value = total.toFixed(2);
+        if (pfDesc) {
+            pfDesc.value = cartItems.map(i => `${i.qty}x ${i.name}`).join(', ');
+        }
+        if (currentUser) {
+            if (pfName) pfName.value = currentUser.name;
+            if (pfEmail) pfEmail.value = currentUser.email;
+        }
+    }
+
+    function saveCart() {
+        localStorage.setItem('coffee_cart', JSON.stringify(cart));
+    }
+
+    // --- UI VIEW TOGGLING ---
+
+    function showAccountStep() {
+        cartDrawer.classList.add('active');
+        stepAccount.style.display = 'block';
+        stepShipping.style.display = 'none';
+    }
+
+    function showShippingStep() {
+        cartDrawer.classList.add('active');
+        stepAccount.style.display = 'none';
+        stepShipping.style.display = 'block';
+    }
+
+    function closeCart() {
+        cartDrawer.classList.remove('active');
+    }
+
+    // --- AUTHENTICATION ---
+
+    function toggleAuthUI(btn) {
+        const type = btn.dataset.auth;
+        const container = document.getElementById('form-auth-container');
+        const actionBtn = document.getElementById('auth-action-btn');
+        document.querySelectorAll('.auth-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        if (type === 'signin') {
+            container.innerHTML = '<input type="email" id="signin-email" placeholder="Email Address">';
+            actionBtn.dataset.action = 'signIn';
+            actionBtn.textContent = 'Sign In';
+        } else {
+            container.innerHTML = `
+                <input type="text" id="reg-name" placeholder="First Name">
+                <input type="email" id="reg-email" placeholder="Email Address">
+            `;
+            actionBtn.dataset.action = 'saveUser';
+            actionBtn.textContent = 'Continue to Delivery';
+        }
+    }
+
+    function handleAuthAction(btn) {
+        const email = document.getElementById(btn.dataset.action === 'signIn' ? 'signin-email' : 'reg-email')?.value;
+        if (!email) return alert("Enter email");
+
+        if (btn.dataset.action === 'signIn') {
+            const storedUser = JSON.parse(localStorage.getItem('user_' + email));
+            if (storedUser) {
+                currentUser = storedUser;
+            } else {
+                return alert("Account not found. Please register.");
+            }
+        } else {
+            const name = document.getElementById('reg-name')?.value;
+            if (!name) return alert("Enter your name");
+            currentUser = { name, email };
+            localStorage.setItem('user_' + email, JSON.stringify(currentUser));
+        }
+
+        localStorage.setItem('coffee_user', JSON.stringify(currentUser));
+        showShippingStep();
+    }
+
+    // --- UTILS & REVEAL ---
+
+    function toggleMob() {
+        const overlay = document.getElementById('mobOverlay');
+        const ham = document.getElementById('navHam');
+        const isOpen = overlay.classList.toggle('active');
+        ham.classList.toggle('open', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    function closeMob() {
+        document.getElementById('mobOverlay').classList.remove('active');
+        document.getElementById('navHam').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    function toggleFaq(item) {
+        const ans = item.querySelector('.faq-ans');
+        const isOpen = item.classList.toggle('open');
+        
+        document.querySelectorAll('.faq-item.open').forEach(i => {
+            if (i !== item) {
+                i.classList.remove('open');
+                i.querySelector('.faq-ans').style.maxHeight = '0';
+            }
+        });
+        ans.style.maxHeight = isOpen ? ans.scrollHeight + 'px' : '0';
+    }
+
+    function setupScrollReveal() {
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { 
+                if (e.isIntersecting) { 
+                    e.target.classList.add('in'); 
+                    io.unobserve(e.target); 
+                } 
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(r => io.observe(r));
+    }
+});
+
+
