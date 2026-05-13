@@ -737,7 +737,7 @@
         <span class="cup-oos-line"></span>
         Out of Stock
       </button>
-      <a class="cup-notify" href="mailto:roast@artifactscoffee.co.za?subject=Notify%20Me:%20The%20Origin%20Cup">
+      <a class="cup-notify" href="mailto:artifacts.coffee.roastery@gmail.com?subject=Notify%20Me:%20The%20Origin%20Cup">
         <span>💬 Notify me when available →</span>
       </a>
       <div class="cup-trust">
@@ -855,7 +855,7 @@
       <tr><td class="alabel">Best For</td><td>Adventurous palates</td><td>Clean everyday cup</td><td>Comfort lovers</td></tr>
       <tr><td class="alabel">1kg Price</td><td class="cc">R600</td><td class="cy">R592</td><td class="cw">R560</td></tr>
       <tr><td class="alabel">200g Price</td><td class="cc">R150</td><td class="cy">R148</td><td class="cw">R140</td></tr>
-      <tr><td class="alabel">80g Price</td><td class="cc">R75</td><td class="cy">R75</td><td class="cw">R75</td></tr>
+      <tr><td class="alabel">80g Price</td><td class="cc">R100</td><td class="cy">R100</td><td class="cw">R100</td></tr>
     </tbody>
   </table>
   </div>
@@ -904,6 +904,7 @@
   </ul>
   <div class="foot-copy">
     <span>© 2026 Artifacts Coffee. Roasted in Johannesburg, South Africa.</span>
+    <span><a href="privacy.html" style="color:#555;text-decoration:none;">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="terms.html" style="color:#555;text-decoration:none;">Terms &amp; Conditions</a></span>
   </div>
 </footer>
 
@@ -997,6 +998,8 @@ let currentUser = null;
 let activeDiscount = null;
 let activeShippingQuote = null;
 const discountCodes = {
+    FAMILY30: { type: 'percent', value: 30, label: '30% off — Family' },
+    FRIENDS20: { type: 'percent', value: 20, label: '20% off — Friends' },
     DISCOVERY15: { type: 'percent', value: 15, label: '15% off order subtotal' },
     SAMPLE25: { type: 'fixed', value: 25, label: 'R25 off order subtotal' }
 };
