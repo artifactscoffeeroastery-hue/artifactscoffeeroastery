@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://identity.netlify.com 'unsafe-inline'; connect-src 'self' https://xpxbldyrigqjkdmrfhvh.supabase.co https://identity.netlify.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://artifactscoffee.co.za;">
 <title>Artifacts Coffee — Johannesburg Micro-Roastery</title>
 <meta name="description" content="Artifacts Coffee: Johannesburg Micro-Roastery. Sourced with intent, roasted with precision. High-quality single-origin coffee beans, roasted fresh weekly.">
 <meta name="keywords" content="Artifacts Coffee, Johannesburg, coffee roastery, single origin, whole bean coffee, fresh roasted, micro-roastery, enTheos">
@@ -1271,8 +1272,8 @@
         <div class="shipping-box" style="margin-top:10px;">
             <span class="sz-label" style="display:block; margin-bottom:6px;">Delivery Details</span>
             <div style="display:grid; gap:8px; grid-template-columns:1fr 1fr;">
-                <input id="ship-phone" type="tel" placeholder="Phone number" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
-                <select id="ship-province" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px; font-family:'DM Mono',monospace; appearance:none; -webkit-appearance:none; cursor:pointer;">
+                <input id="ship-phone" type="tel" autocomplete="tel" placeholder="Phone number" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
+                <select id="ship-province" autocomplete="address-level1" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px; font-family:'DM Mono',monospace; appearance:none; -webkit-appearance:none; cursor:pointer;">
                 <option value="" disabled selected style="color:#555;">Province</option>
                 <option value="Gauteng">Gauteng</option>
                 <option value="Western Cape">Western Cape</option>
@@ -1285,18 +1286,18 @@
                 <option value="Northern Cape">Northern Cape</option>
                 </select>
             </div>
-            <input id="ship-address-line1" type="text" placeholder="Street address" style="width:100%; margin-top:8px; background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
-            <input id="ship-suburb" type="text" placeholder="Suburb" style="width:100%; margin-top:8px; background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
+            <input id="ship-address-line1" type="text" autocomplete="address-line1" placeholder="Street address" style="width:100%; margin-top:8px; background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
+            <input id="ship-suburb" type="text" autocomplete="address-level3" placeholder="Suburb" style="width:100%; margin-top:8px; background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
             <div style="display:grid; gap:8px; grid-template-columns:1fr 1fr; margin-top:8px;">
-                <input id="ship-city" type="text" placeholder="City" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
-                <input id="ship-postal-code" type="text" placeholder="Postal code" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
+                <input id="ship-city" type="text" autocomplete="address-level2" placeholder="City" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
+                <input id="ship-postal-code" type="text" autocomplete="postal-code" placeholder="Postal code" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
             </div>
             <div id="shipping-validation-status" style="font-size:11px; color:var(--muted); margin-top:8px;">Delivery details are required for courier collection booking.</div>
         </div>
         <div class="shipping-box" style="margin-top:10px; border-color: var(--cyan);">
             <span class="sz-label" style="display:block; margin-bottom:6px;">Discount Code</span>
             <div style="display:flex; gap:8px;">
-                <input id="discount-code-input" type="text" placeholder="Enter discount code" style="flex:1; background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px; text-transform:uppercase;" />
+                <input id="discount-code-input" type="text" autocomplete="off" placeholder="Enter discount code" style="flex:1; background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px; text-transform:uppercase;" />
                 <button type="button" onclick="applyDiscountCode()" class="action-btn" style="padding:10px 14px; margin:0;">Apply</button>
             </div>
             <div id="discount-status" style="font-size:11px; color:var(--muted); margin-top:8px;">Have a promo link? Your code can auto-apply here.</div>
