@@ -1272,7 +1272,18 @@
             <span class="sz-label" style="display:block; margin-bottom:6px;">Delivery Details</span>
             <div style="display:grid; gap:8px; grid-template-columns:1fr 1fr;">
                 <input id="ship-phone" type="tel" placeholder="Phone number" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
-                <input id="ship-province" type="text" placeholder="Province (e.g. Gauteng)" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
+                <select id="ship-province" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px; font-family:'DM Mono',monospace; appearance:none; -webkit-appearance:none; cursor:pointer;">
+                <option value="" disabled selected style="color:#555;">Province</option>
+                <option value="Gauteng">Gauteng</option>
+                <option value="Western Cape">Western Cape</option>
+                <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                <option value="Eastern Cape">Eastern Cape</option>
+                <option value="Limpopo">Limpopo</option>
+                <option value="Mpumalanga">Mpumalanga</option>
+                <option value="North West">North West</option>
+                <option value="Free State">Free State</option>
+                <option value="Northern Cape">Northern Cape</option>
+                </select>
             </div>
             <input id="ship-address-line1" type="text" placeholder="Street address" style="width:100%; margin-top:8px; background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
             <input id="ship-suburb" type="text" placeholder="Suburb" style="width:100%; margin-top:8px; background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
@@ -1297,7 +1308,7 @@
             
             <!-- PayFast Form -->
             <form action="https://www.payfast.co.za/eng/process" method="post" id="payfast-form">
-                <input type="hidden" name="merchant_id" value="10031804">
+                <input type="hidden" name="merchant_id" value="34420469">
                 <input type="hidden" name="merchant_key" value="p66f6iux3e4p9">
                 <input type="hidden" name="return_url" value="https://artifactscoffee.co.za/success">
                 <input type="hidden" name="cancel_url" value="https://artifactscoffee.co.za/cancel">
