@@ -1,8 +1,2 @@
-# ── PayFast return routes (form posts to these — files are .html) ────────────
 /success    /return.html    200
 /cancel     /cancel.html    200
-
-# ── Clean URLs ────────────────────────────────────────────────────────────────
-/rewards    /rewards.html   200
-/privacy    /privacy.html   200
-/terms      /terms.html     200

@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://identity.netlify.com 'unsafe-inline'; connect-src 'self' https://xpxbldyrigqjkdmrfhvh.supabase.co https://identity.netlify.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://artifactscoffee.co.za;">
 <title>Artifacts Coffee — Johannesburg Micro-Roastery</title>
 <meta name="description" content="Artifacts Coffee: Johannesburg Micro-Roastery. Sourced with intent, roasted with precision. High-quality single-origin coffee beans, roasted fresh weekly.">
 <meta name="keywords" content="Artifacts Coffee, Johannesburg, coffee roastery, single origin, whole bean coffee, fresh roasted, micro-roastery, enTheos">
@@ -442,6 +441,7 @@
   .close-btn { background: none; border: none; color: white; font-size: 28px; cursor: pointer; padding: 10px; line-height: 1; transition: opacity 0.2s; }
   .close-btn:hover { opacity: 0.7; }
   .cart-step input, .shipping-box select { width: 100%; background: var(--black); border: 1px solid var(--border); padding: 12px; margin-bottom: 10px; color: white; font-family: 'DM Mono', monospace; }
+  #netlify-identity-widget, .netlify-identity-widget { z-index: 3000 !important; }
   .auth-toggle { display: flex; margin-bottom: 20px; gap: 10px; }
   .auth-toggle button { flex: 1; padding: 10px; background: none; border: 1px solid var(--border); color: var(--muted); cursor: pointer; }
   .auth-toggle button.active { border-color: var(--cyan); color: var(--cyan); }
@@ -449,7 +449,6 @@
   .shipping-box { margin-top: 20px; }
   .cart-footer { margin-top: 30px; border-top: 1px solid var(--border); padding-top: 20px; }
   #total-price { font-size: 30px; margin-bottom: 15px; }
-
 
   /* ── OFFICE SUBSCRIPTION ── */
   .office-section {
@@ -500,9 +499,7 @@
     transition: background 0.2s;
   }
   .office-plan:hover { background: #141414; }
-  .office-plan.featured {
-    background: var(--mid);
-  }
+  .office-plan.featured { background: var(--mid); }
   .office-plan.featured::before {
     content: 'MOST POPULAR';
     position: absolute; top: 0; left: 0; right: 0;
@@ -567,9 +564,7 @@
     background: var(--border); color: var(--white);
   }
   .office-cta:hover { background: #2a2a2a; }
-  .office-plan.featured .office-cta {
-    background: var(--yellow); color: var(--black);
-  }
+  .office-plan.featured .office-cta { background: var(--yellow); color: var(--black); }
   .office-plan.featured .office-cta:hover { opacity: 0.85; }
   .office-bottom {
     background: var(--off);
@@ -593,15 +588,6 @@
     white-space: nowrap; transition: opacity 0.2s;
   }
   .office-wa-btn:hover { opacity: 0.9; }
-  @media (max-width: 960px) {
-    .office-section { padding: 80px 32px; }
-    .office-grid { grid-template-columns: 1fr; }
-    .office-bottom { grid-template-columns: 1fr; gap: 20px; }
-  }
-  @media (max-width: 600px) {
-    .office-section { padding: 64px 20px; }
-  }
-
 
   /* ── FOUNDER BANNER ── */
   .founder-banner {
@@ -670,11 +656,37 @@
   }
   .founder-copy-btn:hover { opacity: 0.85; }
   @media (max-width: 960px) {
+    .office-section { padding: 80px 32px; }
+    .office-grid { grid-template-columns: 1fr; }
+    .office-bottom { grid-template-columns: 1fr; gap: 20px; }
     .founder-banner { grid-template-columns: 1fr; }
     .founder-left { border-right: none; border-bottom: 1px solid var(--border); padding: 24px; }
     .founder-right { padding: 24px; min-width: unset; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; gap: 16px; }
     .founder-counter { font-size: 52px; }
   }
+
+  @media (max-width: 600px) {
+    html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+    img, svg { max-width: 100%; }
+    nav { grid-template-columns: auto 1fr auto; gap: 10px; }
+    #navActions { grid-column: 3; gap: 10px; min-width: 0; }
+    .nav-cart-btn { white-space: nowrap; padding: 8px 10px; }
+    .mob-overlay { width: 100%; max-width: 100vw; overflow-y: auto; justify-content: flex-start; padding-top: 92px; }
+    .mob-links { width: 100%; }
+    .mob-link { max-width: 100%; text-align: center; overflow-wrap: anywhere; }
+    .cart-drawer { width: 100%; max-width: 100vw; right: -100vw; padding: 22px 18px 28px; border-left: none; }
+    .cart-drawer.active { right: 0; }
+    .cart-header { margin-bottom: 20px; }
+    .cart-step [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+    .cart-item { flex-wrap: wrap; gap: 10px; }
+    .cart-item > div { min-width: 0; }
+    .cart-item > div:last-child { width: 100%; text-align: left !important; }
+    .cup-specs { grid-template-columns: 1fr; }
+    .cup-right { border-radius: 12px; padding: 28px 20px; }
+    .cup-badge-row { gap: 12px; flex-wrap: wrap; }
+    .office-section { padding: 64px 20px; }
+  }
+
 </style>
 </head>
 <body>
@@ -958,7 +970,6 @@
 </section>
 
 
-
 <!-- ── OFFICE SUBSCRIPTION ── -->
 <section id="office" class="office-section reveal">
   <div class="office-inner">
@@ -966,15 +977,13 @@
       <p class="office-kicker">☕ Office Coffee Programme</p>
       <h2 class="office-title">Fresh Roasted.<br><em>Every Week.</em><br>At Your Desk.</h2>
       <p class="office-desc">
-        Keep your team caffeinated with specialty-grade single origin coffee, 
-        roasted weekly and delivered to your door. One simple monthly invoice. 
+        Keep your team caffeinated with specialty-grade single origin coffee,
+        roasted weekly and delivered to your door. One simple monthly invoice.
         No subscriptions platform. No middlemen. Just real coffee, on time.
       </p>
     </div>
 
     <div class="office-grid">
-
-      <!-- Starter -->
       <div class="office-plan">
         <p class="office-plan-name">Starter</p>
         <p class="office-plan-team">5 – 10 People</p>
@@ -992,7 +1001,6 @@
         <a href="mailto:artifacts.coffee.roastery@gmail.com?subject=Office%20Starter%20Plan&body=Hi%2C%20I%27d%20like%20to%20set%20up%20an%20office%20coffee%20subscription%20for%20my%20team." class="office-cta">Enquire →</a>
       </div>
 
-      <!-- Studio — featured -->
       <div class="office-plan featured">
         <p class="office-plan-name">Studio</p>
         <p class="office-plan-team">10 – 25 People</p>
@@ -1011,7 +1019,6 @@
         <a href="mailto:artifacts.coffee.roastery@gmail.com?subject=Office%20Studio%20Plan&body=Hi%2C%20I%27d%20like%20to%20set%20up%20an%20office%20coffee%20subscription%20for%20my%20team." class="office-cta">Enquire →</a>
       </div>
 
-      <!-- Roastery -->
       <div class="office-plan">
         <p class="office-plan-name">Roastery</p>
         <p class="office-plan-team">25+ People</p>
@@ -1030,7 +1037,6 @@
         </ul>
         <a href="mailto:artifacts.coffee.roastery@gmail.com?subject=Office%20Roastery%20Plan&body=Hi%2C%20I%27d%20like%20to%20set%20up%20an%20office%20coffee%20subscription%20for%20my%20team." class="office-cta">Enquire →</a>
       </div>
-
     </div>
 
     <div class="office-bottom">
@@ -1253,7 +1259,7 @@
     <div id="step-account" class="cart-step">
         <div style="text-align: center; padding: 20px 0;">
             <p style="margin-bottom: 20px; color: var(--muted);">Secure, passwordless checkout. We'll send a Magic Link to your email.</p>
-            <button onclick="netlifyIdentity.open('signup')" class="action-btn">Create Account / Sign In</button>
+            <button onclick="startAccountCheckout()" class="action-btn">Create Account / Sign In</button>
         </div>
     </div> 
 
@@ -1273,18 +1279,7 @@
             <span class="sz-label" style="display:block; margin-bottom:6px;">Delivery Details</span>
             <div style="display:grid; gap:8px; grid-template-columns:1fr 1fr;">
                 <input id="ship-phone" type="tel" autocomplete="tel" placeholder="Phone number" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
-                <select id="ship-province" autocomplete="address-level1" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px; font-family:'DM Mono',monospace; appearance:none; -webkit-appearance:none; cursor:pointer;">
-                <option value="" disabled selected style="color:#555;">Province</option>
-                <option value="Gauteng">Gauteng</option>
-                <option value="Western Cape">Western Cape</option>
-                <option value="KwaZulu-Natal">KwaZulu-Natal</option>
-                <option value="Eastern Cape">Eastern Cape</option>
-                <option value="Limpopo">Limpopo</option>
-                <option value="Mpumalanga">Mpumalanga</option>
-                <option value="North West">North West</option>
-                <option value="Free State">Free State</option>
-                <option value="Northern Cape">Northern Cape</option>
-                </select>
+                <input id="ship-province" type="text" autocomplete="address-level1" placeholder="Province (e.g. Gauteng)" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
             </div>
             <input id="ship-address-line1" type="text" autocomplete="address-line1" placeholder="Street address" style="width:100%; margin-top:8px; background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
             <input id="ship-suburb" type="text" autocomplete="address-level3" placeholder="Suburb" style="width:100%; margin-top:8px; background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
@@ -1308,16 +1303,16 @@
             <button onclick="netlifyIdentity.logout()" class="action-btn" style="background:none; border:1px solid var(--border); color:var(--muted); font-size:14px; margin-bottom:10px;">← Sign Out / Change Account</button>
             
             <!-- PayFast Form -->
-            <form action="https://sandbox.payfast.co.za/eng/process" method="post" id="payfast-form">
-                <input type="hidden" name="merchant_id" value="10000100">
-                <input type="hidden" name="merchant_key" value="46f0cd694581a">
-                <input type="hidden" name="return_url" value="http://localhost:3000/return.html">
-                <input type="hidden" name="cancel_url" value="http://localhost:3000/cancel.html">
-                <input type="hidden" name="notify_url" value="http://localhost:8888/.netlify/functions/payfast-notify">
+            <form action="https://www.payfast.co.za/eng/process" method="post" id="payfast-form">
+                <input type="hidden" name="merchant_id" value="10031804">
+                <input type="hidden" name="merchant_key" value="p66f6iux3e4p9">
+                <input type="hidden" name="return_url" value="https://artifactscoffee.co.za/success">
+                <input type="hidden" name="cancel_url" value="https://artifactscoffee.co.za/cancel">
+                <input type="hidden" name="notify_url" value="https://artifactscoffee.co.za/.netlify/functions/payfast-notify">
                 
                 <!-- Mandatory Fields -->
-                <input type="hidden" name="name_first" id="pf_name">
-                <input type="hidden" name="email_address" id="pf_email">
+                <input type="hidden" name="name_first" id="pf_name" autocomplete="given-name">
+                <input type="hidden" name="email_address" id="pf_email" autocomplete="email">
                 <input type="hidden" name="m_payment_id" id="pf_payment_id">
                 <input type="hidden" name="amount" id="pf_amount">
                 <input type="hidden" name="item_name" id="pf_item_name" value="Artifacts Coffee Order">
@@ -1564,6 +1559,16 @@ function renderCartList() {
 }
 
 function closeCart() { document.getElementById('cartDrawer').classList.remove('active'); }
+
+function startAccountCheckout() {
+    closeCart();
+
+    if (window.netlifyIdentity) {
+        setTimeout(() => window.netlifyIdentity.open('signup'), 120);
+    } else {
+        alert('Account checkout is still loading. Please try again in a moment.');
+    }
+}
 
 function calcTotal() {
     const shippingSelect = document.getElementById('tcg-shipping');
@@ -1924,7 +1929,7 @@ async function loadFounderCount() {
       if (banner) banner.style.display = 'none';
       delete discountCodes['FOUNDER20'];
     }
-  } catch(e) { /* silently fail — counter stays at 20 */ }
+  } catch(e) { /* silently fail - counter stays at 20 */ }
 }
 
 function copyFounderCode() {
@@ -1935,7 +1940,6 @@ function copyFounderCode() {
 }
 
 loadFounderCount();
-
 </script>
 </body>
 </html>
