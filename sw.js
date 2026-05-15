@@ -1,8 +1,5 @@
-const CACHE = 'artifacts-v1';
+const CACHE = 'artifacts-v2';
 const PRECACHE = [
-  '/',
-  '/index.html',
-  '/rewards.html',
   '/images/logo.png',
   '/images/favicon.ico',
   '/images/apple-touch-icon.png',
@@ -31,6 +28,12 @@ self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET' || !e.request.url.startsWith(self.location.origin)) return;
   // Never cache Netlify functions or PayFast
   if (e.request.url.includes('/.netlify/') || e.request.url.includes('payfast')) return;
+
+  // Always fetch pages from the network so updated CSP headers take effect.
+  if (e.request.mode === 'navigate') {
+    e.respondWith(fetch(e.request));
+    return;
+  }
 
   e.respondWith(
     caches.match(e.request).then(cached => {
