@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://identity.netlify.com 'unsafe-inline'; connect-src 'self' https://xpxbldyrigqjkdmrfhvh.supabase.co https://identity.netlify.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://artifactscoffee.co.za;">
 <title>Artifacts Coffee — Johannesburg Micro-Roastery</title>
 <meta name="description" content="Artifacts Coffee: Johannesburg Micro-Roastery. Sourced with intent, roasted with precision. High-quality single-origin coffee beans, roasted fresh weekly.">
 <meta name="keywords" content="Artifacts Coffee, Johannesburg, coffee roastery, single origin, whole bean coffee, fresh roasted, micro-roastery, enTheos">
@@ -450,231 +449,6 @@
   .cart-footer { margin-top: 30px; border-top: 1px solid var(--border); padding-top: 20px; }
   #total-price { font-size: 30px; margin-bottom: 15px; }
 
-
-  /* ── OFFICE SUBSCRIPTION ── */
-  .office-section {
-    background: var(--black);
-    border-bottom: 2px solid var(--border);
-    padding: 96px 60px;
-    position: relative;
-    overflow: hidden;
-  }
-  .office-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--yellow), var(--cyan) 60%, transparent);
-  }
-  .office-inner { max-width: 1200px; margin: 0 auto; }
-  .office-head { margin-bottom: 56px; }
-  .office-kicker {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; font-weight: 700;
-    letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--yellow); margin-bottom: 12px;
-  }
-  .office-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(52px, 6vw, 88px);
-    line-height: 0.9; letter-spacing: 0.02em;
-    color: var(--white); margin-bottom: 16px;
-  }
-  .office-title em { color: var(--yellow); font-style: normal; }
-  .office-desc {
-    font-size: 13px; color: #999; line-height: 1.9;
-    max-width: 560px;
-  }
-  .office-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px; background: var(--border);
-    border: 1px solid var(--border);
-    margin-bottom: 1px;
-  }
-  .office-plan {
-    background: var(--off);
-    padding: 40px 32px;
-    position: relative;
-    display: flex; flex-direction: column;
-    transition: background 0.2s;
-  }
-  .office-plan:hover { background: #141414; }
-  .office-plan.featured {
-    background: var(--mid);
-  }
-  .office-plan.featured::before {
-    content: 'MOST POPULAR';
-    position: absolute; top: 0; left: 0; right: 0;
-    background: var(--yellow); color: var(--black);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 10px; font-weight: 700;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    text-align: center; padding: 5px 0;
-  }
-  .office-plan.featured { padding-top: 52px; }
-  .office-plan-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px; letter-spacing: 0.04em;
-    color: var(--white); margin-bottom: 4px;
-  }
-  .office-plan-team {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px; font-weight: 600;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 24px;
-  }
-  .office-plan-price {
-    display: flex; align-items: baseline; gap: 6px;
-    margin-bottom: 6px;
-  }
-  .opp-curr {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 18px; color: #666;
-  }
-  .opp-amount {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 54px; line-height: 1;
-    letter-spacing: 0.02em; color: var(--white);
-  }
-  .office-plan-freq {
-    font-size: 11px; color: #555;
-    margin-bottom: 28px; font-family: 'DM Mono', monospace;
-  }
-  .office-perks {
-    list-style: none; padding: 0;
-    display: flex; flex-direction: column; gap: 10px;
-    margin-bottom: 32px; flex: 1;
-  }
-  .office-perk {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 14px; font-weight: 500;
-    letter-spacing: 0.04em; color: #aaa;
-    display: flex; align-items: flex-start; gap: 10px;
-  }
-  .office-perk::before {
-    content: '✦'; color: var(--cyan);
-    font-size: 10px; margin-top: 3px; flex-shrink: 0;
-  }
-  .office-plan.featured .office-perk::before { color: var(--yellow); }
-  .office-cta {
-    display: flex; align-items: center; justify-content: center;
-    gap: 10px; width: 100%; padding: 14px 24px;
-    border: none; cursor: pointer;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px; letter-spacing: 0.1em;
-    text-decoration: none; transition: all 0.2s;
-    background: var(--border); color: var(--white);
-  }
-  .office-cta:hover { background: #2a2a2a; }
-  .office-plan.featured .office-cta {
-    background: var(--yellow); color: var(--black);
-  }
-  .office-plan.featured .office-cta:hover { opacity: 0.85; }
-  .office-bottom {
-    background: var(--off);
-    border: 1px solid var(--border);
-    padding: 32px 40px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center; gap: 32px;
-  }
-  .office-bottom-text {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px; color: #777; line-height: 1.8;
-  }
-  .office-bottom-text strong { color: var(--white); font-weight: 500; }
-  .office-wa-btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: #25D366; color: white;
-    padding: 14px 28px; text-decoration: none;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px; letter-spacing: 0.1em;
-    white-space: nowrap; transition: opacity 0.2s;
-  }
-  .office-wa-btn:hover { opacity: 0.9; }
-  @media (max-width: 960px) {
-    .office-section { padding: 80px 32px; }
-    .office-grid { grid-template-columns: 1fr; }
-    .office-bottom { grid-template-columns: 1fr; gap: 20px; }
-  }
-  @media (max-width: 600px) {
-    .office-section { padding: 64px 20px; }
-  }
-
-
-  /* ── FOUNDER BANNER ── */
-  .founder-banner {
-    background: var(--off);
-    border-bottom: 1px solid var(--border);
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: stretch;
-    overflow: hidden;
-  }
-  .founder-left {
-    padding: 28px 40px;
-    border-right: 1px solid var(--border);
-    display: flex; flex-direction: column;
-    justify-content: center; gap: 6px;
-  }
-  .founder-kicker {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 10px; font-weight: 700;
-    letter-spacing: 0.28em; text-transform: uppercase;
-    color: var(--yellow);
-  }
-  .founder-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(26px, 3vw, 38px);
-    letter-spacing: 0.04em; color: var(--white); line-height: 1;
-  }
-  .founder-sub {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px; color: var(--muted); margin-top: 2px;
-  }
-  .founder-sub span { color: var(--yellow); font-weight: 500; }
-  .founder-right {
-    padding: 28px 48px;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 4px; background: var(--black); min-width: 200px;
-  }
-  .founder-counter {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 72px; line-height: 1;
-    letter-spacing: 0.02em; color: var(--yellow);
-  }
-  .founder-counter-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; font-weight: 700;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    color: #555; text-align: center;
-  }
-  .founder-code-row {
-    display: flex; align-items: center; gap: 10px; margin-top: 8px;
-  }
-  .founder-code {
-    font-family: 'DM Mono', monospace; font-size: 16px;
-    letter-spacing: 0.12em; color: var(--yellow);
-    background: rgba(225,255,1,0.08);
-    border: 1px solid rgba(225,255,1,0.25);
-    padding: 7px 16px;
-  }
-  .founder-copy-btn {
-    background: var(--yellow); color: var(--black);
-    border: none; font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
-    text-transform: uppercase; padding: 7px 14px;
-    cursor: pointer; transition: opacity 0.2s;
-  }
-  .founder-copy-btn:hover { opacity: 0.85; }
-  @media (max-width: 960px) {
-    .founder-banner { grid-template-columns: 1fr; }
-    .founder-left { border-right: none; border-bottom: 1px solid var(--border); padding: 24px; }
-    .founder-right { padding: 24px; min-width: unset; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; gap: 16px; }
-    .founder-counter { font-size: 52px; }
-  }
 </style>
 </head>
 <body>
@@ -688,7 +462,6 @@
     <li><a href="#mx">Mexico</a></li>
     <li><a href="#ni">Nicaragua</a></li>
     <li><a href="#cup">Origin Cup</a></li>
-    <li><a href="#office">Office</a></li>
     <li><a href="#story">Our Story</a></li>
     <li><a href="rewards.html" style="color:var(--yellow)">Brew Circle</a></li>
   </ul>
@@ -716,7 +489,6 @@
     <a class="mob-link" href="#mx" onclick="closeMob()">Mexico</a>
     <a class="mob-link" href="#ni" onclick="closeMob()">Nicaragua</a>
     <a class="mob-link" href="#cup" onclick="closeMob()">Origin Cup</a>
-    <a class="mob-link" href="#office" onclick="closeMob()">Office</a>
     <a class="mob-link" href="#story" onclick="closeMob()">Our Story</a>
     <a class="mob-link" href="rewards.html" style="color:var(--yellow)" onclick="closeMob()">Brew Circle</a>
   </div>
@@ -787,26 +559,6 @@
     <div class="titem">enTheos <span class="tdot"></span></div>
   </div>
 </div>
-
-<!-- ── FOUNDER BANNER ── -->
-<section class="founder-banner" id="founder-offer">
-  <div class="founder-left">
-    <p class="founder-kicker">⚡ Limited Founder Offer</p>
-    <h2 class="founder-title">First 20 Customers Get R20 Off</h2>
-    <p class="founder-sub">
-      Use code <span>FOUNDER20</span> at checkout &nbsp;·&nbsp;
-      Share: <span>artifactscoffee.co.za?code=FOUNDER20</span>
-    </p>
-  </div>
-  <div class="founder-right">
-    <div class="founder-counter" id="founder-spots">20</div>
-    <p class="founder-counter-label">Spots<br>Remaining</p>
-    <div class="founder-code-row">
-      <span class="founder-code">FOUNDER20</span>
-      <button class="founder-copy-btn" onclick="copyFounderCode()">Copy</button>
-    </div>
-  </div>
-</section>
 
 <section id="gt" class="product-section gt-theme">
   <div class="p-visual">
@@ -957,94 +709,6 @@
   </div>
 </section>
 
-
-
-<!-- ── OFFICE SUBSCRIPTION ── -->
-<section id="office" class="office-section reveal">
-  <div class="office-inner">
-    <div class="office-head">
-      <p class="office-kicker">☕ Office Coffee Programme</p>
-      <h2 class="office-title">Fresh Roasted.<br><em>Every Week.</em><br>At Your Desk.</h2>
-      <p class="office-desc">
-        Keep your team caffeinated with specialty-grade single origin coffee, 
-        roasted weekly and delivered to your door. One simple monthly invoice. 
-        No subscriptions platform. No middlemen. Just real coffee, on time.
-      </p>
-    </div>
-
-    <div class="office-grid">
-
-      <!-- Starter -->
-      <div class="office-plan">
-        <p class="office-plan-name">Starter</p>
-        <p class="office-plan-team">5 – 10 People</p>
-        <div class="office-plan-price">
-          <span class="opp-curr">R</span>
-          <span class="opp-amount">592</span>
-        </div>
-        <p class="office-plan-freq">/ month · 1kg per delivery · bi-weekly</p>
-        <ul class="office-perks">
-          <li class="office-perk">2 × 500g bags per month</li>
-          <li class="office-perk">Choose your origin each cycle</li>
-          <li class="office-perk">Roasted fresh on dispatch day</li>
-          <li class="office-perk">Monthly invoice · EFT or card</li>
-        </ul>
-        <a href="mailto:artifacts.coffee.roastery@gmail.com?subject=Office%20Starter%20Plan&body=Hi%2C%20I%27d%20like%20to%20set%20up%20an%20office%20coffee%20subscription%20for%20my%20team." class="office-cta">Enquire →</a>
-      </div>
-
-      <!-- Studio — featured -->
-      <div class="office-plan featured">
-        <p class="office-plan-name">Studio</p>
-        <p class="office-plan-team">10 – 25 People</p>
-        <div class="office-plan-price">
-          <span class="opp-curr">R</span>
-          <span class="opp-amount">1080</span>
-        </div>
-        <p class="office-plan-freq">/ month · 2kg per delivery · bi-weekly</p>
-        <ul class="office-perks">
-          <li class="office-perk">4 × 500g bags per month</li>
-          <li class="office-perk">Mix origins across deliveries</li>
-          <li class="office-perk">Priority roast scheduling</li>
-          <li class="office-perk">Monthly invoice · EFT or card</li>
-          <li class="office-perk">Free delivery in Johannesburg</li>
-        </ul>
-        <a href="mailto:artifacts.coffee.roastery@gmail.com?subject=Office%20Studio%20Plan&body=Hi%2C%20I%27d%20like%20to%20set%20up%20an%20office%20coffee%20subscription%20for%20my%20team." class="office-cta">Enquire →</a>
-      </div>
-
-      <!-- Roastery -->
-      <div class="office-plan">
-        <p class="office-plan-name">Roastery</p>
-        <p class="office-plan-team">25+ People</p>
-        <div class="office-plan-price">
-          <span class="opp-curr">R</span>
-          <span class="opp-amount">1960</span>
-        </div>
-        <p class="office-plan-freq">/ month · 4kg per delivery · bi-weekly</p>
-        <ul class="office-perks">
-          <li class="office-perk">8 × 500g bags per month</li>
-          <li class="office-perk">Dedicated origin selection call</li>
-          <li class="office-perk">Custom roast profile available</li>
-          <li class="office-perk">Monthly invoice · EFT or card</li>
-          <li class="office-perk">Free nationwide delivery</li>
-          <li class="office-perk">10% discount on additional orders</li>
-        </ul>
-        <a href="mailto:artifacts.coffee.roastery@gmail.com?subject=Office%20Roastery%20Plan&body=Hi%2C%20I%27d%20like%20to%20set%20up%20an%20office%20coffee%20subscription%20for%20my%20team." class="office-cta">Enquire →</a>
-      </div>
-
-    </div>
-
-    <div class="office-bottom">
-      <p class="office-bottom-text">
-        <strong>Not sure which plan fits?</strong> Message us on WhatsApp or email and we'll work it out together.<br>
-        All plans are flexible — pause, adjust quantity, or change origin at any time with 3 days notice.
-      </p>
-      <a href="https://wa.me/27613832478?text=Hi%2C%20I%27d%20like%20to%20set%20up%20an%20office%20coffee%20subscription." class="office-wa-btn" target="_blank">
-        <svg style="width:20px;height:20px;fill:currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .004 5.41.001 12.045c0 2.12.554 4.189 1.602 6.04L0 24l6.117-1.605a11.837 11.837 0 005.925 1.577h.005c6.632 0 12.042-5.41 12.046-12.045a11.83 11.83 0 00-3.536-8.509"/></svg>
-        WhatsApp Us
-      </a>
-    </div>
-  </div>
-</section>
 
 <section id="cup" class="cup-section reveal">
   <div class="cup-section-inner">
@@ -1235,7 +899,6 @@
     <li><a href="#mx">Mexico</a></li>
     <li><a href="#ni">Nicaragua</a></li>
     <li><a href="#cup">Origin Cup</a></li>
-    <li><a href="#office">Office</a></li>
     <li><a href="#story">Our Story</a></li>
     <li><a href="rewards.html" style="color:var(--yellow)">Brew Circle</a></li>
   </ul>
@@ -1273,18 +936,7 @@
             <span class="sz-label" style="display:block; margin-bottom:6px;">Delivery Details</span>
             <div style="display:grid; gap:8px; grid-template-columns:1fr 1fr;">
                 <input id="ship-phone" type="tel" autocomplete="tel" placeholder="Phone number" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
-                <select id="ship-province" autocomplete="address-level1" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px; font-family:'DM Mono',monospace; appearance:none; -webkit-appearance:none; cursor:pointer;">
-                <option value="" disabled selected style="color:#555;">Province</option>
-                <option value="Gauteng">Gauteng</option>
-                <option value="Western Cape">Western Cape</option>
-                <option value="KwaZulu-Natal">KwaZulu-Natal</option>
-                <option value="Eastern Cape">Eastern Cape</option>
-                <option value="Limpopo">Limpopo</option>
-                <option value="Mpumalanga">Mpumalanga</option>
-                <option value="North West">North West</option>
-                <option value="Free State">Free State</option>
-                <option value="Northern Cape">Northern Cape</option>
-                </select>
+                <input id="ship-province" type="text" autocomplete="address-level1" placeholder="Province (e.g. Gauteng)" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
             </div>
             <input id="ship-address-line1" type="text" autocomplete="address-line1" placeholder="Street address" style="width:100%; margin-top:8px; background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
             <input id="ship-suburb" type="text" autocomplete="address-level3" placeholder="Suburb" style="width:100%; margin-top:8px; background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
@@ -1309,15 +961,15 @@
             
             <!-- PayFast Form -->
             <form action="https://www.payfast.co.za/eng/process" method="post" id="payfast-form">
-                <input type="hidden" name="merchant_id" value="34420469">
-                <input type="hidden" name="merchant_key" value="q6qjvvpwgddvi">
+                <input type="hidden" name="merchant_id" value="10031804">
+                <input type="hidden" name="merchant_key" value="p66f6iux3e4p9">
                 <input type="hidden" name="return_url" value="https://artifactscoffee.co.za/success">
                 <input type="hidden" name="cancel_url" value="https://artifactscoffee.co.za/cancel">
                 <input type="hidden" name="notify_url" value="https://artifactscoffee.co.za/.netlify/functions/payfast-notify">
                 
                 <!-- Mandatory Fields -->
-                <input type="hidden" name="name_first" id="pf_name">
-                <input type="hidden" name="email_address" id="pf_email">
+                <input type="hidden" name="name_first" id="pf_name" autocomplete="given-name">
+                <input type="hidden" name="email_address" id="pf_email" autocomplete="email">
                 <input type="hidden" name="m_payment_id" id="pf_payment_id">
                 <input type="hidden" name="amount" id="pf_amount">
                 <input type="hidden" name="item_name" id="pf_item_name" value="Artifacts Coffee Order">
@@ -1345,7 +997,6 @@ let currentUser = null;
 let activeDiscount = null;
 let activeShippingQuote = null;
 const discountCodes = {
-    FOUNDER20: { type: 'fixed', value: 20, label: 'R20 off — Founder' },
     DISCOVERY15: { type: 'percent', value: 15, label: '15% off order subtotal' },
     SAMPLE25: { type: 'fixed', value: 25, label: 'R25 off order subtotal' }
 };
@@ -1899,43 +1550,6 @@ document.querySelectorAll('.reveal').forEach(r => io.observe(r));
     requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('in')));
   });
 })();
-
-// ── FOUNDER COUNTER ──
-const FOUNDER_TOTAL = 20;
-const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhweGJsZHlyaWdxamtkbXJmaHZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYxNTA0OTcsImV4cCI6MjA5MTcyNjQ5N30.5dClUhDfHZ_IXs5b3ZEh6Zyg7WkZi04VZOBeqR4jOsk';
-
-async function loadFounderCount() {
-  try {
-    const res = await fetch(
-      'https://xpxbldyrigqjkdmrfhvh.supabase.co/rest/v1/point_events?select=id&description=ilike.*FOUNDER20*',
-      { headers: { 'apikey': SUPABASE_ANON, 'Authorization': 'Bearer ' + SUPABASE_ANON } }
-    );
-    if (!res.ok) throw new Error();
-    const data = await res.json();
-    const used = Array.isArray(data) ? data.length : 0;
-    const remaining = Math.max(0, FOUNDER_TOTAL - used);
-    const el = document.getElementById('founder-spots');
-    if (el) {
-      el.textContent = remaining;
-      el.style.color = remaining <= 5 ? '#ff6b6b' : 'var(--yellow)';
-    }
-    if (remaining === 0) {
-      const banner = document.getElementById('founder-offer');
-      if (banner) banner.style.display = 'none';
-      delete discountCodes['FOUNDER20'];
-    }
-  } catch(e) { /* silently fail — counter stays at 20 */ }
-}
-
-function copyFounderCode() {
-  navigator.clipboard.writeText('FOUNDER20').then(() => {
-    const btn = document.querySelector('.founder-copy-btn');
-    if (btn) { btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy', 2000); }
-  });
-}
-
-loadFounderCount();
-
 </script>
 </body>
 </html>
