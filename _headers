@@ -4,11 +4,11 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(self "https://www.payfast.co.za")
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://identity.netlify.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://artifactscoffee.co.za; connect-src 'self' https://xpxbldyrigqjkdmrfhvh.supabase.co https://api.resend.com; frame-src https://www.payfast.co.za; form-action 'self' https://www.payfast.co.za; base-uri 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://identity.netlify.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://artifactscoffee.co.za; connect-src 'self' https://identity.netlify.com https://xpxbldyrigqjkdmrfhvh.supabase.co https://api.resend.com; frame-src https://www.payfast.co.za https://sandbox.payfast.co.za; form-action 'self' https://www.payfast.co.za https://sandbox.payfast.co.za; base-uri 'self'
 
 # Netlify Identity widget — needs relaxed connect-src
 /rewards.html
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://xpxbldyrigqjkdmrfhvh.supabase.co; base-uri 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://identity.netlify.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://identity.netlify.com https://xpxbldyrigqjkdmrfhvh.supabase.co; base-uri 'self'
 
 # Static assets — long cache
 /images/*
