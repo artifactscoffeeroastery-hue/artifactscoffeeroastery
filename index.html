@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
 <title>Artifacts Coffee — Johannesburg Micro-Roastery</title>
 <meta name="description" content="Artifacts Coffee: Johannesburg Micro-Roastery. Sourced with intent, roasted with precision. High-quality single-origin coffee beans, roasted fresh weekly.">
 <meta name="keywords" content="Artifacts Coffee, Johannesburg, coffee roastery, single origin, whole bean coffee, fresh roasted, micro-roastery, enTheos">
@@ -35,6 +36,7 @@
 </noscript>
 <style>
   :root {
+    color-scheme: only dark;
     --cyan: #0FA8DF;
     --yellow: #E1FF01;
     --black: #080808;
@@ -45,7 +47,8 @@
     --muted: #888;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; background: var(--black); }
+  [id] { scroll-margin-top: 76px; }
   body {
     background: var(--black);
     color: var(--white);
@@ -53,6 +56,13 @@
     font-size: 13px;
     line-height: 1.6;
     overflow-x: hidden;
+  }
+  img, .p-close, .p-bag, .ticker, .hstat-n,
+  .sel-y, .btn-y, .mx-theme .p-accent, .mx-theme .p-code,
+  .phil-left, .obj-section, .cup-badge-new, .mob-wa,
+  .office-plan.featured::before, .office-plan.featured .office-cta,
+  .founder-copy-btn, .founder-counter, .founder-code {
+    forced-color-adjust: none;
   }
 
   /* ── NAV ── */
@@ -724,12 +734,13 @@
 
 <div class="mob-overlay" id="mobOverlay">
   <div class="mob-links">
-    <a class="mob-link" href="#gt" onclick="closeMob()">Guatemala</a>
-    <a class="mob-link" href="#mx" onclick="closeMob()">Mexico</a>
-    <a class="mob-link" href="#ni" onclick="closeMob()">Nicaragua</a>
-    <a class="mob-link" href="#cup" onclick="closeMob()">Origin Cup</a>
-    <a class="mob-link" href="#office" onclick="closeMob()">Office</a>
-    <a class="mob-link" href="#story" onclick="closeMob()">Our Story</a>
+    <a class="mob-link" href="#founder-offer" onclick="navigateMob(event, '#founder-offer')">Founder Offer</a>
+    <a class="mob-link" href="#gt" onclick="navigateMob(event, '#gt')">Guatemala</a>
+    <a class="mob-link" href="#mx" onclick="navigateMob(event, '#mx')">Mexico</a>
+    <a class="mob-link" href="#ni" onclick="navigateMob(event, '#ni')">Nicaragua</a>
+    <a class="mob-link" href="#cup" onclick="navigateMob(event, '#cup')">Origin Cup</a>
+    <a class="mob-link" href="#office" onclick="navigateMob(event, '#office')">Office</a>
+    <a class="mob-link" href="#story" onclick="navigateMob(event, '#story')">Our Story</a>
     <a class="mob-link" href="rewards.html" style="color:var(--yellow)" onclick="closeMob()">Brew Circle</a>
   </div>
   <div class="mob-contact">
@@ -1368,6 +1379,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    document.querySelectorAll('.nav-links a[href^="#"], .foot-links a[href^="#"]').forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            scrollToSection(link.getAttribute('href'));
+        });
+    });
     
     // Netlify Identity init
     if (window.netlifyIdentity) {
@@ -1853,6 +1871,30 @@ function closeMobInternal() {
   if (overlay) overlay.classList.remove('active');
   if (ham) ham.classList.remove('open');
   document.body.style.overflow = '';
+}
+
+function scrollToSection(target, replaceHistory = false) {
+  const destination = document.querySelector(target);
+  if (!destination) return;
+
+  const nav = document.querySelector('nav');
+  const navOffset = (nav ? nav.offsetHeight : 0) + 24;
+  const top = destination.getBoundingClientRect().top + window.pageYOffset - navOffset;
+
+  if (window.location.hash !== target) {
+    const method = replaceHistory ? 'replaceState' : 'pushState';
+    history[method](null, '', target);
+  } else {
+    history.replaceState(null, '', target);
+  }
+
+  window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+}
+
+function navigateMob(event, target) {
+  event.preventDefault();
+  closeMobInternal();
+  scrollToSection(target, history.state && history.state.menu === 'open');
 }
 
 window.addEventListener('popstate', (e) => {
