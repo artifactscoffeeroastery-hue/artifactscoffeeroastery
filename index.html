@@ -76,15 +76,64 @@
   .nav-logo { display: flex; align-items: center; text-decoration: none; }
   .nav-logo img { height: 36px; display: block; }
   .nav-links {
-    display: flex; gap: 32px; list-style: none;
+    display: flex; align-items: center; gap: 32px; list-style: none;
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 700; font-size: 12px;
     letter-spacing: 0.18em; text-transform: uppercase;
     justify-self: center;
   }
-  .nav-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; outline: none; }
+  .nav-links > li { display: flex; align-items: center; height: 100%; }
+  .nav-links > li > a,
+  .nav-links > li > .nav-dropdown { display: flex; align-items: center; height: 100%; }
+  .nav-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; outline: none; line-height: 1; }
   .nav-links a:hover, .nav-links a:focus { color: var(--yellow); }
   .nav-links a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-trigger {
+    color: var(--muted); background: none; border: none; cursor: pointer;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 12px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 0; margin: 0; line-height: 1;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: color 0.2s; outline: none;
+    height: 100%;
+  }
+  .nav-dropdown-trigger:hover, .nav-dropdown-trigger:focus,
+  .nav-dropdown.open .nav-dropdown-trigger { color: var(--yellow); }
+  .nav-dropdown-trigger:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+  .nav-dropdown-caret { font-size: 9px; opacity: 0.7; transition: transform 0.2s; }
+  .nav-dropdown.open .nav-dropdown-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute; top: calc(100% + 14px); left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    list-style: none; min-width: 196px;
+    background: var(--off); border: 1px solid var(--border);
+    padding: 8px 0; margin: 0;
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+    z-index: 400;
+  }
+  .nav-dropdown-menu::before {
+    content: ''; position: absolute; top: -7px; left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px; height: 12px; background: var(--off);
+    border-left: 1px solid var(--border); border-top: 1px solid var(--border);
+  }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu,
+  .nav-dropdown.open .nav-dropdown-menu {
+    opacity: 1; visibility: visible; pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .nav-dropdown-menu a {
+    display: block; padding: 10px 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; font-size: 12px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); white-space: nowrap;
+  }
+  .nav-dropdown-menu a:hover, .nav-dropdown-menu a:focus { color: var(--yellow); background: rgba(255,255,255,0.03); }
   
   .nav-right { display: flex; align-items: center; gap: 12px; justify-self: end; }
   
@@ -230,6 +279,25 @@
   .sel-c { background: var(--cyan); color: var(--black); }
   .sel-y { background: var(--yellow); color: var(--black); }
   .sel-w { background: var(--white); color: var(--black); }
+  .mx-theme .sz-btn:hover,
+  .mx-theme .sz-btn:focus-visible,
+  .mx-theme .sz-btn:active { background: var(--yellow); color: var(--black) !important; }
+  .mx-theme .sz-btn.sel-y { background: var(--yellow); color: var(--black); }
+  .ni-theme .sz-btn:hover,
+  .ni-theme .sz-btn:focus-visible,
+  .ni-theme .sz-btn:active { background: var(--white); color: var(--black) !important; }
+  .ni-theme .sz-btn.sel-w { background: var(--white); color: var(--black); }
+  .mx-theme .order-btn.btn-y:hover,
+  .mx-theme .order-btn.btn-y:focus-visible,
+  .mx-theme .order-btn.btn-y:active { background: var(--yellow); color: var(--black); opacity: 1; transform: none; }
+  .ni-theme .order-btn.btn-w:hover,
+  .ni-theme .order-btn.btn-w:focus-visible,
+  .ni-theme .order-btn.btn-w:active:not(.in-cart) { background: var(--white); color: var(--black); opacity: 1; transform: none; }
+  .ni-theme .order-btn.btn-w.in-cart { background: var(--cyan); color: var(--black); opacity: 1; transform: none; }
+  .gt-theme .order-btn.btn-c:hover,
+  .gt-theme .order-btn.btn-c:focus-visible,
+  .gt-theme .order-btn.btn-c:active:not(.in-cart) { background: var(--cyan); color: var(--black); opacity: 1; transform: none; }
+  .gt-theme .order-btn.btn-c.in-cart { background: var(--cyan); color: var(--black); opacity: 1; transform: none; }
 
   .price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 22px; }
   .p-curr { font-family:'Barlow Condensed',sans-serif; font-size:20px; color:#666; }
@@ -249,6 +317,36 @@
   .hero-origin-card { display: grid; grid-template-columns: 60px 1fr; grid-template-rows: auto auto auto; align-items: center; gap: 0 16px; padding: 14px 18px; background: var(--off); border: 1px solid var(--border); text-decoration: none; transition: border-color 0.2s, background 0.2s; cursor: pointer; }
   .hero-origin-card:hover, .hero-origin-card:focus { background: var(--mid); border-color: #444; }
   .hero-origin-card:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+  .hero-origin-card[href="#mx"]:hover,
+  .hero-origin-card[href="#mx"]:active,
+  .hero-origin-card[href="#mx"]:focus-visible { background: var(--yellow); border-color: var(--yellow); }
+  .hero-origin-card[href="#mx"]:hover .hoc-code,
+  .hero-origin-card[href="#mx"]:hover .hoc-price,
+  .hero-origin-card[href="#mx"]:hover .hoc-name,
+  .hero-origin-card[href="#mx"]:hover .hoc-notes,
+  .hero-origin-card[href="#mx"]:active .hoc-code,
+  .hero-origin-card[href="#mx"]:active .hoc-price,
+  .hero-origin-card[href="#mx"]:active .hoc-name,
+  .hero-origin-card[href="#mx"]:active .hoc-notes,
+  .hero-origin-card[href="#mx"]:focus-visible .hoc-code,
+  .hero-origin-card[href="#mx"]:focus-visible .hoc-price,
+  .hero-origin-card[href="#mx"]:focus-visible .hoc-name,
+  .hero-origin-card[href="#mx"]:focus-visible .hoc-notes { color: var(--black) !important; }
+  .hero-origin-card[href="#ni"]:hover,
+  .hero-origin-card[href="#ni"]:active,
+  .hero-origin-card[href="#ni"]:focus-visible { background: var(--white); border-color: var(--white); }
+  .hero-origin-card[href="#ni"]:hover .hoc-code,
+  .hero-origin-card[href="#ni"]:hover .hoc-price,
+  .hero-origin-card[href="#ni"]:hover .hoc-name,
+  .hero-origin-card[href="#ni"]:hover .hoc-notes,
+  .hero-origin-card[href="#ni"]:active .hoc-code,
+  .hero-origin-card[href="#ni"]:active .hoc-price,
+  .hero-origin-card[href="#ni"]:active .hoc-name,
+  .hero-origin-card[href="#ni"]:active .hoc-notes,
+  .hero-origin-card[href="#ni"]:focus-visible .hoc-code,
+  .hero-origin-card[href="#ni"]:focus-visible .hoc-price,
+  .hero-origin-card[href="#ni"]:focus-visible .hoc-name,
+  .hero-origin-card[href="#ni"]:focus-visible .hoc-notes { color: var(--black) !important; }
   .hoc-code { font-family: 'Bebas Neue', sans-serif; font-size: 43.195px; line-height: 0.9; grid-row: 1 / 4; align-self: center; }
   .hoc-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.1em; grid-column: 2; grid-row: 1; align-self: flex-end; }
   .hoc-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); grid-column: 2; grid-row: 2; line-height: 1.2; }
@@ -312,6 +410,9 @@
   .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--cyan); border-color: var(--cyan); color: var(--black); }
   .faq-ans { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
   .faq-ans-in { padding: 0 0 24px; font-size: 13px; color: #888; line-height: 1.85; }
+  .faq-ans-in ol { margin: 0; padding-left: 1.25em; }
+  .faq-ans-in li { margin-bottom: 10px; }
+  .faq-ans-in li:last-child { margin-bottom: 0; }
 
   footer { background: var(--black); border-top: 2px solid var(--border); padding: 44px 56px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
   footer img { height: 34px; }
@@ -376,13 +477,48 @@
   }
 
   .mob-overlay { position: fixed; inset: 0; background: var(--black); z-index: 380; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; pointer-events: none; opacity: 0; visibility: hidden; transition: opacity 0.38s ease, visibility 0.38s ease; }
+  .mob-close {
+    position: absolute; top: 18px; right: 18px; z-index: 2;
+    background: none; border: none; color: var(--white);
+    font-size: 28px; line-height: 1; cursor: pointer; padding: 10px;
+    transition: color 0.2s, opacity 0.2s; outline: none;
+  }
+  .mob-close:hover, .mob-close:focus { color: var(--yellow); opacity: 0.9; }
+  .mob-close:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
   .mob-overlay::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--cyan), var(--yellow) 60%, transparent); }
   .mob-overlay.active { pointer-events: auto; opacity: 1; visibility: visible; }
   .mob-links { display: flex; flex-direction: column; align-items: center; gap: 4px; margin-bottom: 36px; }
-  .mob-link { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 11vw, 68px); color: rgba(255,255,255,0.18); text-decoration: none; letter-spacing: 0.04em; line-height: 1.12; position: relative; transform: translateY(28px); opacity: 0; transition: color 0.22s ease, transform 0.42s cubic-bezier(0.22,1,0.36,1), opacity 0.42s ease; }
-  .mob-overlay.active .mob-link { transform: translateY(0); opacity: 1; }
-  .mob-link:nth-child(1) { transition-delay: 0.04s; } .mob-link:nth-child(2) { transition-delay: 0.09s; } .mob-link:nth-child(3) { transition-delay: 0.14s; } .mob-link:nth-child(4) { transition-delay: 0.19s; } .mob-link:nth-child(5) { transition-delay: 0.24s; }
-  .mob-link:hover { color: var(--yellow); }
+  .mob-link, .mob-sublink {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(38px, 9.5vw, 56px);
+    color: var(--white);
+    text-decoration: none; letter-spacing: 0.04em; line-height: 1.12;
+    position: relative;
+    transform: translateY(28px); opacity: 0;
+    transition: color 0.22s ease, transform 0.42s cubic-bezier(0.22,1,0.36,1), opacity 0.42s ease;
+  }
+  .mob-overlay.active .mob-link,
+  .mob-overlay.active .mob-sublink { transform: translateY(0); opacity: 1; }
+  .mob-group-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--cyan); margin: 8px 0 4px;
+    transform: translateY(28px); opacity: 0;
+    transition: transform 0.42s cubic-bezier(0.22,1,0.36,1), opacity 0.42s ease;
+  }
+  .mob-overlay.active .mob-group-label { transform: translateY(0); opacity: 1; }
+  .mob-link:hover, .mob-sublink:hover { color: var(--yellow); }
+  .mob-link:nth-child(1) { transition-delay: 0.04s; }
+  .mob-group-label { transition-delay: 0.08s; }
+  .mob-sublink:nth-of-type(1) { transition-delay: 0.1s; }
+  .mob-sublink:nth-of-type(2) { transition-delay: 0.13s; }
+  .mob-sublink:nth-of-type(3) { transition-delay: 0.16s; }
+  .mob-sublink:nth-of-type(4) { transition-delay: 0.19s; }
+  .mob-sublink:nth-of-type(5) { transition-delay: 0.22s; }
+  .mob-link.mob-after-coffee { transition-delay: 0.26s; }
+  .mob-link.mob-after-coffee + .mob-link { transition-delay: 0.3s; }
+  .mob-link.mob-after-coffee + .mob-link + .mob-link { transition-delay: 0.34s; }
   .mob-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--cyan); transition: width 0.25s ease; }
   .mob-link:hover::after { width: 100%; }
   .mob-divider { width: 48px; height: 1px; background: rgba(255,255,255,0.12); margin-bottom: 28px; transform: scaleX(0); opacity: 0; transition: transform 0.35s ease 0.28s, opacity 0.35s ease 0.28s; }
@@ -598,6 +734,16 @@
     white-space: nowrap; transition: opacity 0.2s;
   }
   .office-wa-btn:hover { opacity: 0.9; }
+  .office-bottom-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
+  .office-email-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--cyan); color: var(--black);
+    padding: 14px 28px; text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px; letter-spacing: 0.1em;
+    white-space: nowrap; transition: opacity 0.2s;
+  }
+  .office-email-btn:hover { opacity: 0.9; }
 
   /* ── FOUNDER BANNER ── */
   .founder-banner {
@@ -706,11 +852,19 @@
     <img src="images/logo.png" alt="Artifacts Coffee">
   </a></div>
   <ul class="nav-links">
-    <li><a href="#gt">Guatemala</a></li>
-    <li><a href="#mx">Mexico</a></li>
-    <li><a href="#ni">Nicaragua</a></li>
+    <li class="nav-dropdown" id="navCoffeeDropdown">
+      <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" id="navCoffeeBtn">
+        Coffee <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
+      </button>
+      <ul class="nav-dropdown-menu" role="menu" aria-label="Coffee">
+        <li role="none"><a href="#gt" role="menuitem">Guatemala</a></li>
+        <li role="none"><a href="#mx" role="menuitem">Mexico</a></li>
+        <li role="none"><a href="#ni" role="menuitem">Nicaragua</a></li>
+        <li role="none"><a href="#office" role="menuitem">Office</a></li>
+        <li role="none"><a href="#discovery-pack" role="menuitem">Discovery Pack</a></li>
+      </ul>
+    </li>
     <li><a href="#cup">Origin Cup</a></li>
-    <li><a href="#office">Office</a></li>
     <li><a href="#story">Our Story</a></li>
     <li><a href="rewards.html" style="color:var(--yellow)">Brew Circle</a></li>
   </ul>
@@ -733,13 +887,16 @@
 </nav>
 
 <div class="mob-overlay" id="mobOverlay">
+  <button type="button" class="mob-close" onclick="closeMob()" aria-label="Close menu">✕</button>
   <div class="mob-links">
     <a class="mob-link" href="#founder-offer" onclick="navigateMob(event, '#founder-offer')">Founder Offer</a>
-    <a class="mob-link" href="#gt" onclick="navigateMob(event, '#gt')">Guatemala</a>
-    <a class="mob-link" href="#mx" onclick="navigateMob(event, '#mx')">Mexico</a>
-    <a class="mob-link" href="#ni" onclick="navigateMob(event, '#ni')">Nicaragua</a>
-    <a class="mob-link" href="#cup" onclick="navigateMob(event, '#cup')">Origin Cup</a>
-    <a class="mob-link" href="#office" onclick="navigateMob(event, '#office')">Office</a>
+    <p class="mob-group-label">Coffee</p>
+    <a class="mob-sublink" href="#gt" onclick="navigateMob(event, '#gt')">Guatemala</a>
+    <a class="mob-sublink" href="#mx" onclick="navigateMob(event, '#mx')">Mexico</a>
+    <a class="mob-sublink" href="#ni" onclick="navigateMob(event, '#ni')">Nicaragua</a>
+    <a class="mob-sublink" href="#office" onclick="navigateMob(event, '#office')">Office</a>
+    <a class="mob-sublink" href="#discovery-pack" onclick="navigateMob(event, '#discovery-pack')">Discovery Pack</a>
+    <a class="mob-link mob-after-coffee" href="#cup" onclick="navigateMob(event, '#cup')">Origin Cup</a>
     <a class="mob-link" href="#story" onclick="navigateMob(event, '#story')">Our Story</a>
     <a class="mob-link" href="rewards.html" style="color:var(--yellow)" onclick="closeMob()">Brew Circle</a>
   </div>
@@ -822,7 +979,7 @@
     </p>
   </div>
   <div class="founder-right">
-    <div class="founder-counter" id="founder-spots">20</div>
+    <div class="founder-counter" id="founder-spots">17</div>
     <p class="founder-counter-label">Spots<br>Remaining</p>
     <div class="founder-code-row">
       <span class="founder-code">FOUNDER20</span>
@@ -1055,10 +1212,16 @@
         <strong>Not sure which plan fits?</strong> Message us on WhatsApp or email and we'll work it out together.<br>
         All plans are flexible — pause, adjust quantity, or change origin at any time with 3 days notice.
       </p>
-      <a href="https://wa.me/27613832478?text=Hi%2C%20I%27d%20like%20to%20set%20up%20an%20office%20coffee%20subscription." class="office-wa-btn" target="_blank">
-        <svg style="width:20px;height:20px;fill:currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .004 5.41.001 12.045c0 2.12.554 4.189 1.602 6.04L0 24l6.117-1.605a11.837 11.837 0 005.925 1.577h.005c6.632 0 12.042-5.41 12.046-12.045a11.83 11.83 0 00-3.536-8.509"/></svg>
-        WhatsApp Us
-      </a>
+      <div class="office-bottom-actions">
+        <a href="https://wa.me/27613832478?text=Hi%2C%20I%27d%20like%20to%20set%20up%20an%20office%20coffee%20subscription." class="office-wa-btn" target="_blank" rel="noopener">
+          <svg style="width:20px;height:20px;fill:currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .004 5.41.001 12.045c0 2.12.554 4.189 1.602 6.04L0 24l6.117-1.605a11.837 11.837 0 005.925 1.577h.005c6.632 0 12.042-5.41 12.046-12.045a11.83 11.83 0 00-3.536-8.509"/></svg>
+          WhatsApp Us
+        </a>
+        <a href="mailto:artifacts.coffee.roastery@gmail.com?subject=Office%20Coffee%20Enquiry&body=Hi%2C%20I%27d%20like%20to%20discuss%20an%20office%20coffee%20subscription." class="office-email-btn">
+          <svg style="width:20px;height:20px;fill:currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Email Us
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1090,7 +1253,7 @@
         <span class="cup-oos-line"></span>
         Out of Stock
       </button>
-      <a class="cup-notify" href="mailto:roast@artifactscoffee.co.za?subject=Notify%20Me:%20The%20Origin%20Cup">
+      <a class="cup-notify" href="mailto:artifacts.coffee.roastery@gmail.com?subject=Notify%20Me:%20The%20Origin%20Cup">
         <span>💬 Notify me when available →</span>
       </a>
       <div class="cup-trust">
@@ -1220,7 +1383,7 @@
     <h2 class="sec-head" style="text-align:left;margin-bottom:44px">Your Doubts,<br>Resolved.</h2>
     <div class="faq-item">
       <button class="faq-q" onclick="tFaq(this)" aria-expanded="false" aria-controls="faq-ans-1">How do I place an order?<span class="faq-icon" aria-hidden="true">+</span></button>
-      <div id="faq-ans-1" class="faq-ans" role="region"><div class="faq-ans-in">Tap "Order on WhatsApp" on any product — it opens directly to our catalogue. Tell us your coffee, size, and delivery address. We confirm, roast, and ship. No accounts needed.</div></div>
+      <div id="faq-ans-1" class="faq-ans" role="region"><div class="faq-ans-in"><ol><li>Choose your coffee and size (or the Discovery Pack), then tap <strong style="color:var(--white)">Add to Cart</strong>.</li><li>Open <strong style="color:var(--white)">Cart</strong> in the top navigation and sign in with your email — we send a one-time magic link (no password).</li><li>Review your items, enter your delivery address, and pick a courier option.</li><li>Add a discount code if you have one, then check your total.</li><li>Tap <strong style="color:var(--white)">Pay Securely</strong> — you'll be redirected to PayFast to complete payment.</li><li>We roast your order fresh and ship — confirmation is sent to your email.</li></ol></div></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="tFaq(this)" aria-expanded="false" aria-controls="faq-ans-2">When does my coffee get roasted?<span class="faq-icon" aria-hidden="true">+</span></button>
@@ -1315,8 +1478,8 @@
             
             <!-- PayFast Form -->
             <form action="https://www.payfast.co.za/eng/process" method="post" id="payfast-form">
-                <input type="hidden" name="merchant_id" value="10031804">
-                <input type="hidden" name="merchant_key" value="p66f6iux3e4p9">
+                <input type="hidden" name="merchant_id" value="34420469">
+                <input type="hidden" name="merchant_key" value="q6qjvvpwgddvi">
                 <input type="hidden" name="return_url" value="https://artifactscoffee.co.za/success">
                 <input type="hidden" name="cancel_url" value="https://artifactscoffee.co.za/cancel">
                 <input type="hidden" name="notify_url" value="https://artifactscoffee.co.za/.netlify/functions/payfast-notify">
@@ -1384,8 +1547,28 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', (event) => {
             event.preventDefault();
             scrollToSection(link.getAttribute('href'));
+            const dropdown = document.getElementById('navCoffeeDropdown');
+            const dropdownBtn = document.getElementById('navCoffeeBtn');
+            if (dropdown) dropdown.classList.remove('open');
+            if (dropdownBtn) dropdownBtn.setAttribute('aria-expanded', 'false');
         });
     });
+
+    const navCoffeeDropdown = document.getElementById('navCoffeeDropdown');
+    const navCoffeeBtn = document.getElementById('navCoffeeBtn');
+    if (navCoffeeDropdown && navCoffeeBtn) {
+        navCoffeeBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const isOpen = navCoffeeDropdown.classList.toggle('open');
+            navCoffeeBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+        document.addEventListener('click', (event) => {
+            if (!navCoffeeDropdown.contains(event.target)) {
+                navCoffeeDropdown.classList.remove('open');
+                navCoffeeBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
     
     // Netlify Identity init
     if (window.netlifyIdentity) {
@@ -1453,12 +1636,25 @@ function prepAddToCart(productName, productID) {
     
     saveCart();
     updateCartBadge();
+    setProductOrderBtnState(productID);
 
     if (!currentUser) {
         showAccountStep(); 
     } else {
         showShippingStep(); 
     }
+}
+
+function setProductOrderBtnState(productID) {
+    const sectionId = productID === 'dp' ? 'discovery-pack' : productID;
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    const btn = section.querySelector('.pf-selector-wrap .order-btn') || section.querySelector('.order-btn');
+    if (!btn) return;
+    if (productID === 'ni' || productID === 'gt' || productID === 'dp') {
+        btn.classList.add('in-cart');
+    }
+    btn.textContent = 'Added ✓';
 }
 
 function prepAddFixedProduct(productName, productID, price, sizeLabel) {
@@ -1480,6 +1676,7 @@ function prepAddFixedProduct(productName, productID, price, sizeLabel) {
 
     saveCart();
     updateCartBadge();
+    setProductOrderBtnState(productID);
 
     if (!currentUser) {
         showAccountStep();
@@ -1949,29 +2146,36 @@ document.querySelectorAll('.reveal').forEach(r => io.observe(r));
 
 // ── FOUNDER COUNTER ──
 const FOUNDER_TOTAL = 20;
+const FOUNDER_BASELINE_REDEMPTIONS = 3; // offline / pre-tracked founder spots
 const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhweGJsZHlyaWdxamtkbXJmaHZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYxNTA0OTcsImV4cCI6MjA5MTcyNjQ5N30.5dClUhDfHZ_IXs5b3ZEh6Zyg7WkZi04VZOBeqR4jOsk';
 
+function renderFounderSpots(remaining) {
+  const el = document.getElementById('founder-spots');
+  if (!el) return;
+  el.textContent = remaining;
+  el.style.color = remaining <= 5 ? '#ff6b6b' : 'var(--yellow)';
+  if (remaining === 0) {
+    const banner = document.getElementById('founder-offer');
+    if (banner) banner.style.display = 'none';
+    delete discountCodes['FOUNDER20'];
+  }
+}
+
 async function loadFounderCount() {
+  let onlineRedemptions = 0;
   try {
     const res = await fetch(
       'https://xpxbldyrigqjkdmrfhvh.supabase.co/rest/v1/point_events?select=id&description=ilike.*FOUNDER20*',
       { headers: { 'apikey': SUPABASE_ANON, 'Authorization': 'Bearer ' + SUPABASE_ANON } }
     );
-    if (!res.ok) throw new Error();
-    const data = await res.json();
-    const used = Array.isArray(data) ? data.length : 0;
-    const remaining = Math.max(0, FOUNDER_TOTAL - used);
-    const el = document.getElementById('founder-spots');
-    if (el) {
-      el.textContent = remaining;
-      el.style.color = remaining <= 5 ? '#ff6b6b' : 'var(--yellow)';
+    if (res.ok) {
+      const data = await res.json();
+      onlineRedemptions = Array.isArray(data) ? data.length : 0;
     }
-    if (remaining === 0) {
-      const banner = document.getElementById('founder-offer');
-      if (banner) banner.style.display = 'none';
-      delete discountCodes['FOUNDER20'];
-    }
-  } catch(e) { /* silently fail - counter stays at 20 */ }
+  } catch (e) { /* use baseline only */ }
+  const totalUsed = Math.min(FOUNDER_TOTAL, FOUNDER_BASELINE_REDEMPTIONS + onlineRedemptions);
+  const remaining = Math.max(0, FOUNDER_TOTAL - totalUsed);
+  renderFounderSpots(remaining);
 }
 
 function copyFounderCode() {

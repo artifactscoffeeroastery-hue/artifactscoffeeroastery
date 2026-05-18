@@ -85,6 +85,50 @@
   .nav-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; outline: none; }
   .nav-links a:hover, .nav-links a:focus { color: var(--yellow); }
   .nav-links a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-trigger {
+    color: var(--muted); background: none; border: none; cursor: pointer;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 12px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 0; display: flex; align-items: center; gap: 6px;
+    transition: color 0.2s; outline: none;
+  }
+  .nav-dropdown-trigger:hover, .nav-dropdown-trigger:focus,
+  .nav-dropdown.open .nav-dropdown-trigger { color: var(--yellow); }
+  .nav-dropdown-trigger:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+  .nav-dropdown-caret { font-size: 9px; opacity: 0.7; transition: transform 0.2s; }
+  .nav-dropdown.open .nav-dropdown-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute; top: calc(100% + 14px); left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    list-style: none; min-width: 196px;
+    background: var(--off); border: 1px solid var(--border);
+    padding: 8px 0; margin: 0;
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+    z-index: 400;
+  }
+  .nav-dropdown-menu::before {
+    content: ''; position: absolute; top: -7px; left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px; height: 12px; background: var(--off);
+    border-left: 1px solid var(--border); border-top: 1px solid var(--border);
+  }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu,
+  .nav-dropdown.open .nav-dropdown-menu {
+    opacity: 1; visibility: visible; pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .nav-dropdown-menu a {
+    display: block; padding: 10px 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; font-size: 12px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); white-space: nowrap;
+  }
+  .nav-dropdown-menu a:hover, .nav-dropdown-menu a:focus { color: var(--yellow); background: rgba(255,255,255,0.03); }
   
   .nav-right { display: flex; align-items: center; gap: 12px; justify-self: end; }
   
@@ -381,7 +425,35 @@
   .mob-links { display: flex; flex-direction: column; align-items: center; gap: 4px; margin-bottom: 36px; }
   .mob-link { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 11vw, 68px); color: rgba(255,255,255,0.18); text-decoration: none; letter-spacing: 0.04em; line-height: 1.12; position: relative; transform: translateY(28px); opacity: 0; transition: color 0.22s ease, transform 0.42s cubic-bezier(0.22,1,0.36,1), opacity 0.42s ease; }
   .mob-overlay.active .mob-link { transform: translateY(0); opacity: 1; }
-  .mob-link:nth-child(1) { transition-delay: 0.04s; } .mob-link:nth-child(2) { transition-delay: 0.09s; } .mob-link:nth-child(3) { transition-delay: 0.14s; } .mob-link:nth-child(4) { transition-delay: 0.19s; } .mob-link:nth-child(5) { transition-delay: 0.24s; }
+  .mob-group-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--cyan); margin: 8px 0 4px;
+    transform: translateY(28px); opacity: 0;
+    transition: transform 0.42s cubic-bezier(0.22,1,0.36,1), opacity 0.42s ease;
+  }
+  .mob-overlay.active .mob-group-label { transform: translateY(0); opacity: 1; }
+  .mob-sublink {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 7vw, 44px);
+    color: rgba(255,255,255,0.14);
+    text-decoration: none; letter-spacing: 0.04em; line-height: 1.15;
+    transform: translateY(28px); opacity: 0;
+    transition: color 0.22s ease, transform 0.42s cubic-bezier(0.22,1,0.36,1), opacity 0.42s ease;
+  }
+  .mob-overlay.active .mob-sublink { transform: translateY(0); opacity: 1; }
+  .mob-sublink:hover { color: var(--yellow); }
+  .mob-link:nth-child(1) { transition-delay: 0.04s; }
+  .mob-group-label { transition-delay: 0.08s; }
+  .mob-sublink:nth-of-type(1) { transition-delay: 0.1s; }
+  .mob-sublink:nth-of-type(2) { transition-delay: 0.13s; }
+  .mob-sublink:nth-of-type(3) { transition-delay: 0.16s; }
+  .mob-sublink:nth-of-type(4) { transition-delay: 0.19s; }
+  .mob-sublink:nth-of-type(5) { transition-delay: 0.22s; }
+  .mob-link.mob-after-coffee { transition-delay: 0.26s; }
+  .mob-link.mob-after-coffee + .mob-link { transition-delay: 0.3s; }
+  .mob-link.mob-after-coffee + .mob-link + .mob-link { transition-delay: 0.34s; }
   .mob-link:hover { color: var(--yellow); }
   .mob-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--cyan); transition: width 0.25s ease; }
   .mob-link:hover::after { width: 100%; }
@@ -601,6 +673,16 @@
     white-space: nowrap; transition: opacity 0.2s;
   }
   .office-wa-btn:hover { opacity: 0.9; }
+  .office-bottom-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
+  .office-email-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--cyan); color: var(--black);
+    padding: 14px 28px; text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px; letter-spacing: 0.1em;
+    white-space: nowrap; transition: opacity 0.2s;
+  }
+  .office-email-btn:hover { opacity: 0.9; }
 
   /* ── FOUNDER BANNER ── */
   .founder-banner {
@@ -709,11 +791,19 @@
     <img src="images/logo.png" alt="Artifacts Coffee">
   </a></div>
   <ul class="nav-links">
-    <li><a href="#gt">Guatemala</a></li>
-    <li><a href="#mx">Mexico</a></li>
-    <li><a href="#ni">Nicaragua</a></li>
+    <li class="nav-dropdown" id="navCoffeeDropdown">
+      <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" id="navCoffeeBtn">
+        Coffee <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
+      </button>
+      <ul class="nav-dropdown-menu" role="menu" aria-label="Coffee">
+        <li role="none"><a href="#gt" role="menuitem">Guatemala</a></li>
+        <li role="none"><a href="#mx" role="menuitem">Mexico</a></li>
+        <li role="none"><a href="#ni" role="menuitem">Nicaragua</a></li>
+        <li role="none"><a href="#office" role="menuitem">Office</a></li>
+        <li role="none"><a href="#discovery-pack" role="menuitem">Discovery Pack</a></li>
+      </ul>
+    </li>
     <li><a href="#cup">Origin Cup</a></li>
-    <li><a href="#office">Office</a></li>
     <li><a href="#story">Our Story</a></li>
     <li><a href="rewards.html" style="color:var(--yellow)">Brew Circle</a></li>
   </ul>
@@ -738,11 +828,13 @@
 <div class="mob-overlay" id="mobOverlay">
   <div class="mob-links">
     <a class="mob-link" href="#founder-offer" onclick="navigateMob(event, '#founder-offer')">Founder Offer</a>
-    <a class="mob-link" href="#gt" onclick="navigateMob(event, '#gt')">Guatemala</a>
-    <a class="mob-link" href="#mx" onclick="navigateMob(event, '#mx')">Mexico</a>
-    <a class="mob-link" href="#ni" onclick="navigateMob(event, '#ni')">Nicaragua</a>
-    <a class="mob-link" href="#cup" onclick="navigateMob(event, '#cup')">Origin Cup</a>
-    <a class="mob-link" href="#office" onclick="navigateMob(event, '#office')">Office</a>
+    <p class="mob-group-label">Coffee</p>
+    <a class="mob-sublink" href="#gt" onclick="navigateMob(event, '#gt')">Guatemala</a>
+    <a class="mob-sublink" href="#mx" onclick="navigateMob(event, '#mx')">Mexico</a>
+    <a class="mob-sublink" href="#ni" onclick="navigateMob(event, '#ni')">Nicaragua</a>
+    <a class="mob-sublink" href="#office" onclick="navigateMob(event, '#office')">Office</a>
+    <a class="mob-sublink" href="#discovery-pack" onclick="navigateMob(event, '#discovery-pack')">Discovery Pack</a>
+    <a class="mob-link mob-after-coffee" href="#cup" onclick="navigateMob(event, '#cup')">Origin Cup</a>
     <a class="mob-link" href="#story" onclick="navigateMob(event, '#story')">Our Story</a>
     <a class="mob-link" href="rewards.html" style="color:var(--yellow)" onclick="closeMob()">Brew Circle</a>
   </div>
@@ -1058,10 +1150,16 @@
         <strong>Not sure which plan fits?</strong> Message us on WhatsApp or email and we'll work it out together.<br>
         All plans are flexible — pause, adjust quantity, or change origin at any time with 3 days notice.
       </p>
-      <a href="https://wa.me/27613832478?text=Hi%2C%20I%27d%20like%20to%20set%20up%20an%20office%20coffee%20subscription." class="office-wa-btn" target="_blank">
-        <svg style="width:20px;height:20px;fill:currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .004 5.41.001 12.045c0 2.12.554 4.189 1.602 6.04L0 24l6.117-1.605a11.837 11.837 0 005.925 1.577h.005c6.632 0 12.042-5.41 12.046-12.045a11.83 11.83 0 00-3.536-8.509"/></svg>
-        WhatsApp Us
-      </a>
+      <div class="office-bottom-actions">
+        <a href="https://wa.me/27613832478?text=Hi%2C%20I%27d%20like%20to%20set%20up%20an%20office%20coffee%20subscription." class="office-wa-btn" target="_blank" rel="noopener">
+          <svg style="width:20px;height:20px;fill:currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .004 5.41.001 12.045c0 2.12.554 4.189 1.602 6.04L0 24l6.117-1.605a11.837 11.837 0 005.925 1.577h.005c6.632 0 12.042-5.41 12.046-12.045a11.83 11.83 0 00-3.536-8.509"/></svg>
+          WhatsApp Us
+        </a>
+        <a href="mailto:artifacts.coffee.roastery@gmail.com?subject=Office%20Coffee%20Enquiry&body=Hi%2C%20I%27d%20like%20to%20discuss%20an%20office%20coffee%20subscription." class="office-email-btn">
+          <svg style="width:20px;height:20px;fill:currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Email Us
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1093,7 +1191,7 @@
         <span class="cup-oos-line"></span>
         Out of Stock
       </button>
-      <a class="cup-notify" href="mailto:roast@artifactscoffee.co.za?subject=Notify%20Me:%20The%20Origin%20Cup">
+      <a class="cup-notify" href="mailto:artifacts.coffee.roastery@gmail.com?subject=Notify%20Me:%20The%20Origin%20Cup">
         <span>💬 Notify me when available →</span>
       </a>
       <div class="cup-trust">
@@ -1400,8 +1498,28 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', (event) => {
             event.preventDefault();
             scrollToSection(link.getAttribute('href'));
+            const dropdown = document.getElementById('navCoffeeDropdown');
+            const dropdownBtn = document.getElementById('navCoffeeBtn');
+            if (dropdown) dropdown.classList.remove('open');
+            if (dropdownBtn) dropdownBtn.setAttribute('aria-expanded', 'false');
         });
     });
+
+    const navCoffeeDropdown = document.getElementById('navCoffeeDropdown');
+    const navCoffeeBtn = document.getElementById('navCoffeeBtn');
+    if (navCoffeeDropdown && navCoffeeBtn) {
+        navCoffeeBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const isOpen = navCoffeeDropdown.classList.toggle('open');
+            navCoffeeBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+        document.addEventListener('click', (event) => {
+            if (!navCoffeeDropdown.contains(event.target)) {
+                navCoffeeDropdown.classList.remove('open');
+                navCoffeeBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
     
     // Netlify Identity init
     if (window.netlifyIdentity) {
