@@ -593,6 +593,9 @@
   .auth-toggle button.active { border-color: var(--cyan); color: var(--cyan); }
   .action-btn, .pay-btn { width: 100%; padding: 15px; background: var(--cyan); color: black; border: none; font-family: 'Bebas Neue', sans-serif; font-size: 20px; cursor: pointer; margin-top: 15px; }
   .shipping-box { margin-top: 20px; }
+  .ship-field { background: #0f0f0f; border: 1px solid var(--border); color: var(--white); padding: 10px 12px; font-size: 13px; font-family: 'DM Mono', monospace; width: 100%; }
+  .ship-field:focus { outline: 2px solid var(--cyan); outline-offset: 0; border-color: var(--cyan); }
+  .ship-field option { background: var(--off); color: var(--white); }
   .cart-footer { margin-top: 30px; border-top: 1px solid var(--border); padding-top: 20px; }
   #total-price { font-size: 30px; margin-bottom: 15px; }
 
@@ -1452,8 +1455,19 @@
         <div class="shipping-box" style="margin-top:10px;">
             <span class="sz-label" style="display:block; margin-bottom:6px;">Delivery Details</span>
             <div style="display:grid; gap:8px; grid-template-columns:1fr 1fr;">
-                <input id="ship-phone" type="tel" autocomplete="tel" placeholder="Phone number" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
-                <input id="ship-province" type="text" autocomplete="address-level1" placeholder="Province (e.g. Gauteng)" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
+                <input id="ship-phone" type="tel" autocomplete="tel" placeholder="Phone number" class="ship-field" />
+                <select id="ship-province" name="ship-province" autocomplete="address-level1" class="ship-field" aria-label="Province" required>
+                    <option value="" disabled selected hidden>Select province</option>
+                    <option value="Eastern Cape">Eastern Cape</option>
+                    <option value="Free State">Free State</option>
+                    <option value="Gauteng">Gauteng</option>
+                    <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                    <option value="Limpopo">Limpopo</option>
+                    <option value="Mpumalanga">Mpumalanga</option>
+                    <option value="Northern Cape">Northern Cape</option>
+                    <option value="North West">North West</option>
+                    <option value="Western Cape">Western Cape</option>
+                </select>
             </div>
             <input id="ship-address-line1" type="text" autocomplete="address-line1" placeholder="Street address" style="width:100%; margin-top:8px; background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
             <input id="ship-suburb" type="text" autocomplete="address-level3" placeholder="Suburb" style="width:100%; margin-top:8px; background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
@@ -1519,6 +1533,16 @@ const discountCodes = {
     SAMPLE25: { type: 'fixed', value: 25, label: 'R25 off order subtotal' }
 };
 
+const CART_STATUS_ERROR_COLOR = '#FF8C00';
+
+function setCartStatus(el, message, kind) {
+    if (!el) return;
+    el.textContent = message;
+    if (kind === 'error') el.style.color = CART_STATUS_ERROR_COLOR;
+    else if (kind === 'success') el.style.color = 'var(--cyan)';
+    else el.style.color = 'var(--muted)';
+}
+
 // --- Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
     updateCartBadge();
@@ -1527,9 +1551,13 @@ document.addEventListener('DOMContentLoaded', () => {
     ['ship-phone', 'ship-province', 'ship-address-line1', 'ship-suburb', 'ship-city', 'ship-postal-code'].forEach(id => {
         const el = document.getElementById(id);
         if (el) {
-            el.addEventListener('input', () => {
-                const status = document.getElementById('shipping-validation-status');
-                if (status) status.textContent = 'Delivery details captured. Click "Refresh Delivery Rates" if you changed your location.';
+            const evt = el.tagName === 'SELECT' ? 'change' : 'input';
+            el.addEventListener(evt, () => {
+                setCartStatus(
+                    document.getElementById('shipping-validation-status'),
+                    'Details saved. Tap Refresh Delivery Rates if you changed province or postal code.',
+                    'info'
+                );
             });
         }
     });
@@ -1825,7 +1853,7 @@ function applyDiscountCode(inputCode) {
 
     if (!code) {
         activeDiscount = null;
-        if (status) status.textContent = 'Enter a valid discount code to apply.';
+        setCartStatus(status, 'Enter a discount code, then tap Apply.', 'error');
         calcTotal();
         return;
     }
@@ -1833,14 +1861,14 @@ function applyDiscountCode(inputCode) {
     const match = discountCodes[code];
     if (!match) {
         activeDiscount = null;
-        if (status) status.textContent = `Code "${code}" is not recognised.`;
+        setCartStatus(status, `Code "${code}" is not recognised. Check spelling and try again.`, 'error');
         calcTotal();
         return;
     }
 
     activeDiscount = { code, rule: match };
     if (input) input.value = code;
-    if (status) status.textContent = `Applied ${code}: ${match.label}.`;
+    setCartStatus(status, `Applied ${code}: ${match.label}.`, 'success');
     calcTotal();
 }
 
@@ -1929,18 +1957,14 @@ function validateCheckoutBeforePay() {
     const validationStatus = document.getElementById('shipping-validation-status');
 
     if (missing.length > 0) {
-        if (validationStatus) {
-            validationStatus.textContent = 'Please complete all delivery detail fields before payment.';
-            validationStatus.style.color = '#ff8f8f';
-        }
+        const labels = { phone: 'phone', line1: 'street address', suburb: 'suburb', city: 'city', province: 'province', postalCode: 'postal code' };
+        const missingLabels = missing.map(key => labels[key] || key).join(', ');
+        setCartStatus(validationStatus, `Please complete: ${missingLabels}. Then tap Refresh Delivery Rates before paying.`, 'error');
         alert('Please complete your delivery details before payment.');
         return false;
     }
 
-    if (validationStatus) {
-        validationStatus.textContent = 'Delivery details look good. Proceeding to PayFast...';
-        validationStatus.style.color = 'var(--muted)';
-    }
+    setCartStatus(validationStatus, 'Delivery details look good. Proceeding to PayFast...', 'info');
 
     if (!activeShippingQuote) {
         fetchShippingQuotes();
@@ -1975,11 +1999,11 @@ async function fetchShippingQuotes() {
     const address = collectShippingAddress();
 
     if (!address.province || !address.postalCode) {
-        if (status) status.textContent = 'Enter at least province and postal code, then refresh rates.';
+        setCartStatus(status, 'Select your province and enter your postal code, then tap Refresh Delivery Rates.', 'error');
         return;
     }
 
-    if (status) { status.textContent = 'Fetching courier rates...'; status.style.color = 'var(--muted)'; }
+    setCartStatus(status, 'Fetching courier rates...', 'info');
 
     const fallbackQuotes = [
         { code: 'pudo', label: 'TCG PUDO Locker', amount: 60 },
@@ -2003,11 +2027,15 @@ async function fetchShippingQuotes() {
         const quotes = Array.isArray(data.quotes) && data.quotes.length ? data.quotes : fallbackQuotes;
         activeShippingQuote = quotes[0] || null;
         renderShippingOptions(quotes, address.province);
-        if (status) status.textContent = data.source === 'fallback' ? 'Showing fallback rates. Configure courier API keys for live rates.' : 'Courier rates updated.';
+        if (data.source === 'fallback') {
+            setCartStatus(status, 'Live rates unavailable — showing estimated rates. You can still checkout; final courier cost may be confirmed after order.', 'error');
+        } else {
+            setCartStatus(status, 'Courier rates updated. Choose your delivery option above.', 'info');
+        }
     } catch (error) {
         activeShippingQuote = fallbackQuotes[0];
         renderShippingOptions(fallbackQuotes, address.province);
-        if (status) { status.textContent = 'Could not reach shipping API. Fallback rates applied.'; status.style.color = '#FF8C00'; }
+        setCartStatus(status, 'Could not reach shipping API — estimated fallback rates applied. Check province and postal code, then try Refresh Delivery Rates again.', 'error');
     }
 }
 
