@@ -4,28 +4,55 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
-<title>Artifacts Coffee — Johannesburg Micro-Roastery</title>
-<meta name="description" content="Artifacts Coffee: Johannesburg Micro-Roastery. Sourced with intent, roasted with precision. High-quality single-origin coffee beans, roasted fresh weekly.">
-<meta name="keywords" content="Artifacts Coffee, Johannesburg, coffee roastery, single origin, whole bean coffee, fresh roasted, micro-roastery, enTheos">
+<title>Artifacts Coffee | Johannesburg Micro-Roastery | artifactscoffee.co.za</title>
+<meta name="description" content="Artifacts Coffee — specialty single-origin coffee roasted fresh in Johannesburg. Shop Guatemala, Mexico & Nicaragua beans, the Origin Discovery Pack, office subscriptions & merch at artifactscoffee.co.za.">
+<meta name="keywords" content="Artifacts Coffee, artifactscoffee, artifactscoffee.co.za, Johannesburg coffee roastery, single origin coffee South Africa, micro-roastery, whole bean coffee, office coffee subscription">
 <meta name="author" content="Artifacts Coffee">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://artifactscoffee.co.za/">
+<meta name="geo.region" content="ZA-GP">
+<meta name="geo.placename" content="Johannesburg, South Africa">
 <meta name="google-site-verification" content="WEVZtZE48-DfbVH8mQdiC11qw4_xVBIBFynPbkjzpUA" />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://artifactscoffee.co.za/">
-<meta property="og:title" content="Artifacts Coffee — Johannesburg Micro-Roastery">
-<meta property="og:description" content="Artifacts Coffee: Johannesburg Micro-Roastery. Sourced with intent, roasted with precision. High-quality single-origin coffee beans, roasted fresh weekly.">
+<meta property="og:title" content="Artifacts Coffee | Johannesburg Micro-Roastery">
+<meta property="og:description" content="Specialty single-origin coffee roasted fresh in Johannesburg. Order online at artifactscoffee.co.za — Guatemala, Mexico, Nicaragua & office subscriptions.">
+<meta property="og:site_name" content="Artifacts Coffee">
+<meta property="og:locale" content="en_ZA">
 <meta property="og:image" content="https://artifactscoffee.co.za/images/logo.png">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://artifactscoffee.co.za/">
-<meta property="twitter:title" content="Artifacts Coffee — Johannesburg Micro-Roastery">
-<meta property="twitter:description" content="Artifacts Coffee: Johannesburg Micro-Roastery. Sourced with intent, roasted with precision. High-quality single-origin coffee beans, roasted fresh weekly.">
+<meta property="twitter:title" content="Artifacts Coffee | Johannesburg Micro-Roastery">
+<meta property="twitter:description" content="Specialty single-origin coffee roasted fresh in Johannesburg. Shop at artifactscoffee.co.za.">
 <meta property="twitter:image" content="https://artifactscoffee.co.za/images/logo.png">
 
 <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CoffeeRoastery",
+  "name": "Artifacts Coffee",
+  "url": "https://artifactscoffee.co.za/",
+  "logo": "https://artifactscoffee.co.za/images/logo.png",
+  "image": "https://artifactscoffee.co.za/images/logo.png",
+  "description": "Johannesburg micro-roastery offering single-origin whole bean coffee, discovery packs, and office subscriptions.",
+  "email": "artifacts.coffee.roastery@gmail.com",
+  "telephone": "+27613832478",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Johannesburg",
+    "addressRegion": "Gauteng",
+    "addressCountry": "ZA"
+  },
+  "areaServed": "ZA",
+  "sameAs": []
+}
+</script>
 <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -82,9 +109,50 @@
     letter-spacing: 0.18em; text-transform: uppercase;
     justify-self: center;
   }
+  .nav-links > li { position: relative; list-style: none; }
   .nav-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; outline: none; }
   .nav-links a:hover, .nav-links a:focus { color: var(--cyan); }
   .nav-links a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+  .nav-dropdown-toggle {
+    background: none; border: none; cursor: pointer;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 12px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--muted);
+    padding: 0; display: inline-flex; align-items: center; gap: 6px;
+    transition: color 0.2s; outline: none;
+  }
+  .nav-dropdown-toggle::after {
+    content: ''; border-left: 4px solid transparent; border-right: 4px solid transparent;
+    border-top: 5px solid currentColor; opacity: 0.65; margin-top: 2px;
+  }
+  .nav-dropdown:hover .nav-dropdown-toggle,
+  .nav-dropdown:focus-within .nav-dropdown-toggle { color: var(--cyan); }
+  .nav-dropdown-toggle:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+  .nav-dropdown-menu {
+    position: absolute; top: calc(100% + 14px); left: 50%;
+    transform: translateX(-50%); min-width: 240px;
+    list-style: none; margin: 0; padding: 6px 0;
+    background: var(--off); border: 1px solid var(--border);
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity 0.2s, visibility 0.2s;
+    z-index: 400; box-shadow: 0 16px 48px rgba(0,0,0,0.55);
+  }
+  .nav-dropdown-menu::before {
+    content: ''; position: absolute; top: -8px; left: 0; right: 0; height: 8px;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu,
+  .nav-dropdown.open .nav-dropdown-menu {
+    opacity: 1; visibility: visible; pointer-events: auto;
+  }
+  .nav-dropdown-menu li { list-style: none; }
+  .nav-dropdown-menu a {
+    display: block; padding: 10px 18px; white-space: nowrap;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .nav-dropdown-menu a:hover { background: rgba(15, 168, 223, 0.08); }
   
   .nav-right { display: flex; align-items: center; gap: 12px; justify-self: end; }
   
@@ -386,6 +454,18 @@
   .mob-overlay.active .mob-link { transform: translateY(0); opacity: 1; }
   .mob-link:nth-child(1) { transition-delay: 0.04s; } .mob-link:nth-child(2) { transition-delay: 0.09s; } .mob-link:nth-child(3) { transition-delay: 0.14s; } .mob-link:nth-child(4) { transition-delay: 0.19s; } .mob-link:nth-child(5) { transition-delay: 0.24s; }
   .mob-link:hover { color: var(--cyan); }
+  .mob-group-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--cyan);
+    margin: 12px 0 4px; opacity: 0.85;
+  }
+  .mob-sublink {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 7vw, 44px) !important;
+    line-height: 1.15 !important;
+    color: rgba(255,255,255,0.28) !important;
+  }
   .mob-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--cyan); transition: width 0.25s ease; }
   .mob-link:hover::after { width: 100%; }
   .mob-divider { width: 48px; height: 1px; background: rgba(255,255,255,0.12); margin-bottom: 28px; transform: scaleX(0); opacity: 0; transition: transform 0.35s ease 0.28s, opacity 0.35s ease 0.28s; }
@@ -453,7 +533,10 @@
   .cart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
   .close-btn { background: none; border: none; color: white; font-size: 28px; cursor: pointer; padding: 10px; line-height: 1; transition: color 0.2s, opacity 0.2s; }
   .close-btn:hover { color: var(--cyan); opacity: 1; }
-  .cart-step input, .shipping-box select { width: 100%; background: var(--black); border: 1px solid var(--border); padding: 12px; margin-bottom: 10px; color: white; font-family: 'DM Mono', monospace; }
+  .cart-step input, .cart-step select, .shipping-box select { width: 100%; background: var(--black); border: 1px solid var(--border); padding: 12px; margin-bottom: 10px; color: white; font-family: 'DM Mono', monospace; }
+  .ship-field { background: #0f0f0f; border: 1px solid var(--border); color: var(--white); padding: 10px 12px; font-size: 13px; font-family: 'DM Mono', monospace; width: 100%; }
+  .ship-field:focus { outline: 2px solid var(--cyan); outline-offset: 0; border-color: var(--cyan); }
+  .ship-field option { background: var(--off); color: var(--white); }
   #netlify-identity-widget, .netlify-identity-widget { z-index: 3000 !important; }
   .auth-toggle { display: flex; margin-bottom: 20px; gap: 10px; }
   .auth-toggle button { flex: 1; padding: 10px; background: none; border: 1px solid var(--border); color: var(--muted); cursor: pointer; transition: border-color 0.2s, color 0.2s; }
@@ -725,11 +808,17 @@
     <img src="images/logo.png" alt="Artifacts Coffee">
   </a></div>
   <ul class="nav-links">
-    <li><a href="#gt">Guatemala</a></li>
-    <li><a href="#mx">Mexico</a></li>
-    <li><a href="#ni">Nicaragua</a></li>
+    <li class="nav-dropdown">
+      <button type="button" class="nav-dropdown-toggle" id="navCoffeeToggle" aria-expanded="false" aria-haspopup="true">Coffee</button>
+      <ul class="nav-dropdown-menu" aria-label="Coffee menu">
+        <li><a href="#gt">Guatemala Blue Ayarza</a></li>
+        <li><a href="#mx">Mexico Ki Saya Organic</a></li>
+        <li><a href="#ni">Nicaragua Rajuanse Estates</a></li>
+        <li><a href="#discovery-pack">Origin Discovery Pack</a></li>
+        <li><a href="#office">Office Subscriptions</a></li>
+      </ul>
+    </li>
     <li><a href="#cup">Origin Cup</a></li>
-    <li><a href="#office">Office</a></li>
     <li><a href="#story">Our Story</a></li>
     <li><a href="rewards.html" style="color:var(--yellow)">Brew Circle</a></li>
   </ul>
@@ -754,11 +843,13 @@
 <div class="mob-overlay" id="mobOverlay">
   <div class="mob-links">
     <a class="mob-link" href="#founder-offer" onclick="navigateMob(event, '#founder-offer')">Founder Offer</a>
-    <a class="mob-link" href="#gt" onclick="navigateMob(event, '#gt')">Guatemala</a>
-    <a class="mob-link" href="#mx" onclick="navigateMob(event, '#mx')">Mexico</a>
-    <a class="mob-link" href="#ni" onclick="navigateMob(event, '#ni')">Nicaragua</a>
+    <p class="mob-group-label">Coffee</p>
+    <a class="mob-link mob-sublink" href="#gt" onclick="navigateMob(event, '#gt')">Guatemala</a>
+    <a class="mob-link mob-sublink" href="#mx" onclick="navigateMob(event, '#mx')">Mexico</a>
+    <a class="mob-link mob-sublink" href="#ni" onclick="navigateMob(event, '#ni')">Nicaragua</a>
+    <a class="mob-link mob-sublink" href="#discovery-pack" onclick="navigateMob(event, '#discovery-pack')">Discovery Pack</a>
+    <a class="mob-link mob-sublink" href="#office" onclick="navigateMob(event, '#office')">Office</a>
     <a class="mob-link" href="#cup" onclick="navigateMob(event, '#cup')">Origin Cup</a>
-    <a class="mob-link" href="#office" onclick="navigateMob(event, '#office')">Office</a>
     <a class="mob-link" href="#story" onclick="navigateMob(event, '#story')">Our Story</a>
     <a class="mob-link" href="rewards.html" style="color:var(--yellow)" onclick="closeMob()">Brew Circle</a>
   </div>
@@ -1276,6 +1367,7 @@
     <li><a href="#gt">Guatemala</a></li>
     <li><a href="#mx">Mexico</a></li>
     <li><a href="#ni">Nicaragua</a></li>
+    <li><a href="#discovery-pack">Discovery Pack</a></li>
     <li><a href="#cup">Origin Cup</a></li>
     <li><a href="#office">Office</a></li>
     <li><a href="#story">Our Story</a></li>
@@ -1314,8 +1406,19 @@
         <div class="shipping-box" style="margin-top:10px;">
             <span class="sz-label" style="display:block; margin-bottom:6px;">Delivery Details</span>
             <div style="display:grid; gap:8px; grid-template-columns:1fr 1fr;">
-                <input id="ship-phone" type="tel" autocomplete="tel" placeholder="Phone number" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
-                <input id="ship-province" type="text" autocomplete="address-level1" placeholder="Province (e.g. Gauteng)" style="background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
+                <input id="ship-phone" type="tel" autocomplete="tel" placeholder="Phone number" class="ship-field" />
+                <select id="ship-province" name="ship-province" autocomplete="address-level1" class="ship-field" aria-label="Province">
+                    <option value="" disabled selected hidden>Select province</option>
+                    <option value="Eastern Cape">Eastern Cape</option>
+                    <option value="Free State">Free State</option>
+                    <option value="Gauteng">Gauteng</option>
+                    <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                    <option value="Limpopo">Limpopo</option>
+                    <option value="Mpumalanga">Mpumalanga</option>
+                    <option value="Northern Cape">Northern Cape</option>
+                    <option value="North West">North West</option>
+                    <option value="Western Cape">Western Cape</option>
+                </select>
             </div>
             <input id="ship-address-line1" type="text" autocomplete="address-line1" placeholder="Street address" style="width:100%; margin-top:8px; background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
             <input id="ship-suburb" type="text" autocomplete="address-level3" placeholder="Suburb" style="width:100%; margin-top:8px; background:#0f0f0f; border:1px solid var(--border); color:var(--white); padding:10px 12px; font-size:13px;" />
@@ -1339,7 +1442,7 @@
             <button onclick="netlifyIdentity.logout()" class="action-btn" style="background:none; border:1px solid var(--border); color:var(--muted); font-size:14px; margin-bottom:10px;">← Sign Out / Change Account</button>
             
             <!-- PayFast Form -->
-            <form action="https://www.payfast.co.za/eng/process" method="post" id="payfast-form">
+            <form action="https://www.payfast.co.za/eng/process" method="post" id="payfast-form" novalidate>
                 <input type="hidden" name="merchant_id" value="34420469">
                 <input type="hidden" name="merchant_key" value="q6qjvvpwgddvi">
                 <input type="hidden" name="return_url" value="https://artifactscoffee.co.za/success">
@@ -1389,10 +1492,12 @@ document.addEventListener('DOMContentLoaded', () => {
     ['ship-phone', 'ship-province', 'ship-address-line1', 'ship-suburb', 'ship-city', 'ship-postal-code'].forEach(id => {
         const el = document.getElementById(id);
         if (el) {
-            el.addEventListener('input', () => {
+            const onDetailChange = () => {
                 const status = document.getElementById('shipping-validation-status');
                 if (status) status.textContent = 'Delivery details captured. Click "Refresh Delivery Rates" if you changed your location.';
-            });
+            };
+            el.addEventListener('input', onDetailChange);
+            el.addEventListener('change', onDetailChange);
         }
     });
 
@@ -1408,9 +1513,27 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.nav-links a[href^="#"], .foot-links a[href^="#"]').forEach(link => {
         link.addEventListener('click', (event) => {
             event.preventDefault();
+            const dropdown = link.closest('.nav-dropdown');
+            if (dropdown) dropdown.classList.remove('open');
             scrollToSection(link.getAttribute('href'));
         });
     });
+
+    const navCoffeeToggle = document.getElementById('navCoffeeToggle');
+    const navCoffeeDropdown = navCoffeeToggle && navCoffeeToggle.closest('.nav-dropdown');
+    if (navCoffeeToggle && navCoffeeDropdown) {
+        navCoffeeToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = navCoffeeDropdown.classList.toggle('open');
+            navCoffeeToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+        document.addEventListener('click', (e) => {
+            if (!navCoffeeDropdown.contains(e.target)) {
+                navCoffeeDropdown.classList.remove('open');
+                navCoffeeToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
     
     // Netlify Identity init
     if (window.netlifyIdentity) {
@@ -1729,6 +1852,33 @@ function updatePayFastFields(total) {
     if (pfShippingPhone) pfShippingPhone.value = (shippingAddress.phone || '').slice(0, 100);
 }
 
+function syncCurrentUserFromIdentity() {
+    const user = window.netlifyIdentity && window.netlifyIdentity.currentUser();
+    if (user) {
+        currentUser = {
+            name: user.user_metadata.full_name || user.email.split('@')[0],
+            email: user.email
+        };
+    }
+    return currentUser;
+}
+
+function focusShippingField(fieldKey) {
+    const fieldMap = {
+        phone: 'ship-phone',
+        line1: 'ship-address-line1',
+        suburb: 'ship-suburb',
+        city: 'ship-city',
+        province: 'ship-province',
+        postalCode: 'ship-postal-code'
+    };
+    const el = document.getElementById(fieldMap[fieldKey]);
+    if (el) {
+        el.focus();
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+}
+
 function collectShippingAddress() {
     const getVal = (id) => {
         const el = document.getElementById(id);
@@ -1746,8 +1896,20 @@ function collectShippingAddress() {
 }
 
 function validateCheckoutBeforePay() {
+    if (document.getElementById('step-shipping').style.display === 'none') {
+        alert('Please sign in to continue to checkout.');
+        showAccountStep();
+        return false;
+    }
+
     if (cart.length === 0) {
         alert('Your cart is empty. Please add coffee before paying.');
+        return false;
+    }
+
+    if (!syncCurrentUserFromIdentity()) {
+        alert('Please sign in before paying — we need your email for order confirmation.');
+        showAccountStep();
         return false;
     }
 
@@ -1755,18 +1917,40 @@ function validateCheckoutBeforePay() {
     const required = ['phone', 'line1', 'suburb', 'city', 'province', 'postalCode'];
     const missing = required.filter(key => !address[key]);
     const validationStatus = document.getElementById('shipping-validation-status');
+    const fieldLabels = {
+        phone: 'phone number',
+        line1: 'street address',
+        suburb: 'suburb',
+        city: 'city',
+        province: 'province',
+        postalCode: 'postal code'
+    };
 
     if (missing.length > 0) {
+        focusShippingField(missing[0]);
         if (validationStatus) {
-            validationStatus.textContent = 'Please complete all delivery detail fields before payment.';
+            validationStatus.textContent = `Please add your ${fieldLabels[missing[0]]} before payment.`;
             validationStatus.style.color = '#ff8f8f';
         }
-        alert('Please complete your delivery details before payment.');
+        alert(`Please complete your delivery details (${fieldLabels[missing[0]]} is missing).`);
+        return false;
+    }
+
+    calcTotal();
+
+    const amount = parseFloat(document.getElementById('pf_amount')?.value || '0');
+    if (!amount || amount <= 0) {
+        alert('Your order total must be greater than R0. Add items or refresh delivery rates.');
+        return false;
+    }
+
+    if (!document.getElementById('pf_email')?.value || !document.getElementById('pf_name')?.value) {
+        alert('Account email is missing. Please sign out and sign in again.');
         return false;
     }
 
     if (validationStatus) {
-        validationStatus.textContent = 'Delivery details look good. Proceeding to PayFast...';
+        validationStatus.textContent = 'Delivery details look good. Redirecting to PayFast...';
         validationStatus.style.color = 'var(--muted)';
     }
 
@@ -1774,7 +1958,6 @@ function validateCheckoutBeforePay() {
         fetchShippingQuotes();
     }
 
-    calcTotal();
     return true;
 }
 
@@ -1803,7 +1986,7 @@ async function fetchShippingQuotes() {
     const address = collectShippingAddress();
 
     if (!address.province || !address.postalCode) {
-        if (status) status.textContent = 'Enter at least province and postal code, then refresh rates.';
+        if (status) status.textContent = 'Select your province and enter postal code, then refresh rates.';
         return;
     }
 
