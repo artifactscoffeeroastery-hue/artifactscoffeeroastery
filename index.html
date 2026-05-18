@@ -2011,16 +2011,31 @@ async function fetchShippingQuotes() {
         { code: 'door-national', label: 'Rest of SA Door-to-Door', amount: 150 }
     ];
 
+    const applyFallbackQuotes = (message, kind) => {
+        activeShippingQuote = fallbackQuotes[0];
+        renderShippingOptions(fallbackQuotes, address.province);
+        setCartStatus(status, message, kind || 'error');
+    };
+
     try {
         const response = await fetch('/.netlify/functions/getShipping', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 destination: address,
+                cartItems: cart.map(item => ({ name: item.name, size: item.size, qty: item.qty })),
                 totalWeightKg: getCartWeightKg(),
                 subtotal: cart.reduce((sum, item) => sum + (item.price * item.qty), 0)
             })
         });
+
+        if (response.status === 404) {
+            applyFallbackQuotes(
+                'Standard delivery rates are shown below. After the site redeploys, tap Refresh Delivery Rates for live courier quotes. You can still checkout.',
+                'error'
+            );
+            return;
+        }
 
         if (!response.ok) throw new Error('Rate endpoint unavailable');
         const data = await response.json();
@@ -2028,14 +2043,15 @@ async function fetchShippingQuotes() {
         activeShippingQuote = quotes[0] || null;
         renderShippingOptions(quotes, address.province);
         if (data.source === 'fallback') {
-            setCartStatus(status, 'Live rates unavailable — showing estimated rates. You can still checkout; final courier cost may be confirmed after order.', 'error');
+            setCartStatus(status, 'Live rates unavailable — standard estimated rates shown. You can still checkout; final courier cost may be confirmed after order.', 'error');
         } else {
             setCartStatus(status, 'Courier rates updated. Choose your delivery option above.', 'info');
         }
     } catch (error) {
-        activeShippingQuote = fallbackQuotes[0];
-        renderShippingOptions(fallbackQuotes, address.province);
-        setCartStatus(status, 'Could not reach shipping API — estimated fallback rates applied. Check province and postal code, then try Refresh Delivery Rates again.', 'error');
+        applyFallbackQuotes(
+            'Could not reach the shipping service — standard rates applied. Fill in suburb and postal code, then try Refresh Delivery Rates again.',
+            'error'
+        );
     }
 }
 
