@@ -1,9 +1,1 @@
-http
-Content-Security-Policy: 
-  default-src 'self'; 
-  script-src 'self' https://identity.netlify.com; 
-  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
-  font-src 'self' https://fonts.gstatic.com data:; 
-  img-src 'self' data: https:; 
-  connect-src 'self' https://*.supabase.co https://identity.netlify.com; 
-  form-action 'self' https://www.payfast.co.za;
+# CSP is managed via netlify.toml
