@@ -682,8 +682,9 @@
 </section>
 
 <!-- DISCOVERY PACK -->
-<section id="discovery-pack" class="product-section gt-theme">
-  <div class="p-info reveal" style="flex:1 1 100%;width:100%;border-left:none;">
+<section id="discovery-pack" class="product-section flip gt-theme">
+  <div class="p-visual"><div class="p-close" style="background-image:url('images/dp-1080.png');background-size:cover;background-position:center center;"></div><div class="p-accent"></div><span class="p-code">DP &middot; 004</span></div>
+  <div class="p-info reveal">
     <p class="p-num" style="color:var(--cyan)">004 &mdash; Artifacts Pack</p>
     <p class="p-country">Limited Curation &middot; Starter Flight</p>
     <h2 class="p-name">Origin<br>Discovery<br>Pack</h2>
@@ -944,7 +945,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   // nav anchor smooth scroll
   document.querySelectorAll('.nav-links a[href^="#"],.foot-links a[href^="#"]').forEach(a =>
-    a.addEventListener('click', e => { e.preventDefault(); scrollTo(a.getAttribute('href')); dd && dd.classList.remove('open'); }));
+    a.addEventListener('click', e => { e.preventDefault(); scrollToSection(a.getAttribute('href')); dd && dd.classList.remove('open'); }));
   // Netlify Identity
   if (window.netlifyIdentity) {
     netlifyIdentity.on('init', u => { if (u) currentUser = { name: u.user_metadata.full_name||u.email.split('@')[0], email:u.email }; });
@@ -1149,14 +1150,14 @@ function closeMobInternal() {
   const o=document.getElementById('mobOverlay'),h=document.getElementById('navHam');
   if(o) o.classList.remove('active'); if(h) h.classList.remove('open'); document.body.style.overflow='';
 }
-function scrollTo(target, replace=false) {
+function scrollToSection(target, replace=false) {
   const dest=document.querySelector(target); if (!dest) return;
   const nav=document.querySelector('nav'), off=(nav?nav.offsetHeight:0)+24;
   const top=dest.getBoundingClientRect().top+window.pageYOffset-off;
   if (window.location.hash!==target) history[replace?'replaceState':'pushState'](null,'',target);
   window.scrollTo({top:Math.max(0,top),behavior:'smooth'});
 }
-function navigateMob(e,target) { e.preventDefault(); closeMobInternal(); scrollTo(target,history.state&&history.state.menu==='open'); }
+function navigateMob(e,target) { e.preventDefault(); closeMobInternal(); scrollToSection(target,history.state&&history.state.menu==='open'); }
 window.addEventListener('popstate',()=>{ closeMobInternal(); closeCart(); });
 window.addEventListener('keydown',e=>{ if(e.key==='Escape'){closeCart();closeMob();} });
 function tFaq(btn) {
